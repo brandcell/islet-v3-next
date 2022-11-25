@@ -100,7 +100,7 @@ function PortfolioCard({ portfolio }) {
         />
       </ImageContainer>
       <VideoContainer>
-      <Video autoPlay mute loop background-video src={portfolio.attributes.snippetvideo.data[0].attributes.url}></Video></VideoContainer>
+      <Video autoPlay muted loop src={portfolio.attributes.snippetvideo.data[0].attributes.url}></Video></VideoContainer>
       <StyledLink href={`/portfolios/${portfolio.id}`}></StyledLink>
   
     </CardContainer>
