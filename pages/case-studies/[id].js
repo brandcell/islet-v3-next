@@ -45,7 +45,7 @@ function Blog({blogData}) {
     <p>{`Written by ${blogData.attributes.author}/${blogData.attributes.publishedAt}`}</p>
 
     <div style={{width:'100%' , position:'relative',height:'773px'}}>
-    <Image fill src={blogData.attributes.displayimage.data[0].attributes.url}></Image>
+    <Image alt='' fill src={blogData.attributes.displayimage.data[0].attributes.url}></Image>
     </div>
 
 

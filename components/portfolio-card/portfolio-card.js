@@ -94,6 +94,7 @@ function PortfolioCard({ portfolio }) {
 
       <ImageContainer variants={imageVariants}>
         <Image
+          alt=''
           fill
           src={portfolio.attributes.display.data.attributes.url}
           object-fit='cover'
