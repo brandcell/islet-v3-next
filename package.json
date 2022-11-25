@@ -21,6 +21,7 @@
     "react-dom": "18.2.0",
     "react-lottie-segments": "^1.4.9",
     "react-markdown": "^8.0.3",
+    "sass": "^1.56.1",
     "styled-components": "^5.3.6",
     "swiper": "^8.4.5"
   }
