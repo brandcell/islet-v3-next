@@ -3,13 +3,15 @@ import Head from "next/head";
 import CategoryLayout from "../../../components/layouts/category-layout.component";
 import PortfolioCard from "../../../components/portfolio-card/portfolio-card";
 
+import { API_URL } from "../../../utils/urls";
+
 import { motion } from "framer-motion";
 
 import styles from "../../../styles/portfolio.module.css";
 
 export async function getStaticPaths() {
   const res = await axios.get(
-    "http://localhost:1337/api/categories?populate=*"
+    `${API_URL}/api/categories?populate=*`
   );
 
   const categories = await res.data.data;
@@ -39,7 +41,7 @@ export async function getStaticProps({ params }) {
   console.log(params);
 
   const res = await axios.get(
-    `http://localhost:1337/api/categories?[filters][title][$eq]=${params.category}&populate[portfolios][populate][0]=fullvideo&populate[portfolios][populate][1]=display&populate[portfolios][populate][3]=snippetvideo`
+    `${API_URL}/api/categories?[filters][title][$eq]=${params.category}&populate[portfolios][populate][0]=fullvideo&populate[portfolios][populate][1]=display&populate[portfolios][populate][3]=snippetvideo`
   );
 
   const categoryData = await res.data.data;

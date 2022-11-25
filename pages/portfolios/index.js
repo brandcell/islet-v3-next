@@ -1,11 +1,10 @@
 import axios from "axios";
-import Head from "next/head";
-import styled from "styled-components";
-import Link from "next/link";
+
+import { API_URL } from "../../utils/urls";
 
 import PortfolioCard from "../../components/portfolio-card/portfolio-card";
 
-import styles from '../../styles/portfolio.module.css'
+import styles from "../../styles/portfolio.module.css";
 import CategoryLayout from "../../components/layouts/category-layout.component";
 
 //if need to get props server side-- for things that need to generate every time client refreshes
@@ -26,9 +25,7 @@ import CategoryLayout from "../../components/layouts/category-layout.component";
 
 //if need to generate statically
 export async function getStaticProps() {
-  const portfoliosRes = await axios.get(
-    "http://localhost:1337/api/portfolios?populate=*"
-  );
+  const portfoliosRes = await axios.get(`${API_URL}/api/portfolios?populate=*`);
 
   // 'http://localhost:1337/api/portfolios?populate[0]=display&populate[1]=display.attributes&populate[2]=display.attributes.formats&populate[3]=display.attributes.formats.medium'
 
@@ -42,7 +39,6 @@ export async function getStaticProps() {
     },
   };
 }
-
 
 export default function Portfolio({ portfolios }) {
   return (

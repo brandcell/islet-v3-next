@@ -1,13 +1,15 @@
 import axios from "axios"
 import Image from "next/image"
 
+import { API_URL } from "../../utils/urls"
+
 import { MetaWrapper } from "../portfolios/[id]"
 
 import { TextWrapper } from "../portfolios/[id]"
 
 
 export async function getStaticPaths(){
-    const res= await axios.get('http://localhost:1337/api/case-studies')
+    const res= await axios.get(`${API_URL}/api/case-studies`)
 
     const data = res.data.data
 
@@ -24,7 +26,7 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}){
 
-    const res= await axios.get(`http://localhost:1337/api/case-studies/${params.id}?populate=*`)
+    const res= await axios.get(`${API_URL}/api/case-studies/${params.id}?populate=*`)
 
     const blogData = await res.data.data;
 

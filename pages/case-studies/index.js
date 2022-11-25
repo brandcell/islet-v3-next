@@ -1,14 +1,14 @@
 import axios from "axios";
-
+import { API_URL } from "../../utils/urls";
 import styled from "styled-components";
 import BlogCard from "../../components/blog-component/blog-card";
 
 import TitleContainer from "../../styles/title.styles";
 
 export async function getStaticProps() {
-  const blogRes = await axios.get("http://localhost:1337/api/case-studies?populate=*");
+  const blogRes = await axios.get(`${API_URL}/api/case-studies?populate=*`);
 
-  console.log(blogRes.data.data[0].attributes.displayimage.data[0].attributes.url);
+  // console.log(blogRes.data.data[0].attributes.displayimage.data[0].attributes.url);
 
   return {
     props: {

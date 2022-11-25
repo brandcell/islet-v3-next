@@ -1,13 +1,11 @@
 import axios from "axios";
 import Head from "next/head";
-import PortfolioCard from "../../components/portfolio-card/portfolio-card";
+import { API_URL } from "../../utils/urls";
 import styled from "styled-components";
 import TwoColumn from "../../styles/twocolumn.styles";
 
 export async function getStaticPaths() {
-  const res = await axios.get(
-    "http://localhost:1337/api/portfolios?populate=%2A"
-  );
+  const res = await axios.get(`${API_URL}/api/portfolios?populate=%2A`);
 
   const portfolios = await res.data.data;
 
@@ -25,7 +23,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await axios.get(
-    `http://localhost:1337/api/portfolios/${params.id}?populate=*`
+    `${API_URL}/api/portfolios/${params.id}?populate=*`
   );
 
   const portfolioData = await res.data.data;
@@ -75,12 +73,11 @@ export const TextWrapper = styled.div`
   min-width: 314px;
   margin-right: 10px;
 
-
   & h1 {
     font-family: Signifier;
     font-size: 22px;
     font-weight: 100px;
-    width:100%;
+    width: 100%;
   }
 
   & p {
@@ -97,7 +94,7 @@ export const MetaWrapper = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-  margin-bottom:131px;
+  margin-bottom: 131px;
 `;
 
 export default function Portfolio({ portfolioData }) {
