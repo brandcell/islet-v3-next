@@ -1,0 +1,24 @@
+.navbarContainer{
+    display: flex;
+    position:fixed;
+    top:0px;
+    z-index: 100;
+    width: 100vw;
+}
+
+.navbarLinks{
+    display: flex;
+    padding: 41px 30px;
+    justify-content: space-between;
+    width:100vw;
+}
+
+.logoWrapper{
+    align-self: center;
+}
+
+.animationWrapper{
+    position: absolute;
+    z-index: 100;
+   
+}

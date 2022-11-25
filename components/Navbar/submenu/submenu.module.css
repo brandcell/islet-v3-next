@@ -1,0 +1,20 @@
+.submenuWrapper{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    background-color: #2A5F7F;
+    
+}
+
+.submenuItemsWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    font-family: Signifier;
+    row-gap: 20px;
+    font-size: 60px;
+}

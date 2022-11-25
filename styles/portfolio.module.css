@@ -1,0 +1,41 @@
+.portfolioGrid {
+  display: grid !important;
+  overflow: hidden;
+  grid-template-areas:
+    "Area-1 Area-1 Area-2"
+    "Area-1 Area-1 Area-3"
+    "Area-4 Area-5 Area-5"
+    "Area-6 Area-5 Area-5"
+    "Area-7 Area-8 Area-9"
+    "Area-10 Area-10 Area-10"
+    "Area-10 Area-10 Area-10"
+    "Area-11 Area-11 Area-12"
+    "Area-11 Area-11 Area-13"
+    "Area-14 Area-15 Area-15"
+    "Area-16 Area-15 Area-15"
+    "Area-17 Area-18 Area-19" !important;
+  grid-template-columns: auto auto auto !important;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+
+.categoryGrid {
+  display: grid !important;
+  overflow: hidden;
+  grid-template-areas:
+    "Area-1 Area-1 Area-2"
+    "Area-1 Area-1 Area-3"
+    "Area-4 Area-5 Area-5"
+    "Area-6 Area-5 Area-5"
+    "Area-7 Area-8 Area-9"
+    "Area-10 Area-10 Area-10"
+    "Area-10 Area-10 Area-10"
+    "Area-11 Area-11 Area-12"
+    "Area-11 Area-11 Area-13"
+    "Area-14 Area-15 Area-15"
+    "Area-16 Area-15 Area-15"
+    "Area-17 Area-18 Area-19" !important;
+  grid-template-columns: auto auto auto !important;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
