@@ -23,7 +23,7 @@ width:150px`
 function ClientCard({client}) {
   return (
     <StyledClientCard>
-        <ImageWrapper> <Image fill objectFit="contain" src={client.attributes.logo.data.attributes.url}></Image></ImageWrapper>
+        <ImageWrapper> <Image fill alt='' objectFit="contain" src={client.attributes.logo.data.attributes.url}></Image></ImageWrapper>
             
         <p>{client.attributes.name}</p>
     </StyledClientCard>

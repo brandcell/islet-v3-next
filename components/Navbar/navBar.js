@@ -43,7 +43,7 @@ const Navbar = () => {
 
       <div className={styles.navbarContainer}>
         <div className={styles.navbarLinks}>
-      <Link href='/'><Image src={IsletLogo}/></Link>
+      <Link href='/'><Image alt='' src={IsletLogo}/></Link>
         
       
           <div onClick={toggleMenuOpen}>

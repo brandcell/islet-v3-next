@@ -43,7 +43,7 @@ function BlogCard({blog}) {
     <Link href={`/case-studies/${blog.id}`}>
     <BlogCardWrapper>
     <ImgWrapper>
-    <Image alt="" layout='fill' src={blog.attributes.displayimage.data[0].attributes.url}></Image>
+    <Image alt="" fill src={blog.attributes.displayimage.data[0].attributes.url}></Image>
     </ImgWrapper>
     <h1>{blog.attributes.title}</h1>
     <p>{blog.attributes.previewText}</p>

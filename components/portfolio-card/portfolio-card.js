@@ -84,7 +84,6 @@ const imageVariants ={
   }
 
 
-
 function PortfolioCard({ portfolio }) {
   return (
     <CardContainer key={portfolio.id} initial='rest' whileHover='hover' animate='rest'>
