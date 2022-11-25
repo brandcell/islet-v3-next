@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import axios from "axios";
 import styled from "styled-components";
+import { API_URL } from "../utils/urls";
 
 import Link from "next/link";
 
@@ -29,7 +30,7 @@ import "swiper/css/bundle";
 //if need to generate statically
 export async function getStaticProps() {
   const portfoliosRes = await axios.get(
-    "http://localhost:1337/api/portfolios?filters[Showcase][$eq]=true&populate=*"
+    `${API_URL}/api/portfolios?filters[Showcase][$eq]=true&populate=*`
   );
 
   console.log(

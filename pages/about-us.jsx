@@ -5,13 +5,15 @@ import FounderSection from "../components/founder-component/founder.component";
 
 import ClientContainer from "../components/client-component/client-container";
 
+import { API_URL } from "../utils/urls";
+
 import { useContext, useEffect } from "react";
 import { NavContext } from "../contexts/navbar.context";
 import axios from "axios";
 
 
 export async function getStaticProps() {
-  const res = await axios.get("http://localhost:1337/api/clients/?populate=*");
+  const res = await axios.get(`${API_URL}/api/clients/?populate=*`);
 
 
   return {
