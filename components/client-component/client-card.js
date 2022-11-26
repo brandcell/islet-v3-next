@@ -32,8 +32,6 @@ function ClientCard({client}) {
             
         <p>{client.attributes.name}</p>
     </StyledClientCard>
-   
-    
   )
 }
 

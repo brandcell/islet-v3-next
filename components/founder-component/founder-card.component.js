@@ -50,7 +50,7 @@ function FounderCard({name, title, imageUrl, para}) {
         <h1>{name}</h1>
         <h4>{title}</h4>
         <div style={{position:'relative'}}>
-        <Image src={imageUrl}/>
+        <Image alt='' src={imageUrl}/>
         </div>
         
         <p>{para}</p>
