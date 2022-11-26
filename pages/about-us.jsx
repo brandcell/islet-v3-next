@@ -51,8 +51,9 @@ const AboutUS = ({ clientlist }) => {
             <p>
               With our forté in storytelling, filmmaking, and sound design,
               we'll take your brand to uncharted waters and stop at nothing to
-              bring your unique story to life.<br />
-              <br /> Just like how the entire crew of a ship is the heart and
+              bring your unique story to life.
+              <br/>
+              <br/> Just like how the entire crew of a ship is the heart and
               soul of an ocean liner, people are the essence of our filmmaking
               process. We value every single member—from your team, to our
               collaborators, to crew members—in bringing a vision to life.
@@ -67,8 +68,8 @@ const AboutUS = ({ clientlist }) => {
               you went through as vividly as yourself. With our mastery of the
               nuances of storytelling, we can draw out your beginnings,
               struggles, successes, and aspirations to humanise your brand. 
-              <br />
-              <br /> Let the world be your oyster, and choose our lens to
+              <br/>
+              <br/> Let the world be your oyster, and choose our lens to
               capture your audience's heart.
             </p>
             <h3

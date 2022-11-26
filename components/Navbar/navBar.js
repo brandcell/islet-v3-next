@@ -10,13 +10,12 @@ import IsletLogo from "../../public/Islet_Logo.svg";
 
 import Image from "next/image";
 
-import MenuButton from "./menu-icon/menu-icon.component";
-
 import SubMenu from "./submenu/submenu";
 
 import { motion, AnimatePresence } from "framer-motion";
 
 import { NavContext } from "../../contexts/navbar.context";
+
 import HamburgerMenu from "./hamburger/hamburger.component";
 
 const Navbar = () => {
