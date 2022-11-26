@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className={styles.navbarContainer}>
         <div className={styles.navbarLinks}>
           <Link href="/">
-            <IsletLogo
+            <IsletLogo className='islet-logo'
               style={{ color: `${isMenuOpen && 'black' || 'white'}` }}
             />
           </Link>

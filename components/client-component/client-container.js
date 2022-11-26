@@ -5,7 +5,8 @@ const ClientContainerWrapper=styled.div`
 display:flex;
 flex-direction:row;
 flex-wrap:wrap;
-max-width:1140px;
+max-width:900px;
+min-width: 260px;
 margin:auto`
 
 

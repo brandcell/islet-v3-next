@@ -41,38 +41,35 @@ export async function getStaticProps() {
 
 const TitleWrapper = styled.div`
   position: absolute;
-  bottom:100px;
+  bottom: 100px;
   max-width: 500px;
   min-width: 280px;
-  left:5%;
+  left: 5%;
 
-
-  & h1{
+  & h1 {
     font-family: Founders;
     font-size: 60px;
     line-height: 3.75rem;
-    color:white;
+    color: white;
     font-weight: 100;
   }
 
-
   @media (max-width: 768px) {
-
-    bottom:50px;
+    bottom: 50px;
     max-width: 400px;
-     & h1{font-size: 48px;
-    }}
-
+    & h1 {
+      font-size: 48px;
+    }
+  }
 
   @media (max-width: 375px) {
-
     max-width: 280px;
 
-
-  h1{font-size: 45px;}
-
-}
-`
+    h1 {
+      font-size: 45px;
+    }
+  }
+`;
 
 export default function Home({ showcases }) {
   return (

@@ -6,18 +6,20 @@ import Image from "next/image"
 const FounderCardStyles= styled.div`
 display:flex;
 flex-direction:column;
-max-width:500px;
-min-width: 325px;
+width: 45%;
+margin-bottom: 150px;
 
 & h1{
     font-size: 60px;
     line-height: 65px;
     font-family: Founders;
     font-weight: 200;
+    margin: 0;
 }
 
 & img{
-    width: auto;
+    width: 100%;
+    height:auto;
 }
 
 & h4{
@@ -25,6 +27,7 @@ min-width: 325px;
     font-size: 22px;
     line-height: 33px;
     font-weight: 100;
+    margin-bottom: 40px;
 }
 
 & p {
@@ -32,6 +35,12 @@ min-width: 325px;
     font-size: 22px;
     line-height: 22px;
 }
+
+@media (max-width: 991px) {
+    width:70%;
+    margin: auto;
+  }
+
 `
 
 function FounderCard({name, title, imageUrl, para}) {
@@ -40,7 +49,10 @@ function FounderCard({name, title, imageUrl, para}) {
 
         <h1>{name}</h1>
         <h4>{title}</h4>
-        <Image alt='' src={imageUrl}/>
+        <div style={{position:'relative'}}>
+        <Image src={imageUrl}/>
+        </div>
+        
         <p>{para}</p>
 
     </FounderCardStyles>
