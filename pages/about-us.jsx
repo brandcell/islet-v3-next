@@ -49,7 +49,7 @@ const AboutUS = ({ clientlist }) => {
 
           <div className="block-two">
             <p>
-              `With our forté in storytelling, filmmaking, and sound design,
+              {`With our forté in storytelling, filmmaking, and sound design,
               we'll take your brand to uncharted waters and stop at nothing to
               bring your unique story to life.
               <br/>
@@ -70,16 +70,16 @@ const AboutUS = ({ clientlist }) => {
               struggles, successes, and aspirations to humanise your brand. 
               <br/>
               <br/> Let the world be your oyster, and choose our lens to
-              capture your audience's heart.`
+              capture your audience's heart.`}
             </p>
             <h3
               className="pull-quote"
               style={{ marginTop: 100, marginBottom: 100 }}
             >
-              `"These young filmmakers believe that the most important message
+              {`"These young filmmakers believe that the most important message
               imparted through their first food docu-series is how food
               ultimately connects different generations in completely different
-              but meaningful ways."`- The Star
+              but meaningful ways."- The Star`}
             </h3>
             <div className="pull-quote-wrapper">
               <div style={{ margin: "0" }}>
