@@ -27,12 +27,6 @@ import CategoryLayout from "../../components/layouts/category-layout.component";
 export async function getStaticProps() {
   const portfoliosRes = await axios.get(`${API_URL}/api/portfolios?populate=*`);
 
-  // 'http://localhost:1337/api/portfolios?populate[0]=display&populate[1]=display.attributes&populate[2]=display.attributes.formats&populate[3]=display.attributes.formats.medium'
-
-  console.log(
-    portfoliosRes.data.data[0].attributes.snippetvideo.data[0].attributes.url
-  );
-
   return {
     props: {
       portfolios: portfoliosRes.data.data,

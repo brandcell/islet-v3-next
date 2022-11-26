@@ -18,7 +18,7 @@ a {
 @media (prefers-color-scheme: dark) {
   
   body {
-    background: white;
+    background: black;
   }
 }
 
@@ -67,12 +67,10 @@ a {
 }
 }
 
-.slide-content-wrapper{
+.swiper-slide{
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-
+  position:relative;
 }
 
 // swiper-pagination-bullets
@@ -86,8 +84,16 @@ a {
   font-size:30px;
   text-shadow: 0 4px 4px #00000025;
   z-index:50;
-	
+
+  @media (max-width: 375px) {
+
+   font-size: 24px;
+
+
+
 }
+}
+
 
 
 	.swiper-pagination .swiper-pagination-bullet {
@@ -95,13 +101,25 @@ a {
 	color:white;
 	width:20px;
 	margin-bottom:30px !important;
-	margin-right:50px !important;
+	margin-right:40px !important;
 	height: auto;
 	display:flex !important;
 	flex-direction: row;
 	align-self:flex-end;
 	outline:none;
-	opacity:100% !important;}
+	opacity:100% !important;
+
+  @media (max-width: 375px) {
+
+    margin-right: 30px;
+    width:10px;
+
+
+   
+  }
+
+
+}
   
 
 .swiper-pagination .swiper-pagination-bullet .number{
@@ -124,6 +142,11 @@ width:10px;
 border-radius:100px;
 margin-top:10px;}
 
+.video-wrapper{
+  position:absolute;
+  height:100vh;
+  width: 100vw;
+}
 
 
 video{
@@ -183,4 +206,93 @@ object-fit: cover;
 .page-container{
   max-width: 1140px;
   padding: 180px 150px;
+}
+
+svg{
+  width: 230px;
+  height: 50px;
+  color:black;
+
+  @media (max-width:768px) {
+    width: 200px;
+    
+  }
+
+  @media (max-width:375px) {
+    max-width: 178px;
+
+    
+  }
+}
+
+// for menu button
+
+.menu-container-wrapper{
+  display: flex;
+  align-items: center;
+
+
+}
+
+.button_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 50px;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+
+  @media (max-width:768px) {
+    height:40px;
+    width:50px;
+    
+  }
+
+  @media (max-width:375px) {
+    width: 40px;
+  }
+  
+  
+  &.active {
+    .top {
+      transform: translateY(16px) translateX(0) rotate(45deg);
+      background-color: black;
+    }
+    .middle {
+      opacity: 0;
+      background-color: black;
+    }
+    
+    .bottom {
+      transform: translateY(-12px) translateX(0) rotate(-45deg);
+      background-color: black;
+    }
+  }
+  
+  span {
+  background: white;
+  border: none;
+  height: 4px;
+  width: 100%;
+  border-radius: 20px;
+  transition:  all .35s ease;
+  cursor: pointer;
+
+
+
+  @media (max-width:375px) {
+    height: 3px;
+    
+  }
+    
+    &:nth-of-type(2) {
+      top: 11px;
+    }
+    
+    &:nth-of-type(3) {
+      top: 22px;
+    }
+  }
 }

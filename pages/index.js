@@ -1,10 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
 import axios from "axios";
-import styled from "styled-components";
 import { API_URL } from "../utils/urls";
 
 import Link from "next/link";
+import styled from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
@@ -33,16 +32,47 @@ export async function getStaticProps() {
     `${API_URL}/api/portfolios?filters[Showcase][$eq]=true&populate=*`
   );
 
-  console.log(
-    portfoliosRes.data.data[0].attributes.snippetvideo.data[0].attributes.url
-  );
-
   return {
     props: {
       showcases: portfoliosRes.data.data,
     },
   };
 }
+
+const TitleWrapper = styled.div`
+  position: absolute;
+  bottom:100px;
+  max-width: 500px;
+  min-width: 280px;
+  left:5%;
+
+
+  & h1{
+    font-family: Founders;
+    font-size: 60px;
+    line-height: 3.75rem;
+    color:white;
+    font-weight: 100;
+  }
+
+
+  @media (max-width: 768px) {
+
+    bottom:50px;
+    max-width: 400px;
+     & h1{font-size: 48px;
+    }}
+
+
+  @media (max-width: 375px) {
+
+    max-width: 280px;
+
+
+  h1{font-size: 45px;}
+
+}
+`
 
 export default function Home({ showcases }) {
   return (
@@ -74,14 +104,19 @@ export default function Home({ showcases }) {
         {showcases.map((showcase) => (
           <SwiperSlide key={showcase.id}>
             <Link href={`/portfolios/${showcase.id}`}>
-            <video
-              src={showcase.attributes.snippetvideo.data[0].attributes.url}
-              autoPlay
-              muted={true}
-              loop
-            ></video>
+              <div className="video-wrapper">
+                <video
+                  src={showcase.attributes.snippetvideo.data[0].attributes.url}
+                  autoPlay
+                  muted={true}
+                  loop
+                ></video>
+              </div>
+
+              <TitleWrapper>
+                <h1>{showcase.attributes.title}</h1>
+              </TitleWrapper>
             </Link>
-            
           </SwiperSlide>
         ))}
       </Swiper>

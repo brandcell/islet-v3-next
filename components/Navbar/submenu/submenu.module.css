@@ -16,5 +16,15 @@
     align-self: center;
     font-family: Signifier;
     row-gap: 20px;
-    font-size: 60px;
-}
+    font-size: 60px;}
+
+
+@media (max-width:768px) {
+
+        .submenuItemsWrapper{
+            font-size:45px;
+        }
+       
+        
+      }
+    

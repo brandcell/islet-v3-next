@@ -1,26 +1,26 @@
-import styles from './navBar.module.css'
+import styles from "./navBar.module.css";
 
 import { useState, useContext } from "react";
 
 import { Fragment } from "react";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import IsletLogo from '../../public/Isletlogo.svg'
+import IsletLogo from "../../public/Islet_Logo.svg";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import MenuButton from './menu-icon/menu-icon.component'
+import MenuButton from "./menu-icon/menu-icon.component";
 
-import SubMenu from './submenu/submenu'
+import SubMenu from "./submenu/submenu";
 
 import { motion, AnimatePresence } from "framer-motion";
 
 import { NavContext } from "../../contexts/navbar.context";
+import HamburgerMenu from "./hamburger/hamburger.component";
 
 const Navbar = () => {
-
-  const {isMenuOpen, setMenuOpen} = useContext(NavContext);
+  const { isMenuOpen, setMenuOpen } = useContext(NavContext);
 
   const toggleMenuOpen = () => {
     setMenuOpen(!isMenuOpen);
@@ -43,15 +43,17 @@ const Navbar = () => {
 
       <div className={styles.navbarContainer}>
         <div className={styles.navbarLinks}>
-      <Link href='/'><Image alt='' src={IsletLogo}/></Link>
-        
-      
-          <div onClick={toggleMenuOpen}>
-            <MenuButton />
+          <Link href="/">
+            <IsletLogo
+              style={{ color: `${isMenuOpen && 'black' || 'white'}` }}
+            />
+          </Link>
+
+          <div className='menu-container-wrapper' onClick={toggleMenuOpen}>
+          <HamburgerMenu />
           </div>
         </div>
       </div>
-
     </Fragment>
   );
 };
