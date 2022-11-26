@@ -1,5 +1,7 @@
 import TwoColumn from "../styles/twocolumn.styles";
 import TitleContainer from "../styles/title.styles";
+import { Page } from "../styles/page.styles";
+import { PageContainer } from "../styles/page.styles";
 
 import FounderSection from "../components/founder-component/founder.component";
 
@@ -29,10 +31,13 @@ const AboutUS = ({clientlist}) => {
   }, [isFooter]);
 
   return (
-    <div className="about-us-container">
+
+    <Page>
+    <PageContainer>
+      
       <TitleContainer>
         <h1>
-          What we do is communicating stories in an emotionally engaging way.
+        We delve into brands to divulge stories. 
         </h1>
       </TitleContainer>
 
@@ -40,25 +45,16 @@ const AboutUS = ({clientlist}) => {
         <h2>About Us</h2>
 
         <p>
-          We believe simple is magic, and business software should be elegant
-          and intuitive—your tools for work should work for you. We believe joy
-          is the engine that powers all the best ideas. So we’re designing a way
-          of working that makes space for it, removing the distractions,
-          interruptions, and frustrations that get in the way. We believe it’s
-          important to connect all the dots. We design Dropbox to seamlessly
-          integrate with the tools you already use, so everything—and
-          everyone—plays well together. We believe you should work the way you
-          want. One person’s perfect workflow is another’s formula for burnout.
-          We’re building a collaborative platform—you can dance on it however
-          you like. We believe joy is the engine that powers all the best ideas.
-          So we’re designing a way of working that makes space for it, removing
-          the distractions, interruptions, and frustrations that get in the way.
-          We believe it’s important to connect all the dots. We design Dropbox
-          to seamlessly integrate with the tools you already use, so
-          everything—and everyone—plays well together. We believe you should
-          work the way you want. One person’s perfect workflow is another’s
-          formula for burnout. We’re building a collaborative platform—you can
-          dance on it however you like.
+          
+With our forté in storytelling, filmmaking, and sound design, we’ll take your brand to uncharted waters and stop at nothing to bring your unique story to life. 
+‍
+Just like how the entire crew of a ship is the heart and soul of an ocean liner, people are the essence of our filmmaking process. We value every single member—from your team, to our collaborators, to crew members—in bringing a vision to life.
+
+In our expertise with commercials, documentaries, and product videos, we surround ourselves with the best creative minds in the industry. When great minds come together, new and exciting ideas are discovered. This is how we create bold and unforgettable works. 
+‍
+Telling your story is not easy. Not everyone knows what you went through as vividly as yourself. With our mastery of the nuances of storytelling, we can draw out your beginnings, struggles, successes, and aspirations to humanise your brand. 
+‍
+ Let the world be your oyster, and choose our lens to capture your audience’s heart.
         </p>
       </TwoColumn>
 
@@ -75,7 +71,8 @@ const AboutUS = ({clientlist}) => {
       <hr></hr>
     <TitleContainer><h1>Clients</h1></TitleContainer>
       <ClientContainer clientlist={clientlist} />
-    </div>
+      </PageContainer>
+      </Page>
   );
 };
 

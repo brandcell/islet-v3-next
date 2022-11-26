@@ -18,7 +18,7 @@ a {
 @media (prefers-color-scheme: dark) {
   
   body {
-    background: black;
+    background: white;
   }
 }
 
@@ -157,12 +157,6 @@ object-fit: cover;
 
 /* for about us page */
 
-.about-us-container {
-  height: auto;
-  padding-top: 60px;
-  background-color: white;
-  color: black ;
-}
 
 .pull-quote {
   max-width: 561px;
@@ -175,11 +169,8 @@ object-fit: cover;
 .founder-section-container{
   display: flex;
   flex-direction: row;
-  max-width: 1440px;
   flex-wrap: wrap;
-  padding: 0px 150px;
   column-gap: 100px;
-  margin: auto;
 }
 
 .contact-us-page-wrapper{

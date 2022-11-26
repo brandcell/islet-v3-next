@@ -6,10 +6,7 @@ display:flex;
 flex-direction:row;
 flex-wrap:wrap;
 max-width:1140px;
-min-width:900px;
 margin:auto`
-
-
 
 
 function ClientContainer({ clientlist }) {
