@@ -35,7 +35,7 @@ function CategoryLayout({children}) {
     <Link href="/portfolios/category/product">Product</Link>
     <Link href="/portfolios/category/commercials">Commercial</Link>
     <Link href="/portfolios/category/documentaries">Documentaries</Link>
-    <Link href="portfolios/category/corporate">Corporate</Link>
+    <Link href="/portfolios/category/corporate">Corporate</Link>
   </StyledLinkContainer>
 
 <AnimatePresence>
