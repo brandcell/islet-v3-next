@@ -1,71 +1,81 @@
-import axios from "axios"
-import Image from "next/image"
-import WhiteLayout from "../../components/layouts/white-layout.component"
+import axios from "axios";
+import Image from "next/image";
+import WhiteLayout from "../../components/layouts/white-layout.component";
+import { Page, PageContainer } from "../../styles/page.styles";
 
-import { API_URL } from "../../utils/urls"
+import { API_URL } from "../../utils/urls";
 
-import { MetaWrapper } from "../portfolios/[id]"
+import { MetaWrapper } from "../portfolios/[id]";
 
-import { TextWrapper } from "../portfolios/[id]"
+import { TextWrapper } from "../portfolios/[id]";
 
+export async function getStaticPaths() {
+  const res = await axios.get(`${API_URL}/api/case-studies`);
 
-export async function getStaticPaths(){
-    const res= await axios.get(`${API_URL}/api/case-studies`)
+  const data = res.data.data;
 
-    const data = res.data.data
+  const paths = data.map((path) => ({
+    params: { id: path.id.toString() },
+  }));
 
-    const paths = data.map((path)=>({
-        params: {id:path.id.toString()}
-    }))
-
-    return {
-        paths,
-        fallback:false
-    }
-
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
-export async function getStaticProps({params}){
+export async function getStaticProps({ params }) {
+  const res = await axios.get(
+    `${API_URL}/api/case-studies/${params.id}?populate=*`
+  );
 
-    const res= await axios.get(`${API_URL}/api/case-studies/${params.id}?populate=*`)
+  const blogData = await res.data.data;
 
-    const blogData = await res.data.data;
-
-    return {
-        props:{
-            blogData
-        }
-    }
-
-
-
+  return {
+    props: {
+      blogData,
+    },
+  };
 }
 
-function Blog({blogData}) {
+function Blog({ blogData }) {
   return (
-    <div className="page-container">
-    <h1>{blogData.attributes.title}</h1>
-    <p>{`Written by ${blogData.attributes.author}/${blogData.attributes.publishedAt}`}</p>
+    <Page>
+      <PageContainer>
+        <div class="blog-content-wrapper">
+          <p>{blogData.attributes.contenttype}</p>
+          <h1>{blogData.attributes.title}</h1>
+          <p>{`Written by ${blogData.attributes.author}/${blogData.attributes.publishedAt}`}</p>
 
-    <div style={{width:'100%' , position:'relative',height:'773px'}}>
-    <Image alt='' fill src={blogData.attributes.displayimage.data[0].attributes.url}></Image>
-    </div>
+          <div style={{ width: "100%", position: "relative", height:'500px', marginBottom:'50px' }}>
+            <Image
+              alt=""
+              fill
+              objectFit="cover"
+              src={blogData.attributes.displayimage.data[0].attributes.url}
+            ></Image>
+          </div>
 
-
-    <MetaWrapper>
-        <TextWrapper><h1>Client</h1><p>{blogData.attributes.client}</p></TextWrapper>
-        <TextWrapper><h1>Type</h1><p>{blogData.attributes.category.data.attributes.title}</p></TextWrapper>
-        <TextWrapper>
-        <h1>Production Role</h1><p>{blogData.attributes.category.data.attributes.title}</p>
-        </TextWrapper>
-    </MetaWrapper>
-
-    
-    
-    </div>
-  )
+          <MetaWrapper>
+            <TextWrapper>
+              <h1>Client</h1>
+              <p>{blogData.attributes.client}</p>
+            </TextWrapper>
+            <TextWrapper>
+              <h1>Type</h1>
+              <p>{blogData.attributes.category.data.attributes.title}</p>
+            </TextWrapper>
+            <TextWrapper>
+              <h1>Production Role</h1>
+              <p>{blogData.attributes.category.data.attributes.title}</p>
+            </TextWrapper>
+          </MetaWrapper>
+        </div>
+      </PageContainer>
+    </Page>
+  );
 }
 
-export default Blog
+export default Blog;
 
-Blog.Layout= WhiteLayout
+Blog.Layout = WhiteLayout;

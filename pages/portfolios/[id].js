@@ -73,19 +73,24 @@ const DetailsWrapper = styled.div`
 export const TextWrapper = styled.div`
   min-width: 314px;
   margin-right: 10px;
+  margin-bottom: 30px;
 
   & h1 {
     font-family: Signifier;
     font-size: 22px;
     font-weight: 100px;
+    line-height: 33px;
     width: 100%;
+    margin-bottom: 0;
   }
 
   & p {
     font-family: Founders;
-    font-size: 32px;
+    font-size: 22px;
+    line-height: 33px;
     font-weight: 100;
     width: 100%;
+    margin: 0;
   }
 `;
 
@@ -94,6 +99,7 @@ export const MetaWrapper = styled.div`
   margin: auto;
   flex-direction: row;
   width: 100%;
+  flex-wrap:wrap;
   justify-content: space-between;
   margin-bottom: 131px;
 `;
