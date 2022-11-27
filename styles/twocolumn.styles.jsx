@@ -9,6 +9,11 @@ const TwoColumn = styled.div`
   & .block-one{
   
     min-width: 375px;
+
+    @media (max-width:375px) {
+      
+    width:auto;
+    }
   }
 
   & .block-two{

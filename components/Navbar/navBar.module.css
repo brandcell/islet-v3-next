@@ -6,6 +6,8 @@
     top:0px;
     z-index: 100;
     width: 100vw;
+    overflow: hidden;
+    ;
 }
 
 .navbarLinks{
@@ -20,8 +22,10 @@
 }
 
 .animationWrapper{
-    position: absolute;
+    position: fixed;
     z-index: 100;
+    top:0px
+
    
 }
 

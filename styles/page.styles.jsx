@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Page = styled.div`
 background-color: white;
 padding: 0px 150px;
+overflow: hidden;
 
 @media (max-width: 768px) {
      
@@ -14,6 +15,7 @@ padding: 0px 150px;
 
      padding: 0px 30px ;
     }
+
 `
 
 
@@ -23,10 +25,10 @@ height:auto;
 margin:auto;
 
 @media (max-width: 768px) {
-     max-width: 714px;
+     /* max-width: 714px; */
     }
 
 @media (max-width: 375px) {
-     max-width: 315px;
+     /* max-width: 315px; */
     }
 `
