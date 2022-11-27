@@ -4,11 +4,22 @@ const TwoColumn = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 200px;
+
+  @media (max-width:991px) {
+    margin-bottom: 150px;
+    
+  }
 
   
   & .block-one{
   
     min-width: 375px;
+
+
+    @media (max-width:991px) {
+      margin-bottom:40px;
+    }
 
     @media (max-width:375px) {
       
@@ -19,6 +30,11 @@ const TwoColumn = styled.div`
   & .block-two{
     width: auto;
     max-width: 747px;
+
+    @media (max-width:991px) {
+      max-width: 545px;
+      
+    }
   }
 
   & h2 {
@@ -41,6 +57,7 @@ const TwoColumn = styled.div`
     font-family: Founders;
     font-weight: 100;
     margin-top: 0;
+
   }
 
 
@@ -65,8 +82,9 @@ const TwoColumn = styled.div`
 
   & h3 {
     font-family: Founders;
-    font-size: 60px;
+    font-size: 45px;
     font-weight: 100;
+    line-height: 45px;
     margin-top: 0;
   }
 

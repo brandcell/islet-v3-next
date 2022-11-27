@@ -1,5 +1,6 @@
 import axios from "axios"
 import Image from "next/image"
+import WhiteLayout from "../../components/layouts/white-layout.component"
 
 import { API_URL } from "../../utils/urls"
 
@@ -66,3 +67,5 @@ function Blog({blogData}) {
 }
 
 export default Blog
+
+Blog.Layout= WhiteLayout

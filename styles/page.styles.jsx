@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Page = styled.div`
 background-color: white;
-padding: 0px 150px;
+padding: 0px 60px;
 overflow: hidden;
 
 @media (max-width: 768px) {

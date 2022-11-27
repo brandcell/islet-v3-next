@@ -150,6 +150,16 @@ video {
 
 /* for about us page */
 
+
+.title-container-wrapper{
+   margin: 240px auto;
+
+  @media (max-width:991px) {
+    margin: 240px auto 100px auto;
+    
+  }
+}
+
 .pull-quote {
   font-size: 60px;
   line-height: 65px;
@@ -173,6 +183,11 @@ video {
 
     p {
       font-family: Signifier;
+
+      @media (max-width:991px) {
+        font-size: 18px;
+        
+      }
     }
 
     div {
@@ -193,6 +208,26 @@ video {
   }
   
 }
+
+
+.client-section{
+  display: flex;
+  flex-direction: column;
+
+  h1{
+    font-size: 60px;
+    font-weight: 300;
+  }
+
+  @media (max-width:991px) {
+    h1{
+      font-size: 45px;
+    }
+    
+  }
+}
+
+
 
 .contact-us-page-wrapper {
   background-color: white;
@@ -251,6 +286,11 @@ video {
   z-index: 100;
   transition: opacity 0.25s ease;
 
+  &.black{
+    span
+    {background-color: black;}
+  }
+
   @media (max-width: 768px) {
     height: 40px;
     width: 50px;
@@ -276,6 +316,7 @@ video {
     }
   }
 
+  
   span {
     background: white;
     border: none;
@@ -297,4 +338,11 @@ video {
       top: 22px;
     }
   }
+}
+
+
+// for contact-us page
+
+.case-study-title-wrapper{
+  margin: 185px auto 125px auto ;
 }

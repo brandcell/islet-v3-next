@@ -11,8 +11,6 @@ margin:auto;
 
 @media (max-width:991px) {
   margin:0;
-
-  
 }
 `
 

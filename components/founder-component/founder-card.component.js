@@ -39,6 +39,18 @@ margin-bottom: 150px;
 @media (max-width: 991px) {
     width:70%;
     margin: auto;
+
+    & h1{
+    font-size: 45px;}
+
+    & p {
+    font-family: Founders;
+    font-size: 22px;
+    line-height: 33px;
+}
+
+
+
   }
 
 `

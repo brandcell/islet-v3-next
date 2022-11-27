@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavContext } from "../../../contexts/navbar.context";
 
 
-function HamburgerMenu() {
+function HamburgerMenu({color}) {
 
 
  const {isMenuOpen} = useContext(NavContext)
@@ -10,7 +10,7 @@ function HamburgerMenu() {
  {}
 
   return (
-    <div className={`button_container ${isMenuOpen && 'active'} ${isMenuOpen && 'black'}`}>
+    <div className={`button_container ${isMenuOpen && 'active'} ${isMenuOpen && 'black'} ${color}`}>
       <span className='top'></span>
       <span className="middle"></span>
       <span className="bottom"></span>

@@ -18,7 +18,7 @@ import { NavContext } from "../../contexts/navbar.context";
 
 import HamburgerMenu from "./hamburger/hamburger.component";
 
-const Navbar = () => {
+const Navbar = ({color}) => {
   const { isMenuOpen, setMenuOpen } = useContext(NavContext);
 
   const toggleMenuOpen = () => {
@@ -44,12 +44,12 @@ const Navbar = () => {
         <div className={styles.navbarLinks}>
           <Link href="/">
             <IsletLogo className='islet-logo'
-              style={{ color: `${isMenuOpen && 'black' || 'white'}` }}
+              style={{ color: `${isMenuOpen && 'black' || color}` }}
             />
           </Link>
 
           <div className='menu-container-wrapper' onClick={toggleMenuOpen}>
-          <HamburgerMenu />
+          <HamburgerMenu color={color}/>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
 import "swiper/css/bundle";
+import BlackLayout from "../components/layouts/black-layout.component";
 
 //if need to get props server side-- for things that need to generate every time client refreshes
 // export async function getServerSideProps(){
@@ -120,3 +121,5 @@ export default function Home({ showcases }) {
     </div>
   );
 }
+
+Home.Layout= BlackLayout;

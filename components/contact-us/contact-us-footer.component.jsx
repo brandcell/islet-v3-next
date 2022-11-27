@@ -32,7 +32,8 @@ const FooterInnerContainers = styled.div`
     max-width: 400px;
     font-size: 68px;
     margin: 0;
-    color:black
+    color:black;
+    font-family: Founders;
 
   }
 `;

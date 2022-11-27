@@ -1,7 +1,8 @@
-import React from 'react'
+
 import styled from 'styled-components'
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
+import Navbar from '../Navbar/navBar';
 
 
 const StyledLinkContainer = styled.div`
@@ -25,20 +26,25 @@ const StyledLinkContainer = styled.div`
 
 function CategoryLayout({children}) {
   return (
-    <div className='portfolio-page-wrapper'>
-     <StyledLinkContainer>
-        <Link href="/portfolios">All</Link>
-        <Link href="/portfolios/category/product">Product</Link>
-        <Link href="/portfolios/category/commercials">Commercial</Link>
-        <Link href="/portfolios/category/documentaries">Documentaries</Link>
-        <Link href="/category/corporate">Corporate</Link>
-      </StyledLinkContainer>
+    <>
+      <Navbar color='white'/>
 
-    <AnimatePresence>
-    {children}
-    </AnimatePresence>
-      
-    </div>
+<div className='portfolio-page-wrapper'>
+ <StyledLinkContainer>
+    <Link href="/portfolios">All</Link>
+    <Link href="/portfolios/category/product">Product</Link>
+    <Link href="/portfolios/category/commercials">Commercial</Link>
+    <Link href="/portfolios/category/documentaries">Documentaries</Link>
+    <Link href="/category/corporate">Corporate</Link>
+  </StyledLinkContainer>
+
+<AnimatePresence>
+{children}
+</AnimatePresence>
+  
+</div>
+    </>
+    
   )
 }
 
