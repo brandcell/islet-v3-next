@@ -3,6 +3,7 @@ import Head from "next/head";
 import { API_URL } from "../../utils/urls";
 import styled from "styled-components";
 import TwoColumn from "../../styles/twocolumn.styles";
+import { useRouter } from "next/router";
 
 export async function getStaticPaths() {
   const res = await axios.get(`${API_URL}/api/portfolios?populate=%2A`);
@@ -98,8 +99,19 @@ export const MetaWrapper = styled.div`
 `;
 
 export default function Portfolio({ portfolioData }) {
+
+  const router = useRouter()
+
   return (
-    <div>
+    <div className="portfolio-page">
+      <div className="back-button-container" onClick={() => router.back()}>
+      <div className="back-button-wrapper">
+        <span className="first-line"></span>
+        <span className="second-line"></span>
+      </div>
+      
+       
+      </div>
       <Head>
         <title>{portfolioData.attributes.title}</title>
       </Head>
@@ -137,8 +149,9 @@ export default function Portfolio({ portfolioData }) {
             <TextWrapper></TextWrapper>
           </MetaWrapper>
           <TwoColumn>
-            <h2>Description</h2>
-            <p>{portfolioData.attributes.description}</p>
+          <div className="block-one"><h2>Description</h2></div>
+            <div className="block-two"> <p>{portfolioData.attributes.description}</p></div>
+           
           </TwoColumn>
         </DetailsWrapper>
       </VideoDetailsContainer>

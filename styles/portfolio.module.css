@@ -17,6 +17,14 @@
   grid-template-columns: auto auto auto !important;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
+
+  @media (max-width:768px) {
+    grid-template-columns:1fr;
+    display:block;
+    
+  }
+
+
 }
 
 .categoryGrid {

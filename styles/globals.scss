@@ -346,3 +346,60 @@ video {
 .case-study-title-wrapper{
   margin: 185px auto 125px auto ;
 }
+
+//for portfolio page
+.portfolio-page{
+  background-color: black;
+
+  position: relative;
+
+  h1,p, h2{
+    color: white  !important;
+  }
+}
+
+.back-button-container{
+  position:absolute;
+  top: 2%;
+  right:5%;
+  width:50px;
+  height:50px;
+  overflow: hidden;
+
+  :hover{
+    transform:scale(1.2);
+    transition:transform 0.5s
+    
+  }
+
+}
+
+.back-button-wrapper{
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  
+
+  .first-line{
+    background-color: white;
+    width:100%;
+    height: 2px;
+    rotate: 45deg;
+    transform: translate(20px,11px);
+
+
+  }
+
+  .second-line{
+    background-color: white;
+    width:100%;
+    height: 2px;
+    rotate: -45deg ;
+    border-radius: 20px;
+    transform: translate(-10px,18px);
+
+  }
+}
