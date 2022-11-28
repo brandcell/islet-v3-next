@@ -10,8 +10,6 @@ export async function getStaticPaths() {
 
   const portfolios = await res.data.data;
 
-  console.log(portfolios);
-
   const paths = portfolios.map((port) => ({
     params: { id: port.id.toString() },
   }));

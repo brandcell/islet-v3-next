@@ -16,6 +16,7 @@ const CardContainer = styled(motion.div)`
   display: flex;
   position: relative;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 const TextContainer = styled(motion.div)`
