@@ -81,9 +81,9 @@ export default function Category({ categoryData }) {
     >
       {/* <div>{categoryData[0].attributes.title}</div> */}
 
-      {categoryData[0].attributes.portfolios.data.map((portfolio) => (
+      {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
         <motion.div key={portfolio.id} variants={CategoryItemVariants}>
-          <PortfolioCard  portfolio={portfolio} />
+          <PortfolioCard index={index} portfolio={portfolio} />
         </motion.div>
       ))}
     </motion.div>

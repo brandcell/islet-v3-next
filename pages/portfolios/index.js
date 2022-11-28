@@ -38,8 +38,8 @@ export default function Portfolio({ portfolios }) {
   return (
     <>
       <div className={styles.portfolioGrid}>
-        {portfolios.map((port) => (
-          <PortfolioCard key={port.id} portfolio={port} />
+        {portfolios.map((port, index) => (
+          <PortfolioCard key={port.id} index={index} portfolio={port} />
         ))}
       </div>
     </>

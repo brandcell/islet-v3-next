@@ -85,9 +85,9 @@ const imageVariants ={
   }
 
 
-function PortfolioCard({ portfolio }) {
+function PortfolioCard({ portfolio, index }) {
   return (
-    <CardContainer key={portfolio.id} initial='rest' whileHover='hover' animate='rest'>
+    <CardContainer style={{gridArea:`Area-${index+1}`}} key={portfolio.id} initial='rest' whileHover='hover' animate='rest'>
       <TextContainer variants={textVariants}>
         <h1>{portfolio.attributes.title}</h1>
       </TextContainer>
