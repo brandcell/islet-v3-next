@@ -16,8 +16,7 @@ const StyledLinkContainer = styled.div`
 
   & a{
     font-family: Signifier;
-    font-size: 22px;
-    margin-left: 20px;
+    font-size: 20px;
     color:white;
   }
 `;
