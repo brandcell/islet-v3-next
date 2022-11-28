@@ -79,7 +79,6 @@ export default function Category({ categoryData }) {
   
       className={styles.categoryGrid}
     >
-      {/* <div>{categoryData[0].attributes.title}</div> */}
 
       {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
         <motion.div key={portfolio.id} variants={CategoryItemVariants}>

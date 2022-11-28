@@ -11,10 +11,12 @@ import Link from "next/link";
 //styled components 
 
 const CardContainer = styled(motion.div)`
+height: 0;
+position:relative;
+overflow: hidden;
+padding-top:56.25%;
   width: 100%;
-  height: 300px;
-  display: flex;
-  position: relative;
+  /* min-height: 315px; */
   flex-direction: column;
   overflow: hidden;
 `;
@@ -30,16 +32,17 @@ const TextContainer = styled(motion.div)`
   }
 `;
 
-const ImageContainer= styled(motion.div)`
-height: 100%;;
-position:relative;
-z-index:10;
+const ImageContainer=styled(motion.div)`
+
+
 `
+
 
 const VideoContainer = styled.div`
 width:100%;
 height:100%;
-position:absolute`
+position:absolute;
+overflow: hidden;`
 
 const Video= styled.video`
 width:100%;
@@ -91,8 +94,8 @@ function PortfolioCard({ portfolio, index }) {
       <TextContainer variants={textVariants}>
         <h1>{portfolio.attributes.title}</h1>
       </TextContainer>
-
-      <ImageContainer variants={imageVariants}>
+  
+    <ImageContainer variants={imageVariants} >
         <Image
           alt=''
           fill
@@ -100,6 +103,7 @@ function PortfolioCard({ portfolio, index }) {
           object-fit='cover'
         />
       </ImageContainer>
+  
       <VideoContainer>
       <Video autoPlay muted loop src={portfolio.attributes.snippetvideo.data[0].attributes.url}></Video></VideoContainer>
       <StyledLink href={`/portfolios/${portfolio.id}`}></StyledLink>
