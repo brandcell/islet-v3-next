@@ -237,6 +237,7 @@ video {
 .portfolio-page-wrapper {
   background-color: black;
   padding-top: 150px;
+  min-height: 100vh;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -434,4 +435,13 @@ video {
     }
   }
 
+}
+
+
+.active{
+  
+    p{
+      text-decoration: underline;
+      text-underline-offset: 5px;
+  }
 }
