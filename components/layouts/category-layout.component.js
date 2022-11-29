@@ -6,12 +6,14 @@ import { useRouter } from "next/router";
 
 const StyledLinkContainer = styled.div`
   max-width: 657px;
-  min-height: 38px;
+  min-height: 45px;
   margin: auto;
   margin-bottom: 25px;
+  padding: auto 100px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  column-gap: 30px;
 
   & p {
     font-family: Signifier;
@@ -20,9 +22,16 @@ const StyledLinkContainer = styled.div`
   }
 
   @media (max-width:768px) {
+
+    max-width: 350px;
+    
     & p{
       font-size: 16px;
     }
+
+  
+
+
 
     
   }

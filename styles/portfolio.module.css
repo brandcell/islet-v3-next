@@ -23,7 +23,9 @@
 
 
 @media (max-width:470px) {
-  .portfolioGrid{display:flex;}
+  .portfolioGrid{
+    display:flex;
+  flex-direction: column;}
   
 }
 
@@ -50,6 +52,9 @@
 }
 
 @media (max-width:470px) {
-  .categoryGrid{display:flex;}
+
+  .categoryGrid{
+    display:flex;
+    flex-direction: column}
   
 }
