@@ -33,7 +33,7 @@ margin-bottom: 150px;
 & p {
     font-family: Founders;
     font-size: 22px;
-    line-height: 22px;
+    line-height: 33px;
 }
 
 @media (max-width: 991px) {
@@ -49,9 +49,11 @@ margin-bottom: 150px;
     line-height: 33px;
 }
 
-
-
   }
+
+  @media (max-width: 479px) {
+    width:auto
+}
 
 `
 

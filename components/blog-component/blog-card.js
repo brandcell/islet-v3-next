@@ -1,54 +1,57 @@
-import Image from "next/image"
+import { buildTransform } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 import styled from "styled-components";
 
-
 const BlogCardWrapper = styled.div`
-position: relative;
-display:flex;
-max-width:430px;
-min-height: 416px;
-max-height: 456px;
-min-width:337px;
-flex-direction:column;
-margin-right:20px;
+  position: relative;
+  display: flex;
+  width:100%;
+  flex-direction: column;
+  margin-right: 20px;
 
-& h1{
+  & h1 {
     font-family: Founders;
-    font-weight:100;
+    font-weight: 100;
     font-size: 28px;
-    line-height: 33px;}
+    line-height: 33px;
+  }
 
-& p{
+  & p {
     font-family: Founders;
-    font-weight:100;
+    font-weight: 100;
     font-size: 16px;
-    line-height: 20px;}
+    line-height: 20px;
+  }
 
-& img{
-    height:416px;
+  & img {
+    height: 416px;
     width: 100%;
-}
+  }
+`;
 
-`
+const ImgWrapper = styled.div`
+  position: relative;
+  aspect-ratio: 16 / 9;
+`;
 
-const ImgWrapper= styled.div`
-position:relative;
-height:230px;`
-
-function BlogCard({blog}) {
-
+function BlogCard({ blog }) {
   return (
     <Link href={`/case-studies/${blog.id}`}>
-    <BlogCardWrapper>
-    <ImgWrapper>
-    <Image alt="" fill src={blog.attributes.displayimage.data[0].attributes.url}></Image>
-    </ImgWrapper>
-    <h1>{blog.attributes.title}</h1>
-    <p>{blog.attributes.previewText}</p>
-    </BlogCardWrapper>
-    </Link>)
+      <BlogCardWrapper>
+        <ImgWrapper>
+          <Image
+            alt={blog.attributes.id}
+            fill
+            src={blog.attributes.displayimage.data[0].attributes.url}
+          ></Image>
+        </ImgWrapper>
+        <h1>{blog.attributes.title}</h1>
+        <p>{blog.attributes.previewText}</p>
+      </BlogCardWrapper>
+    </Link>
+  );
 }
 
 export default BlogCard;

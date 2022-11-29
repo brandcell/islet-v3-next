@@ -74,6 +74,11 @@ const AboutUS = ({ clientlist }) => {
             <br/> {`Let the world be your oyster, and choose our lens to
             capture your audience's heart.`}
           </p>
+       
+          </div>
+
+          </TwoColumn>
+
           <h3
             className="pull-quote"
             style={{ marginTop: 100, marginBottom: 100 }}
@@ -83,6 +88,7 @@ const AboutUS = ({ clientlist }) => {
             ultimately connects different generations in completely different
             but meaningful ways."- The Star`}
           </h3>
+
           <div className="pull-quote-wrapper">
             <div style={{ margin: "0" }}>
               <p style={{ margin: "0" }}>The Star Paper</p>
@@ -95,18 +101,20 @@ const AboutUS = ({ clientlist }) => {
                 <ArrowIcon />
               </Link>
             </div>
-          </div>
-          <hr
+         
+
+        </div>
+
+        <hr
             style={{ background: "black", height: "1px", border: "none" }}
           ></hr>
-        </div>
-      </TwoColumn>
+      
 
       <FounderSection />
 
       <hr></hr>
       <div className="client-section">
-      <h1>
+      <h1 style={{margin:'100px 0px 100px 0px'}}>
         Our Clients
       </h1>
       <ClientContainer clientlist={clientlist} />

@@ -7,7 +7,7 @@ flex-direction:row;
 flex-wrap:wrap;
 max-width:900px;
 min-width: 260px;
-margin:auto;
+margin:auto auto 280px auto;
 
 @media (max-width:991px) {
   margin:0;

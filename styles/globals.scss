@@ -165,6 +165,11 @@ video {
   line-height: 65px;
   font-family: Founders;
   font-weight: 200;
+
+  @media (max-width:479px) {
+    font-size: 45px;
+    
+  }
 }
 
 .pull-quote-wrapper {
@@ -172,6 +177,13 @@ video {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width:479px) {
+    
+    :nth-child(2){
+      display: none;
+    }
+  }
 
   div {
     a {
@@ -185,8 +197,8 @@ video {
       font-family: Signifier;
 
       @media (max-width:991px) {
-        font-size: 18px;
-        
+        font-size: 22px;
+        line-height: 33px;
       }
     }
 
@@ -199,14 +211,21 @@ video {
 
 
 .founder-section-container {
+  margin-top: 150px;
   display: flex;
   flex-direction: row;
   column-gap: 100px;
 
   @media (max-width: 991px) {
     flex-direction: column;
+    row-gap: 100px;
+    margin-bottom: 100px;
   }
+
+  @media (max-width: 479px) {
+margin-top: 100px;
   
+}
 }
 
 
@@ -266,7 +285,7 @@ video {
     width: 200px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     max-width: 178px;
   }
 }
@@ -298,7 +317,7 @@ video {
     width: 50px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     width: 40px;
   }
 
@@ -328,7 +347,7 @@ video {
     transition: all 0.35s ease;
     cursor: pointer;
 
-    @media (max-width: 375px) {
+    @media (max-width: 430px) {
       height: 3px;
     }
 
@@ -347,6 +366,11 @@ video {
 
 .case-study-title-wrapper{
   margin: 185px auto 125px auto ;
+
+  @media (max-width:479px) {
+    margin: 130px auto 80px auto;
+    
+  }
 }
 
 //for portfolio page

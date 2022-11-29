@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-
 const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${(props)=>props.color};
+  background-color: ${(props) => props.color};
   padding: 50px 58px 28px 60px;
   justify-content: space-between;
   margin-top: 140px;
 
-  & p{
+  & p {
     font-family: Signifier;
     font-size: 22px;
     line-height: 33px;
@@ -28,13 +27,12 @@ const FooterInnerContainers = styled.div`
   flex-direction: column;
   row-gap: 30px;
 
-  & h1{
+  & h1 {
     max-width: 400px;
     font-size: 68px;
     margin: 0;
-    color:black;
+    color: black;
     font-family: Founders;
-
   }
 `;
 
@@ -42,20 +40,22 @@ const ContactInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  & h4{ 
+  & h4 {
     font-family: Founders;
     font-size: 22px;
     line-height: 33px;
     margin: 0;
-    color:black;
+    color: black;
   }
 `;
 
 function ContactUsFooter() {
   return (
-    <FooterContainer color='white'>
+    <FooterContainer color="white">
       <FooterTopContainer>
-        <FooterInnerContainers><h1>Don’t be shy, let’s chat!</h1></FooterInnerContainers>
+        <FooterInnerContainers>
+          <h1>Don’t be shy, let’s chat!</h1>
+        </FooterInnerContainers>
         <FooterInnerContainers>
           <ContactInfoContainer>
             <h4>Islet Studio Venture Co-Working Space</h4>

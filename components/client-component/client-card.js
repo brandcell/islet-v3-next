@@ -8,7 +8,6 @@ padding: 20px;
 display: flex;
 flex-direction: column;
 margin-right: 30px;
-margin-left:30px;
 margin-bottom:69px;
 align-items: center;
 
