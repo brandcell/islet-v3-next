@@ -19,6 +19,11 @@ const TwoColumn = styled.div`
 
     @media (max-width:991px) {
       margin-bottom:40px;
+
+      & h2{
+        font-size: 28px;
+        line-height: 33px;
+      }
     }
 
     @media (max-width:375px) {
@@ -63,6 +68,7 @@ const TwoColumn = styled.div`
 
   @media (max-width:991px) {
     flex-direction: column;
+    width: 100%;
 
     & h2 {
     font-family: Founders;

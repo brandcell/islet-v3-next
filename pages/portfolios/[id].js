@@ -35,13 +35,13 @@ export async function getStaticProps({ params }) {
 }
 
 const VideoContainer = styled.div`
-  height: 90vh;
   padding-top: 100px;
+  aspect-ratio: 16/9;
 `;
 
 const VideoDetailsContainer = styled.div`
   padding-top: 100px;
-  min-height: 90vh;
+  min-height: 100vh;
   overflow: hidden;
 
   & h1 {
@@ -66,12 +66,33 @@ const DetailsWrapper = styled.div`
   min-width: 280px;
   width: 80%;
   max-width: 1140px;
+
+  & h1{
+    font-size: 68px;
+    line-height: 65px;
+  }
+
+  @media (max-width: 768px) {
+
+  padding: 30px;
+  width: auto;
+  
+  & h1{
+    font-size: 45px;
+    line-height: 45px;
+  }
+  }
 `;
 
 export const TextWrapper = styled.div`
   min-width: 314px;
   margin-right: 10px;
   margin-bottom: 30px;
+
+  @media (max-width: 768px){
+    min-width: 0;
+    
+  }
 
   & h1 {
     font-family: Signifier;
@@ -80,7 +101,17 @@ export const TextWrapper = styled.div`
     line-height: 33px;
     width: 100%;
     margin-bottom: 0;
+
+
+    @media (max-width:768px) {
+      font-size: 16px;
+      line-height: 20px;
+      min-width:200px;
+      
+    }
   }
+
+
 
   & p {
     font-family: Founders;
@@ -100,6 +131,12 @@ export const MetaWrapper = styled.div`
   flex-wrap:wrap;
   justify-content: space-between;
   margin-bottom: 131px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+    width: 100%;
+    
+  }
 `;
 
 export default function Portfolio({ portfolioData }) {
@@ -127,7 +164,7 @@ export default function Portfolio({ portfolioData }) {
           muted
           controls
           width="100%"
-          height={400}
+          height='100%'
           src={portfolioData.attributes.fullvideo.data.attributes.url}
         ></VideoPlayer>
       </VideoContainer>
@@ -147,7 +184,7 @@ export default function Portfolio({ portfolioData }) {
             </TextWrapper>
             <TextWrapper>
               <h1>Production Role</h1>
-              <p>{portfolioData.attributes.title}</p>
+              <p>{portfolioData.attributes.role}</p>
             </TextWrapper>
             <TextWrapper></TextWrapper>
             <TextWrapper></TextWrapper>

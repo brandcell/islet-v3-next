@@ -46,6 +46,7 @@
     "Area-16 Area-15 Area-15"
     "Area-17 Area-18 Area-19" !important;
   grid-template-columns: auto auto auto !important;
+  grid-template-rows: auto auto;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 

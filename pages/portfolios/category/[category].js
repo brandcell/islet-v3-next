@@ -10,9 +10,7 @@ import { motion } from "framer-motion";
 import styles from "../../../styles/portfolio.module.css";
 
 export async function getStaticPaths() {
-  const res = await axios.get(
-    `${API_URL}/api/categories?populate=*`
-  );
+  const res = await axios.get(`${API_URL}/api/categories?populate=*`);
 
   const categories = await res.data.data;
 
@@ -38,7 +36,6 @@ export async function getStaticProps({ params }) {
   //filter the data by the string of the title
 
   //return back the filtered data
-  console.log(params);
 
   const res = await axios.get(
     `${API_URL}/api/categories?[filters][title][$eq]=${params.category}&populate[portfolios][populate][0]=fullvideo&populate[portfolios][populate][1]=display&populate[portfolios][populate][3]=snippetvideo`
@@ -58,34 +55,36 @@ export async function getStaticProps({ params }) {
 //animation variants
 
 const CategoryAnimationVariants = {
-  hidden: { opacity: 0, x: 0, y: -1000 },
-  enter: { opacity: 1, x: 0, y: 0, transition:
-  {staggerChildren: 0.25, delayChildren:0.25} }
- 
+  hidden: { opacity: 0, x: 0, y: 1000 },
+  enter: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { staggerChildren: 0.25, delayChildren: 0.25 },
+  },
 };
 
-const CategoryItemVariants ={
-  hidden:{y: 1000, opacity:0},
-  enter:{y:0, opacity:1},
-}
+const CategoryItemVariants = {
+  hidden: { y: 1000, opacity: 0 },
+  enter: { y: 0, opacity: 1 },
+};
 
 export default function Category({ categoryData }) {
   return (
-    <motion.div
-      variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
-      initial="hidden" // Set the initial state to variants.hidden
-      animate="enter" // Animated state to variants.enter
-      exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
-  
-      className={styles.categoryGrid}
-    >
+    <>
+      <motion.div
+        variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
+        initial="hidden" // Set the initial state to variants.hidden
+        animate="enter" // Animated state to variants.enter
+        exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
+        className={styles.categoryGrid}
+      >
+        {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
+            <PortfolioCard index={index} key={portfolio.id} portfolio={portfolio}/>
 
-      {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
-        <motion.div key={portfolio.id} variants={CategoryItemVariants}>
-          <PortfolioCard index={index} portfolio={portfolio} />
-        </motion.div>
-      ))}
-    </motion.div>
+        ))}
+      </motion.div>
+    </>
 
     // <div>
     //   <Head>
