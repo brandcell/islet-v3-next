@@ -106,6 +106,7 @@ export default function Home({ showcases }) {
                 <video
                   src={showcase.attributes.snippetvideo.data[0].attributes.url}
                   autoPlay
+                  playsInline
                   muted={true}
                   loop
                 ></video>

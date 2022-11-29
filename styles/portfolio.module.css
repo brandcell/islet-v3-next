@@ -30,7 +30,7 @@
 }
 
 .categoryGrid {
-  display: grid !important;
+  display: grid;
   overflow: hidden;
   grid-template-areas:
     "Area-1 Area-1 Area-2"
@@ -54,7 +54,7 @@
 
 @media (max-width:470px) {
 
-  .categoryGrid{
+  .categoryGrid {
     display:flex;
     flex-direction: column}
   
