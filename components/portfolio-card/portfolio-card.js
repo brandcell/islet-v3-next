@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import styled from "styled-components";
 
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 
 import Link from "next/link";
 
@@ -12,122 +12,102 @@ import Link from "next/link";
 
 const CardContainer = styled(motion.div)`
   position: relative;
-  overflow: hidden;
-  width: 100%;
   /* min-height: 315px; */
-  flex-direction: column;
-  overflow: hidden;
 `;
 
-const TextContainer = styled(motion.div)`
-  position: absolute;
-  width: 100%;
-  z-index: 10;
+//motion variants
 
-  & h1 {
-    font-family: Founders;
-    color: white;
-  }
-`;
+const imgVariants = {
+  rest: {
+    opacity: 1,
+  },
+  hover: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+};
 
-const ImageContainer = styled(motion.div)`
-  width: 100%;
-  height: 100%;
-`;
-
-
-const VideoContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-`;
-
-
-
-const Video = styled.video`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 5;
-
-  &:hover {
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 11;
-`;
-
-//motion variants 
 const textVariants = {
-  rest:{
-    y:-1000
+  rest: {
+    opacity: 0,
   },
-  hover:{
-    y:-20,
-    transition:{duration: 0.1,
-      type: "tween",
-      ease: "easeOut"}
-  }
-}
-
-const imageVariants ={
-  rest:{
-    opacity:1
+  hover: {
+    opacity: 1,
   },
-  hover:{
-    opacity:0,
-    transition:{duration: 0.4,
-      type: "tween",
-      ease: "easeOut"}
-  }
-
-  }
+  animate: {
+    opacity: 0,
+  },
+};
 
 function PortfolioCard({ portfolio, index }) {
   return (
     <CardContainer
-      style={{ gridArea: `Area-${index + 1}` }}
-      key={portfolio.id}
       initial="rest"
       whileHover="hover"
       animate="rest"
+      style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
     >
-      <TextContainer variants={textVariants}>
-        <h1>{portfolio.attributes.title}</h1>
-      </TextContainer>
-  
-      <ImageContainer variants={imageVariants}>
-      <img src={portfolio.attributes.display.data.attributes.url} style={{width:'100%', height:'100%',objectFit:'cover'}}/>
-        
-      </ImageContainer>
-  
-    
-      <VideoContainer>
-        <Video
-          autoPlay
-          muted
-          loop
-          src={portfolio.attributes.snippetvideo.data[0].attributes.url}
-        ></Video>
-      </VideoContainer>
+      <motion.h1 variants={textVariants} style={{ position: "absolute", color: "white", zIndex: "15", fontFamily:"Founders", left:"2%" }}>
+        {portfolio.attributes.title}
+      </motion.h1>
 
-      <StyledLink href={`/portfolios/${portfolio.id}`}></StyledLink>
+      
+      <motion.div
+        variants={imgVariants}
+        style={{
+          height: "100%",
+          width: "100%",
+          position: "absolute",
+          zIndex: "10",
+          objectFit:'cover'
+        }}
+        
+      ><Image fill src={portfolio.attributes.display.data.attributes.url}></Image></motion.div>
+
+      <div style={{ position: "absolute", height: "100%", width: "100%" }}>
+        <video
+          autoPlay="autoplay"
+          muted
+          playsinline
+          loop="true"
+          controls
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            height: "100%",
+          }}
+          src={portfolio.attributes.snippetvideo.data[0].attributes.url}
+        ></video>
+      </div>
+
+      <Link
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          zIndex: "20",
+        }}
+        href={`/portfolios/${portfolio.id}
+        `}
+      ></Link>
     </CardContainer>
   );
 }
 
 export default PortfolioCard;
 
-
 /* <Image
           alt=""
           fill
           src={portfolio.attributes.display.data.attributes.url}
           object-fit="cover" */
+
+//
+
+//
+
+//{portfolio.attributes.display.data.attributes.url}
+
+//

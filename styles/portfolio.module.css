@@ -1,5 +1,5 @@
 .portfolioGrid {
-  display: grid !important;
+  display: grid;
   overflow: hidden;
   grid-template-areas:
     "Area-1 Area-1 Area-2"
@@ -19,13 +19,12 @@
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 
-  @media (max-width:768px) {
-    grid-template-columns:1fr;
-    display:block;
-    
-  }
+}
 
 
+@media (max-width:470px) {
+  .portfolioGrid{display:flex;}
+  
 }
 
 .categoryGrid {
@@ -47,4 +46,10 @@
   grid-template-columns: auto auto auto !important;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
+
+}
+
+@media (max-width:470px) {
+  .categoryGrid{display:flex;}
+  
 }

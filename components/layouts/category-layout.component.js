@@ -18,6 +18,14 @@ const StyledLinkContainer = styled.div`
     font-size: 20px;
     color: white;
   }
+
+  @media (max-width:768px) {
+    & p{
+      font-size: 16px;
+    }
+
+    
+  }
 `;
 
 function CategoryLayout({ children }) {
