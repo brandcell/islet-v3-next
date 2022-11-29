@@ -4,17 +4,15 @@ import Image from "next/image";
 
 import styled from "styled-components";
 
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
 
 import Link from "next/link";
 
-//styled components 
+//styled components
 
 const CardContainer = styled(motion.div)`
-height: 0;
-position:relative;
-overflow: hidden;
-padding-top:56.25%;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   /* min-height: 315px; */
   flex-direction: column;
@@ -26,40 +24,45 @@ const TextContainer = styled(motion.div)`
   width: 100%;
   z-index: 10;
 
-  & h1{
+  & h1 {
     font-family: Founders;
     color: white;
   }
 `;
 
-const ImageContainer=styled(motion.div)`
-
-
-`
+const ImageContainer = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+`;
 
 
 const VideoContainer = styled.div`
-width:100%;
-height:100%;
-position:absolute;
-overflow: hidden;`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+`;
 
-const Video= styled.video`
-width:100%;
-height:100%;
-object-fit: cover;
-z-index:5;
-&:hover{
-  opacity: 0;
-  transition: opacity 0.5s;
 
-}`
+
+const Video = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 5;
+
+  &:hover {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+`;
 
 const StyledLink = styled(Link)`
-width:100%;
-height:100%;
-position:absolute;
-z-index:11`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 11;
+`;
 
 //motion variants 
 const textVariants = {
@@ -87,29 +90,44 @@ const imageVariants ={
 
   }
 
-
 function PortfolioCard({ portfolio, index }) {
   return (
-    <CardContainer style={{gridArea:`Area-${index+1}`}} key={portfolio.id} initial='rest' whileHover='hover' animate='rest'>
+    <CardContainer
+      style={{ gridArea: `Area-${index + 1}` }}
+      key={portfolio.id}
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+    >
       <TextContainer variants={textVariants}>
         <h1>{portfolio.attributes.title}</h1>
       </TextContainer>
   
-    <ImageContainer variants={imageVariants} >
-        <Image
-          alt=''
-          fill
-          src={portfolio.attributes.display.data.attributes.url}
-          object-fit='cover'
-        />
+      <ImageContainer variants={imageVariants}>
+      <img src={portfolio.attributes.display.data.attributes.url} style={{width:'100%', height:'100%',objectFit:'cover'}}/>
+        
       </ImageContainer>
   
+    
       <VideoContainer>
-      <Video autoPlay muted loop src={portfolio.attributes.snippetvideo.data[0].attributes.url}></Video></VideoContainer>
+        <Video
+          autoPlay
+          muted
+          loop
+          src={portfolio.attributes.snippetvideo.data[0].attributes.url}
+        ></Video>
+      </VideoContainer>
+
       <StyledLink href={`/portfolios/${portfolio.id}`}></StyledLink>
-  
     </CardContainer>
   );
 }
 
 export default PortfolioCard;
+
+
+/* <Image
+          alt=""
+          fill
+          src={portfolio.attributes.display.data.attributes.url}
+          object-fit="cover" */
