@@ -52,6 +52,7 @@ const FooterInnerContainers = styled.div`
     & p {
       font-size: 16px;
       line-height: 20px;
+      font-weight: 300;
     }
   }
 `;
@@ -66,8 +67,9 @@ const ContactInfoContainer = styled.div`
     line-height: 33px;
     margin: 0;
     color: black;
+    font-weight: 300;
   }
-  
+
   @media (max-width: 479px) {
     & h4 {
       font-size: 16px;
