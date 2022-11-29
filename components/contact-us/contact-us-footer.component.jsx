@@ -12,6 +12,13 @@ const FooterContainer = styled.div`
     font-family: Signifier;
     font-size: 22px;
     line-height: 33px;
+
+
+    @media (max-width: 479px) {
+      font-size: 16px;
+      line-height: 20px;
+      
+    }
   }
 `;
 
@@ -26,6 +33,7 @@ const FooterInnerContainers = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+  margin-bottom: 30px;
 
   & h1 {
     max-width: 400px;
@@ -33,6 +41,18 @@ const FooterInnerContainers = styled.div`
     margin: 0;
     color: black;
     font-family: Founders;
+    font-weight: 300;
+  }
+
+  @media (max-width: 479px) {
+    & h1 {
+      font-size: 45px;
+    }
+
+    & p {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 `;
 
@@ -46,6 +66,13 @@ const ContactInfoContainer = styled.div`
     line-height: 33px;
     margin: 0;
     color: black;
+  }
+  
+  @media (max-width: 479px) {
+    & h4 {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 `;
 
