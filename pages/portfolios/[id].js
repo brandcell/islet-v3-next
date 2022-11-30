@@ -4,6 +4,7 @@ import { API_URL } from "../../utils/urls";
 import styled from "styled-components";
 import TwoColumn from "../../styles/twocolumn.styles";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 
@@ -69,20 +70,19 @@ const DetailsWrapper = styled.div`
   width: 80%;
   max-width: 1140px;
 
-  & h1{
+  & h1 {
     font-size: 68px;
     line-height: 65px;
   }
 
   @media (max-width: 768px) {
+    padding: 30px;
+    width: auto;
 
-  padding: 30px;
-  width: auto;
-  
-  & h1{
-    font-size: 45px;
-    line-height: 45px;
-  }
+    & h1 {
+      font-size: 45px;
+      line-height: 45px;
+    }
   }
 `;
 
@@ -91,9 +91,8 @@ export const TextWrapper = styled.div`
   margin-right: 10px;
   margin-bottom: 30px;
 
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     min-width: 0;
-    
   }
 
   & h1 {
@@ -104,16 +103,12 @@ export const TextWrapper = styled.div`
     width: 100%;
     margin-bottom: 0;
 
-
-    @media (max-width:768px) {
+    @media (max-width: 768px) {
       font-size: 16px;
       line-height: 20px;
-      min-width:200px;
-      
+      min-width: 200px;
     }
   }
-
-
 
   & p {
     font-family: Founders;
@@ -130,30 +125,44 @@ export const MetaWrapper = styled.div`
   margin: auto;
   flex-direction: row;
   width: 100%;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 131px;
 
   @media (max-width: 768px) {
     margin-bottom: 50px;
     width: 100%;
-    
   }
 `;
 
 export default function Portfolio({ portfolioData }) {
+  const [portfolioOpen, setPortfolioOpen] = useState(true);
 
-  const router = useRouter()
+  const router = useRouter();
+
+  const closePortfolio = () => {
+    setPortfolioOpen(false);
+  };
+
+  
 
   return (
-    <div className="portfolio-page">
-      <div className="back-button-container" onClick={() => router.back()}>
-      <div className="back-button-wrapper">
-        <span className="first-line"></span>
-        <span className="second-line"></span>
-      </div>
-      
-       
+    <div
+      className={`portfolio-page ${
+        portfolioOpen ? "enter-portfolio" : "exit-portfolio"
+      }`}
+    >
+      <div
+        className="back-button-container"
+        onClick={ () => {closePortfolio();
+    router.back()
+        
+        }}
+      >
+        <div className="back-button-wrapper">
+          <span className="first-line"></span>
+          <span className="second-line"></span>
+        </div>
       </div>
       <Head>
         <title>{portfolioData.attributes.title}</title>
@@ -166,7 +175,7 @@ export default function Portfolio({ portfolioData }) {
           muted
           controls
           width="100%"
-          height='100%'
+          height="100%"
           src={portfolioData.attributes.fullvideo.data.attributes.url}
         ></VideoPlayer>
       </VideoContainer>
@@ -192,10 +201,15 @@ export default function Portfolio({ portfolioData }) {
             <TextWrapper></TextWrapper>
           </MetaWrapper>
           <TwoColumn>
-          <div className="block-one"><h2>Description</h2></div>
-            <div dangerouslySetInnerHTML={{ __html: portfolioData.attributes.description}} className="block-two"> 
-             </div>
-           
+            <div className="block-one">
+              <h2>Description</h2>
+            </div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: portfolioData.attributes.description,
+              }}
+              className="block-two"
+            ></div>
           </TwoColumn>
         </DetailsWrapper>
       </VideoDetailsContainer>

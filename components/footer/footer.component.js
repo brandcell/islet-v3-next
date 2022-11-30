@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const FooterContainer = styled.div`
   display: flex;
@@ -6,8 +7,6 @@ const FooterContainer = styled.div`
   background-color: #43594d;
   padding: 50px 58px 28px 60px;
   justify-content: space-between;
-
-
 
   & h1 {
     font-family: Founders;
@@ -23,7 +22,6 @@ const FooterContainer = styled.div`
     @media (max-width: 479px) {
       font-size: 16px;
       line-height: 20px;
-      
     }
   }
 `;
@@ -33,6 +31,14 @@ const FooterTopContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  & :nth-child(3){
+    :hover{
+      color: white;
+      cursor: pointer;
+    }
+    
+  }
 `;
 
 const FooterInnerContainers = styled.div`
@@ -64,6 +70,12 @@ const ContactInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  & a {
+    :hover {
+      color: white;
+    }
+  }
+
   & h4 {
     font-family: Founders;
     font-size: 22px;
@@ -88,20 +100,43 @@ function Footer() {
         </FooterInnerContainers>
         <FooterInnerContainers>
           <ContactInfoContainer>
-            <h4>Islet Studio Venture Co-Working Space</h4>
-            <h4>Jalan Tanjung Tokong, Penang, Malaysia.</h4>
+
+          <a target="_blank" href="https://www.google.com/maps/place/Lengkok+York,+Taman+Dhoby+Ghaut,+10450+George+Town,+Pulau+Pinang/@5.4138573,100.3054329,17z/data=!3m1!4b1!4m5!3m4!1s0x304ac3b4f7ca62f5:0xf2126c9487c7e9d5!8m2!3d5.4138573!4d100.3076216" rel="noopener noreferrer">
+          <h4>Islet Studio Venture Co-Working Space</h4>
+              <h4>Jalan Tanjung Tokong, Penang, Malaysia.</h4>
+            </a>
+
+
           </ContactInfoContainer>
 
           <ContactInfoContainer>
-            <h4>+60 124278228</h4>
-            <h4>info@isletstudio.com</h4>
+         
+
+            <a target="_blank" href="mailto:hello@isletstudio.com?subject=Hello!%20" rel="noopener noreferrer">
+          <h4>info@isletstudio.com</h4>
+            </a>
+  
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <h4>Instagram</h4>
+
+          <a target="_blank" href='https://www.instagram.com/robertvisuals.mov/?hl=en' rel="noopener noreferrer">
+          <h4>Instagram</h4>
+            </a>
+
+            <a target="_blank" href='https://www.facebook.com/RobVisuals/' rel="noopener noreferrer">
             <h4>Facebook</h4>
+            </a>
+
+
           </ContactInfoContainer>
         </FooterInnerContainers>
-        <FooterInnerContainers onClick={()=>{window.scrollTo({ top: 0, behavior: 'smooth' })}}>Back to Top</FooterInnerContainers>
+        <FooterInnerContainers 
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          Back to Top
+        </FooterInnerContainers>
       </FooterTopContainer>
       <p>All rights reserved © Islet Studio 2022</p>
     </FooterContainer>
