@@ -6,7 +6,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay,Mousewheel } from "swiper";
 
 import "swiper/css/bundle";
 import BlackLayout from "../components/layouts/black-layout.component";
@@ -77,11 +77,12 @@ export default function Home({ showcases }) {
     <div className="slider-wrapper">
       <Swiper
         // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay,Mousewheel]}
         slidesPerView={1}
         autoplay={{
           delay: 2500,
         }}
+        mousewheel={true}
         loop={true}
         speed={1000}
         direction="vertical"
