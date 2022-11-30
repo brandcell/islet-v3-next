@@ -104,7 +104,7 @@ export default function Home({ showcases }) {
             <Link href={`/portfolios/${showcase.id}`}>
               <div className="video-wrapper">
                 <video
-                  src={showcase.attributes.snippetvideo.data[0].attributes.url}
+                  src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
                   autoplay=""
                   playsinline=""
                   muted='true'
