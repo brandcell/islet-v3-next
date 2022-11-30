@@ -491,6 +491,7 @@ margin-top: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top:100px;
   margin-bottom: 200px;
 
   h2 {
@@ -525,6 +526,7 @@ margin-top: 100px;
 
   @media (max-width: 479px) {
     margin-bottom: 100px;
+    margin-top: 80px;
   }
 
   //top level block one
@@ -570,4 +572,5 @@ figcaption{
   text-align: center;
   font-family: Founders;
   font-size: 18px;
+  margin: 10px auto;
 }
