@@ -105,10 +105,10 @@ export default function Home({ showcases }) {
               <div className="video-wrapper">
                 <video
                   src={showcase.attributes.snippetvideo.data[0].attributes.url}
-                  autoPlay
-                  playsInline
-                  muted={true}
-                  loop
+                  autoplay=""
+                  playsinline=""
+                  muted='true'
+                  loop=""
                 ></video>
               </div>
 
