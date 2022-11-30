@@ -49,11 +49,19 @@ function PortfolioCard({ portfolio, index }) {
       animate="rest"
       style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
     >
-      <motion.h1 variants={textVariants} style={{ position: "absolute", color: "white", zIndex: "15", fontFamily:"Founders", left:"2%" }}>
+      <motion.h1
+        variants={textVariants}
+        style={{
+          position: "absolute",
+          color: "white",
+          zIndex: "15",
+          fontFamily: "Founders",
+          left: "2%",
+        }}
+      >
         {portfolio.attributes.title}
       </motion.h1>
 
-      
       <motion.div
         variants={imgVariants}
         style={{
@@ -61,10 +69,14 @@ function PortfolioCard({ portfolio, index }) {
           width: "100%",
           position: "absolute",
           zIndex: "10",
-          objectFit:'cover'
+          objectFit: "cover",
         }}
-        
-      ><Image fill src={portfolio.attributes.display.data.attributes.url}></Image></motion.div>
+      >
+        <Image
+          fill
+          src={portfolio.attributes.display.data.attributes.url}
+        ></Image>
+      </motion.div>
 
       <div style={{ position: "absolute", height: "100%", width: "100%" }}>
         <video

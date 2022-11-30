@@ -2,6 +2,7 @@ import axios from "axios";
 import Image from "next/image";
 import WhiteLayout from "../../components/layouts/white-layout.component";
 import { Page, PageContainer } from "../../styles/page.styles";
+import TwoColumn from "../../styles/twocolumn.styles";
 
 import { API_URL } from "../../utils/urls";
 
@@ -47,9 +48,9 @@ function Blog({ blogData }) {
           <h1>{blogData.attributes.title}</h1>
           <p>{`Written by ${blogData.attributes.author}/${blogData.attributes.publishedAt}`}</p>
 
-          <div style={{ width: "100%", position: "relative", height:'500px', marginBottom:'50px' }}>
+          <div style={{ width: "100%", position: "relative", aspectRatio:'16/9', marginBottom:'50px' }}>
             <Image
-              alt=""
+              alt='blog-header-pic'
               fill
               objectFit="cover"
               src={blogData.attributes.displayimage.data[0].attributes.url}
@@ -70,6 +71,8 @@ function Blog({ blogData }) {
               <p>{blogData.attributes.category.data.attributes.title}</p>
             </TextWrapper>
           </MetaWrapper>
+
+          <div dangerouslySetInnerHTML={{ __html: blogData.attributes.content}}></div>
         </div>
       </PageContainer>
     </Page>

@@ -5,6 +5,8 @@ import styled from "styled-components";
 import TwoColumn from "../../styles/twocolumn.styles";
 import { useRouter } from "next/router";
 
+import ReactMarkdown from "react-markdown";
+
 export async function getStaticPaths() {
   const res = await axios.get(`${API_URL}/api/portfolios?populate=%2A`);
 
@@ -191,7 +193,8 @@ export default function Portfolio({ portfolioData }) {
           </MetaWrapper>
           <TwoColumn>
           <div className="block-one"><h2>Description</h2></div>
-            <div className="block-two"> <p>{portfolioData.attributes.description}</p></div>
+            <div dangerouslySetInnerHTML={{ __html: portfolioData.attributes.description}} className="block-two"> 
+             </div>
            
           </TwoColumn>
         </DetailsWrapper>
