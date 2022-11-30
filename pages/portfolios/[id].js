@@ -144,8 +144,6 @@ export default function Portfolio({ portfolioData }) {
     setPortfolioOpen(false);
   };
 
-  
-
   return (
     <div
       className={`portfolio-page ${
@@ -154,9 +152,9 @@ export default function Portfolio({ portfolioData }) {
     >
       <div
         className="back-button-container"
-        onClick={ () => {closePortfolio();
-    router.back()
-        
+        onClick={() => {
+          closePortfolio();
+          router.back();
         }}
       >
         <div className="back-button-wrapper">
@@ -171,12 +169,11 @@ export default function Portfolio({ portfolioData }) {
       <br />
       <VideoContainer>
         <VideoPlayer
-          autoPlay
-          muted
-          controls
+          src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
+          autoplay=""
+          playsinline=""
           width="100%"
           height="100%"
-          src={portfolioData.attributes.fullvideo.data.attributes.url}
         ></VideoPlayer>
       </VideoContainer>
       <VideoDetailsContainer>

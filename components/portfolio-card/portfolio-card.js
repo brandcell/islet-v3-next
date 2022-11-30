@@ -80,17 +80,19 @@ function PortfolioCard({ portfolio, index }) {
 
       <div style={{ position: "absolute", height: "100%", width: "100%" }}>
         <video
-          autoPlay="autoplay"
-          muted
-          playsinline
-          loop="true"
-          controls
           style={{
             objectFit: "cover",
             width: "100%",
             height: "100%",
           }}
-          src={portfolio.attributes.snippetvideo.data[0].attributes.url}
+
+          src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolio.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
+
+          autoplay=""
+          playsinline=""
+          muted="true"
+          loop=""
+          
         ></video>
       </div>
 
