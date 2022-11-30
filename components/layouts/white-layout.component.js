@@ -1,19 +1,26 @@
-import Navbar from '../Navbar/navBar';
-import Footer from '../footer/footer.component'
+import Navbar from "../Navbar/navBar";
+import Footer from "../footer/footer.component";
 
-function WhiteLayout({children}) {
+function WhiteLayout({ children }) {
   return (
     <>
- <div style={{background:'white', position:'fixed', top:'0px',height:'100px', width:'100vw', zIndex:'80'}}></div>
-        <Navbar color='black'/>
-       
+      <div
+        style={{
+          background: "white",
+          position: "fixed",
+          top: "0px",
+          height: "100px",
+          width: "100vw",
+          zIndex: "80",
+        }}
+      ></div>
+      <Navbar color="black" />
 
-        {children}
-        
-        <Footer/>
+      {children}
 
+      <Footer />
     </>
-  )
+  );
 }
 
 export default WhiteLayout;

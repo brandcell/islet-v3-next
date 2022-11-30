@@ -48,9 +48,16 @@ function Blog({ blogData }) {
           <h1>{blogData.attributes.title}</h1>
           <p>{`Written by ${blogData.attributes.author}/${blogData.attributes.publishedAt}`}</p>
 
-          <div style={{ width: "100%", position: "relative", aspectRatio:'16/9', marginBottom:'50px' }}>
+          <div
+            style={{
+              width: "100%",
+              position: "relative",
+              aspectRatio: "16/9",
+              marginBottom: "50px",
+            }}
+          >
             <Image
-              alt='blog-header-pic'
+              alt="blog-header-pic"
               fill
               objectFit="cover"
               src={blogData.attributes.displayimage.data[0].attributes.url}
@@ -72,7 +79,9 @@ function Blog({ blogData }) {
             </TextWrapper>
           </MetaWrapper>
 
-          <div dangerouslySetInnerHTML={{ __html: blogData.attributes.content}}></div>
+          <div
+            dangerouslySetInnerHTML={{ __html: blogData.attributes.content }}
+          ></div>
         </div>
       </PageContainer>
     </Page>
