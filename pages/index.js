@@ -1,6 +1,7 @@
 import Head from "next/head";
 import axios from "axios";
 import { API_URL } from "../utils/urls";
+import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import Router, { useRouter } from "next/router";
@@ -88,11 +89,20 @@ const LoadingDiv = styled(motion.div)`
   height: 100vh;
   position: absolute;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   font-size: 100px;
   z-index: 200;
   
 `;
+
+const ImageWrapper= styled.div`
+aspect-ratio: 16 / 9;
+position: absolute;
+width: 80%;
+`
 
 export default function Home({ showcases }) {
   const [loading, setLoading] = useState(true);
@@ -103,9 +113,9 @@ export default function Home({ showcases }) {
     const handleComplete = () =>
       setTimeout(() => {
         setLoading(false);
-      }, 5000);
+      }, 7500);
 
-    // handleComplete();
+    handleComplete();
 
     return () => {
       handleStart;
@@ -127,13 +137,17 @@ export default function Home({ showcases }) {
             }}
           >
             <video 
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover",position:'absolute' }}
               autoplay=""
               loop=""
               muted="true"
               playsinline="">
-              <source src="../public/batman.mp4" type='video/mp4'/>
+              <source src="/waves.webm" type='video/webm'/>
               </video>
+              <ImageWrapper>
+              <Image src='/IsletLogo-white.svg' fill></Image>
+              </ImageWrapper>
+            
 
             </LoadingDiv> 
 
