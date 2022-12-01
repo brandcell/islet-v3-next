@@ -2,6 +2,11 @@ import Head from "next/head";
 import axios from "axios";
 import { API_URL } from "../utils/urls";
 
+
+
+import {useState, useEffect} from 'react';
+import Router from 'next/router';
+
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -72,9 +77,41 @@ const TitleWrapper = styled.div`
   }
 `;
 
+
+const LoadingDiv = styled.div`
+width: 100vw;
+height: 100vh;
+position: fixed;
+top:0;
+overflow:hidden;
+color:white;
+font-size: 100px`
+
 export default function Home({ showcases }) {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    Router.events.on('routeChangeStart', () => setLoading(true));
+    Router.events.on('routeChangeComplete', () => setLoading(false));
+    Router.events.on('routeChangeError', () => setLoading(false));
+    return () => {
+      Router.events.off('routeChangeStart', () => setLoading(true));
+      Router.events.off('routeChangeComplete', () => setLoading(false));
+      Router.events.off('routeChangeError', () => setLoading(false));
+    };
+  }, [Router.events]);
+
+
+
   return (
-    <div className="slider-wrapper">
+    <>
+       {
+      (loading)
+      ?
+      <LoadingDiv >Loading...</LoadingDiv>
+      :  
+      <div className="slider-wrapper">
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay,Mousewheel]}
@@ -121,6 +158,10 @@ export default function Home({ showcases }) {
         ))}
       </Swiper>
     </div>
+      
+    } 
+
+    </>
   );
 }
 

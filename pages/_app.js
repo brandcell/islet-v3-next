@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar/navBar";
 import "../styles/globals.scss";
-
 import { NavProvider } from "../contexts/navbar.context";
 
 
