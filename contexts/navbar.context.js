@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
 
 
-
 //make a context
 export const NavContext = createContext({
   isMenuOpen: false,

@@ -24,16 +24,17 @@ const menuAnimationVariants = {
   //from top to bottom
   open: { y: [-1000, 0]},
   closed: { y: [0, -1000] }
+
 }
 
-const Navbar = ({color}) => {
+const Navbar = ({color, portfolio}) => {
 
-  const { isMenuOpen, setMenuOpen } = useContext(NavContext);
+  const [ isMenuClicked, setMenuClicked] = useState(false)
 
-  const toggleMenuOpen = () => {
-    setMenuOpen(!isMenuOpen);
+
+  const toggleMenuClicked = () => {
+    setMenuClicked(!isMenuClicked);
   };
-
 
 
   return (
@@ -41,23 +42,23 @@ const Navbar = ({color}) => {
           <motion.div
             variants={menuAnimationVariants}
             className={styles.animationWrapper}
-            initial={{ y: [0, 0] }}
-            animate={isMenuOpen ? "open" : "closed"}
+            initial={false}
+            animate={isMenuClicked ? "open" : "closed"}
           >
             <SubMenu />
           </motion.div>
         
   
-      <div className={styles.navbarContainer}>
-        <div className={styles.navbarLinks}>
+      <div className={styles.navbarContainer} >
+        <div className={styles.navbarLinks} style={portfolio && {padding:'35px 30px'}}>
           <Link href="/">
             <IsletLogo className='islet-logo'
-              style={{ color: `${isMenuOpen && 'black' || color}` }}
+              style={{ color: `${isMenuClicked && 'black' || color}` }}
             />
           </Link>
 
-          <div className='menu-container-wrapper' onClick={toggleMenuOpen}>
-          <HamburgerMenu color={color}/>
+          <div className='menu-container-wrapper' onClick={toggleMenuClicked}>
+          <HamburgerMenu color={color} clicked={isMenuClicked}/>
           </div>
         </div>
       </div>

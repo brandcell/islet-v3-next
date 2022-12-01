@@ -14,23 +14,23 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const linkVariants = {
-  hover: {
-    x: [10,-10],
-    y:[0,-10],
-    transition:{
-      x:{
-        yoyo: Infinity,
-        duration:0.8
-      },
-      y:{
-        yoyo:Infinity,
-        duration:0.5
-      }
-    }
+// const linkVariants = {
+//   hover: {
+//     x: [10,-10],
+//     y:[0,-10],
+//     transition:{
+//       x:{
+//         yoyo: Infinity,
+//         duration:0.8
+//       },
+//       y:{
+//         yoyo:Infinity,
+//         duration:0.5
+//       }
+//     }
 
-    }
-  }
+//     }
+//   }
 
 const SubMenu = () => {
 

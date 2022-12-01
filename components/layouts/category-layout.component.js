@@ -6,11 +6,11 @@ import { useRouter } from "next/router";
 
 const StyledLinkContainer = styled.div`
   max-width: 657px;
-  min-height: 45px;
+  min-height: 50px;
   margin: auto;
-  margin-bottom: 25px;
-  padding: auto 100px;
+  top:100px;
   display: flex;
+  z-index: 100;
   justify-content: space-evenly;
   flex-wrap: wrap;
   column-gap: 30px;
@@ -29,10 +29,6 @@ const StyledLinkContainer = styled.div`
       font-size: 16px;
     }
 
-  
-
-
-
     
   }
 `;
@@ -45,7 +41,7 @@ function CategoryLayout({ children }) {
 
   return (
     <>
-      <Navbar color="white" />
+      <Navbar color="white" portfolio={true} />
 
       <div className="portfolio-page-wrapper">
         <StyledLinkContainer>
@@ -95,7 +91,7 @@ function CategoryLayout({ children }) {
           </Link>
         </StyledLinkContainer>
 
-        <AnimatePresence>{children}</AnimatePresence>
+        {children}
       </div>
     </>
   );

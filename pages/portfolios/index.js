@@ -2,6 +2,10 @@ import axios from "axios";
 
 import { API_URL } from "../../utils/urls";
 
+import { motion, AnimatePresence } from "framer-motion";
+
+import { CategoryAnimationVariants } from "./category/[category]";
+
 import PortfolioCard from "../../components/portfolio-card/portfolio-card";
 
 import styles from "../../styles/portfolio.module.css";
@@ -36,13 +40,21 @@ export async function getStaticProps() {
 
 export default function Portfolio({ portfolios }) {
   return (
-    <>
-      <div className={styles.portfolioGrid}>
+    <AnimatePresence>
+      <motion.div 
+      
+      variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
+      initial="hidden" // Set the initial state to variants.hidden
+      animate="enter" // Animated state to variants.enter
+      exit="exit" 
+      
+       className={styles.portfolioGrid}>
         {portfolios.map((port, index) => (
           <PortfolioCard key={port.id} index={index} portfolio={port} />
         ))}
-      </div>
-    </>
+      </motion.div>
+      </AnimatePresence>
+    
   );
 }
 
