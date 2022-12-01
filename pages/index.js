@@ -3,10 +3,11 @@ import axios from "axios";
 import { API_URL } from "../utils/urls";
 
 import { useState, useEffect } from "react";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 
 import Link from "next/link";
 import styled from "styled-components";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -82,91 +83,119 @@ const TitleWrapper = styled.div`
   }
 `;
 
-const LoadingDiv = styled.div`
+const LoadingDiv = styled(motion.div)`
   width: 100vw;
   height: 100vh;
-  position: fixed;
+  position: absolute;
   top: 0;
   overflow: hidden;
-  color: white;
   font-size: 100px;
+  z-index: 200;
+  
 `;
 
 export default function Home({ showcases }) {
-
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Router.events.on("routeChangeStart", () => setLoading(true));
-    Router.events.on("routeChangeComplete", () => setLoading(false));
-    Router.events.on("routeChangeError", () => setLoading(false));
+    const handleStart = () => setLoading(true);
+
+    const handleComplete = () =>
+      setTimeout(() => {
+        setLoading(false);
+      }, 5000);
+
+    // handleComplete();
+
     return () => {
-      Router.events.off("routeChangeStart", () => setLoading(true));
-      Router.events.off("routeChangeComplete", () => setLoading(false));
-      Router.events.off("routeChangeError", () => setLoading(false));
+      handleStart;
     };
   });
 
   return (
     <>
-      {loading ? (
-        <LoadingDiv>Loading...</LoadingDiv>
-      ) : (
-        <div className="slider-wrapper">
-          <Swiper
-            // install Swiper modules
-            modules={[
-              Navigation,
-              Pagination,
-              Scrollbar,
-              A11y,
-              Autoplay,
-              Mousewheel,
-            ]}
-            slidesPerView={1}
-            autoplay={{
-              delay: 2500,
-            }}
-            mousewheel={true}
-            loop={true}
-            speed={1000}
-            direction="vertical"
-            pagination={{
-              clickable: true,
-              // el: ".swiper-pagination",
-              renderBullet: function (index, className) {
-                return (
-                  '<span class="' +
-                  className +
-                  '"><span class="number">' +
-                  (index + 1) +
-                  '</span><span class="circle"></span></span>'
-                );
+      <AnimatePresence>
+        {loading ? (
+          <LoadingDiv
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{
+              opacity: 0,
+              transition: {
+                duration: 1,
               },
             }}
           >
-            {showcases.map((showcase) => (
-              <SwiperSlide key={showcase.id}>
-                <Link href={`/portfolios/${showcase.id}`}>
-                  <div className="video-wrapper">
-                    <video
-                      src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
-                      autoplay=""
-                      playsinline=""
-                      muted="true"
-                      loop=""
-                    ></video>
-                  </div>
+            <video 
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              autoplay=""
+              loop=""
+              muted="true"
+              playsinline="">
+              <source src="../public/batman.mp4" type='video/mp4'/>
+              </video>
 
-                  <TitleWrapper>
-                    <h1>{showcase.attributes.title}</h1>
-                  </TitleWrapper>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      )}
+            </LoadingDiv> 
+
+        ) : (
+          ""
+        )}
+      </AnimatePresence>
+
+      <div className="slider-wrapper">
+        <Swiper
+          // install Swiper modules
+          modules={[
+            Navigation,
+            Pagination,
+            Scrollbar,
+            A11y,
+            Autoplay,
+            Mousewheel,
+          ]}
+          slidesPerView={1}
+          autoplay={{
+            delay: 2500,
+          }}
+          mousewheel={true}
+          loop={true}
+          speed={1000}
+          direction="vertical"
+          pagination={{
+            clickable: true,
+            // el: ".swiper-pagination",
+            renderBullet: function (index, className) {
+              return (
+                '<span class="' +
+                className +
+                '"><span class="number">' +
+                (index + 1) +
+                '</span><span class="circle"></span></span>'
+              );
+            },
+          }}
+        >
+          {showcases.map((showcase) => (
+            <SwiperSlide key={showcase.id}>
+              <Link href={`/portfolios/${showcase.id}`}>
+                <div className="video-wrapper">
+                  <video
+                    src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
+                    autoplay=""
+                    playsinline=""
+                    muted="true"
+                    loop=""
+                  ></video>
+                </div>
+
+                <TitleWrapper>
+                  <h1>{showcase.attributes.title}</h1>
+                </TitleWrapper>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 }
