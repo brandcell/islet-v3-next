@@ -95,6 +95,7 @@ const LoadingDiv = styled(motion.div)`
   overflow: hidden;
   font-size: 100px;
   z-index: 200;
+  background-color: black;
   
 `;
 
