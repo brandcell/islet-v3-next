@@ -144,6 +144,8 @@ export default function Home({ showcases }) {
               muted="true"
               playsinline="">
               <source src="/waves.webm" type='video/webm'/>
+              <source src="/Waves.mp4" type='video/mp4'/>
+
               </video>
               <ImageWrapper>
               <Image src='/Isletlogo-white.svg' fill></Image>

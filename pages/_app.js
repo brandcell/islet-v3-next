@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar/navBar";
 import "../styles/globals.scss";
 import { NavProvider } from "../contexts/navbar.context";
-
+import { motion, AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }) {
 
@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+    <AnimatePresence>
       <NavProvider>
         
         <Layout>
@@ -17,7 +18,9 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       </NavProvider>
+      </AnimatePresence>
     </>
+    
   );
 }
 

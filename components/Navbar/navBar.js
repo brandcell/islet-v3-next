@@ -1,6 +1,6 @@
 import styles from "./navBar.module.css";
 
-import { useState, useContext } from "react";
+import { useState, useContext,  } from "react";
 
 import { Fragment } from "react";
 
@@ -18,28 +18,36 @@ import { NavContext } from "../../contexts/navbar.context";
 
 import HamburgerMenu from "./hamburger/hamburger.component";
 
+
+
+const menuAnimationVariants = {
+  //from top to bottom
+  open: { y: [-1000, 0]},
+  closed: { y: [0, -1000] }
+}
+
 const Navbar = ({color}) => {
+
   const { isMenuOpen, setMenuOpen } = useContext(NavContext);
 
   const toggleMenuOpen = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+
+
   return (
     <Fragment>
-      <AnimatePresence>
-        {isMenuOpen && (
           <motion.div
+            variants={menuAnimationVariants}
             className={styles.animationWrapper}
-            // initial={{ }}
-            animate={{ y: [-1000, 0] }}
-            exit={{ y: [0, -1000] }}
+            initial={{ y: [0, 0] }}
+            animate={isMenuOpen ? "open" : "closed"}
           >
             <SubMenu />
           </motion.div>
-        )}
-      </AnimatePresence>
-
+        
+  
       <div className={styles.navbarContainer}>
         <div className={styles.navbarLinks}>
           <Link href="/">
