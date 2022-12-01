@@ -93,6 +93,7 @@ const LoadingDiv = styled.div`
 `;
 
 export default function Home({ showcases }) {
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -104,7 +105,7 @@ export default function Home({ showcases }) {
       Router.events.off("routeChangeComplete", () => setLoading(false));
       Router.events.off("routeChangeError", () => setLoading(false));
     };
-  }, [Router.events]);
+  });
 
   return (
     <>
