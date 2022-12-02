@@ -1,10 +1,10 @@
 import Navbar from "../Navbar/navBar";
 import Footer from "../footer/footer.component";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 function WhiteLayout({ children }) {
   return (
-    <motion.div
+    <AnimatePresence exitBeforeEnter> <motion.div
     style={{overflowX:'hidden'}}
     animate={{x:[-1000,0] }}
     exit={{x:[1000,0]}}>
@@ -24,7 +24,8 @@ function WhiteLayout({ children }) {
       {children}
 
       <Footer />
-    </motion.div>
+    </motion.div></AnimatePresence>
+   
   );
 }
 

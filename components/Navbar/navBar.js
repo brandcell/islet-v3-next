@@ -29,11 +29,11 @@ const menuAnimationVariants = {
 
 const Navbar = ({color, portfolio, contrast}) => {
 
-  const [ isMenuClicked, setMenuClicked] = useState(false)
+  const [isMenuOpen,setMenuOpen] = useState(false)
 
 
   const toggleMenuClicked = () => {
-    setMenuClicked(!isMenuClicked);
+    setMenuOpen(!isMenuOpen);
   };
 
 
@@ -43,7 +43,7 @@ const Navbar = ({color, portfolio, contrast}) => {
             variants={menuAnimationVariants}
             className={styles.animationWrapper}
             initial={false}
-            animate={isMenuClicked ? "open" : "closed"}
+            animate={isMenuOpen ? "open" : "closed"}
           >
             <SubMenu />
           </motion.div>
@@ -53,12 +53,12 @@ const Navbar = ({color, portfolio, contrast}) => {
         <div className={styles.navbarLinks} style={portfolio && {padding:'35px 30px'}}>
           <Link href="/">
             <IsletLogo className='islet-logo'
-              style={{ color: `${isMenuClicked && 'black' || color}` }}
+              style={{ color: `${isMenuOpen && 'black' || color}` }}
             />
           </Link>
 
           <div className='menu-container-wrapper' onClick={toggleMenuClicked}>
-          <HamburgerMenu color={color} clicked={isMenuClicked}/>
+          <HamburgerMenu color={color} clicked={isMenuOpen}/>
           </div>
         </div>
       </div>
