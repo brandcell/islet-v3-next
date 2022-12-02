@@ -170,13 +170,11 @@ export default function Portfolio({ portfolioData }) {
       <VideoContainer>
         <VideoPlayer
           src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
-
           autoplay=""
           playsinline=""
           width="100%"
           height="100%"
           controls
-
         ></VideoPlayer>
       </VideoContainer>
       <VideoDetailsContainer>
