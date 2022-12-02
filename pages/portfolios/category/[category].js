@@ -3,7 +3,6 @@ import Head from "next/head";
 import CategoryLayout from "../../../components/layouts/category-layout.component";
 import PortfolioCard from "../../../components/portfolio-card/portfolio-card";
 
-
 import { API_URL } from "../../../utils/urls";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -57,39 +56,57 @@ export async function getStaticProps({ params }) {
 //animation variants
 
 export const CategoryAnimationVariants = {
-  hidden: { opacity: 1, x: 2000 },
+  hidden: { opacity: 0, x: 2000 },
   enter: {
     opacity: 1,
     x: 0,
-    transition:{type:'tween'}
+    transition: { type: "tween", staggerChildren: 0.5, },
   },
-
-  exit: { opacity: 1, x: 2000 ,transition:{type:'tween'}},
-  
+  exit: { opacity: 0, x: 2000, transition: { type: "tween" } },
 };
 
+export const portCardVariants = {
+  hidden: {
+    opacity: 0,
+    y: -1000,
+  },
+  enter: {
+    opacity: 1,
+    y:0,
+    transition:{type:'spring', stiffness:'30'}
+  },
+  exit: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 export default function Category({ categoryData }) {
-
-
   const router = useRouter();
   return (
-  <AnimatePresence exitBeforeEnter>
-    <motion.div
-
-      key={router.asPath}
-      variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
-      initial="hidden" // Set the initial state to variants.hidden
-      animate="enter" // Animated state to variants.enter
-      exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
-      className={styles.categoryGrid}
-    >
-      {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
-        <PortfolioCard index={index} key={portfolio.id} portfolio={portfolio} />
-      ))}
-    </motion.div>
-  </AnimatePresence>
-    
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        key={router.asPath}
+        variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
+        initial="hidden" // Set the initial state to variants.hidden
+        animate="enter" // Animated state to variants.enter
+        exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
+        className={styles.categoryGrid}
+      >
+        {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
+          <motion.div key={index} variants={portCardVariants}
+          
+          style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}>
+            <PortfolioCard
+              
+              index={index}
+              key={portfolio.id}
+              portfolio={portfolio}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </AnimatePresence>
 
     // <div>
     //   <Head>
@@ -103,4 +120,4 @@ export default function Category({ categoryData }) {
   );
 }
 
-Category.Layout = CategoryLayout
+Category.Layout = CategoryLayout;

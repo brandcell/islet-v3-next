@@ -16,6 +16,21 @@ const CardContainer = styled(motion.div)`
 `;
 
 //motion variants
+const portCardVariants =
+{
+  rest: {
+    opacity: 0,
+    y:1000,
+  },
+  hover: {
+    opacity: 1,
+  },
+  animate: {
+    opacity: 1,
+    y:0,
+  },
+
+}
 
 const imgVariants = {
   rest: {
@@ -44,9 +59,11 @@ const textVariants = {
 function PortfolioCard({ portfolio, index }) {
   return (
     <CardContainer
+    key={index}
+    variants={portCardVariants}
       initial="rest"
       whileHover="hover"
-      animate="rest"
+      animate="animate"
       style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
     >
       <motion.h1

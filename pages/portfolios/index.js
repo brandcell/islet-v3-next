@@ -4,7 +4,7 @@ import { API_URL } from "../../utils/urls";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { CategoryAnimationVariants } from "./category/[category]";
+import { CategoryAnimationVariants, portCardVariants } from "./category/[category]";
 
 import PortfolioCard from "../../components/portfolio-card/portfolio-card";
 
@@ -50,7 +50,10 @@ export default function Portfolio({ portfolios }) {
       
        className={styles.portfolioGrid}>
         {portfolios.map((port, index) => (
+          <motion.div style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }} key={index} variants={portCardVariants}>
           <PortfolioCard key={port.id} index={index} portfolio={port} />
+          </motion.div>
+          
         ))}
       </motion.div>
       </AnimatePresence>
