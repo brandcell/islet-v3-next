@@ -8,7 +8,7 @@ overflow: hidden;
 
 @media (max-width: 768px) {
      
-     padding: 0px 60px;
+     padding: 0px 30px;
     }
 
 @media (max-width: 375px) {

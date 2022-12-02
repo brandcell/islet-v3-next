@@ -5,8 +5,8 @@ import styled from "styled-components";
 import TwoColumn from "../../styles/twocolumn.styles";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import ReactMarkdown from "react-markdown";
 
 export async function getStaticPaths() {
   const res = await axios.get(`${API_URL}/api/portfolios?populate=%2A`);
@@ -140,20 +140,21 @@ export default function Portfolio({ portfolioData }) {
 
   const router = useRouter();
 
-  const closePortfolio = () => {
-    setPortfolioOpen(false);
-  };
+  // const closePortfolio = () => {
+  //   setPortfolioOpen(false);
+  // };
 
   return (
-    <div
-      className={`portfolio-page ${
-        portfolioOpen ? "enter-portfolio" : "exit-portfolio"
-      }`}
+      <motion.div key={portfolioData.id} 
+      style={{overflowY:'hidden'}}
+      animate={{y:[1000,0]}} exit={{y:[0,1000]}}
+      // className={`portfolio-page ${
+      //   // portfolioOpen ? "enter-portfolio" : "exit-portfolio"
+      // }`}
     >
       <div
         className="back-button-container"
         onClick={() => {
-          closePortfolio();
           router.back();
         }}
       >
@@ -211,6 +212,7 @@ export default function Portfolio({ portfolioData }) {
           </TwoColumn>
         </DetailsWrapper>
       </VideoDetailsContainer>
-    </div>
+    </motion.div>
+    
   );
 }

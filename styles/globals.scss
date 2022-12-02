@@ -22,7 +22,7 @@ a {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: black;
+    background: white;
   }
 }
 
@@ -190,6 +190,7 @@ video {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  
 
   @media (max-width:479px) {
     
@@ -208,6 +209,8 @@ video {
 
     p {
       font-family: Signifier;
+      font-size: 22px;
+      line-height: 33px;
 
       @media (max-width:991px) {
         font-size: 22px;
@@ -245,6 +248,7 @@ margin-top: 100px;
 .client-section{
   display: flex;
   flex-direction: column;
+  margin-bottom: 100px;
 
   h1{
     font-size: 60px;

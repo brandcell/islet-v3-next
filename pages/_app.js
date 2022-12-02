@@ -13,13 +13,17 @@ function MyApp({ Component, pageProps }) {
     <>
    
       <NavProvider>
-        
+      <AnimatePresence exitBeforeEnter>
         <Layout>
+
         
-          <Component {...pageProps} key={router.route}/>
+        
+          <Component {...pageProps} key={router.asPath}/>
          
+          
         </Layout>
-        
+        </AnimatePresence>
+      
       </NavProvider>
       
     </>
@@ -27,6 +31,6 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-const EmptyLayout = ({ children }) => <>{children}</>;
+const EmptyLayout = ({ children }) => <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>;
 
 export default MyApp;

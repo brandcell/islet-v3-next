@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const FooterContainer = styled.div`
   display: flex;
@@ -83,7 +84,9 @@ function ContactUsFooter() {
     <FooterContainer color="white">
       <FooterTopContainer>
         <FooterInnerContainers>
-          <h1>Don’t be shy, let’s chat!</h1>
+          <motion.h1 initial={{x:-1000}} animate={{x:0}}
+          transition={{type:'spring', stiffness:60}}
+          >Don’t be shy, let’s chat!</motion.h1>
         </FooterInnerContainers>
         <FooterInnerContainers>
           <ContactInfoContainer>

@@ -4,23 +4,17 @@ import styled from "styled-components";
 
 export const StyledClientCard = styled.div`
 width: 150px;
-padding: 20px;
 display: flex;
 flex-direction: column;
-margin-right: 30px;
-margin-bottom:69px;
 align-items: center;
 
-@media (max-width:991px) {
-  margin-right: 20px;
-  margin-left: 20px;
-  width:130px;
-
+@media (max-width:768px) {
+  width: 80px;
 }
 
-@media (max-width:479px) {
-  width:80px;
-
+@media (max-width:550px) {
+  width: 80px;
+  
 }
 
 
@@ -36,19 +30,8 @@ align-items: center;
 const ImageWrapper = styled.div`
 position:relative;
 height:80px;
-width:150px;
-
-@media (max-width:991px) {
-  width:130px;
-
+width:100%;
   
-}
-
-@media (max-width:479px) {
-  width:80px;
-
-  
-}
 `
 
 function ClientCard({client}) {

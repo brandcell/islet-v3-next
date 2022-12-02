@@ -43,8 +43,10 @@ function CategoryLayout({ children }) {
   console.log(router.pathname);
 
   return (
-    <>
-      <div className="portfolio-page-wrapper">
+    
+      <motion.div style={{overflowX:'hidden'}}
+
+      className="portfolio-page-wrapper">
         <Navbar color="white" portfolio={true} />
         <StyledFixedLinkbar>
           <StyledLinkContainer>
@@ -96,8 +98,8 @@ function CategoryLayout({ children }) {
         </StyledFixedLinkbar>
 
         {children}
-      </div>
-    </>
+      </motion.div>
+    
   );
 }
 

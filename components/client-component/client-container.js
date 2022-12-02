@@ -3,16 +3,32 @@ import styled from "styled-components";
 
 const ClientContainerWrapper=styled.div`
 display:flex;
-flex-direction:row;
 flex-wrap:wrap;
-max-width:900px;
-min-width: 260px;
-margin:auto auto 280px auto;
+max-width: 900px;
+margin: auto;
+column-gap:30px;
+row-gap: 40px;
 
-@media (max-width:991px) {
-  margin:0;
+
+
+@media (max-width:768px) {
+  width: 600px;
+  margin:auto;
+  column-gap: 40px;
 }
-`
+
+@media (max-width:550px) {
+  width: 400px;
+  margin:auto;
+}
+
+@media (max-width:479px) {
+  width: auto;
+  margin:auto;
+}`
+
+
+
 
 
 function ClientContainer({ clientlist }) {
