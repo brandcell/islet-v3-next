@@ -41,9 +41,10 @@ function CategoryLayout({ children }) {
 
   return (
     <>
-      <Navbar color="white" portfolio={true} />
+      
 
       <div className="portfolio-page-wrapper">
+      <Navbar color="white" portfolio={true} />
         <StyledLinkContainer>
           <Link
             className={router.asPath === "/portfolios" ? "active" : ""}
