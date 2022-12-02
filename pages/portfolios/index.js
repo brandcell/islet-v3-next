@@ -4,7 +4,10 @@ import { API_URL } from "../../utils/urls";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { CategoryAnimationVariants, portCardVariants } from "./category/[category]";
+import {
+  CategoryAnimationVariants,
+  PortCardVariants,
+} from "./category/[category]";
 
 import PortfolioCard from "../../components/portfolio-card/portfolio-card";
 
@@ -41,23 +44,24 @@ export async function getStaticProps() {
 export default function Portfolio({ portfolios }) {
   return (
     <AnimatePresence>
-      <motion.div 
-      
-      variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
-      initial="hidden" // Set the initial state to variants.hidden
-      animate="enter" // Animated state to variants.enter
-      exit="exit" 
-      
-       className={styles.portfolioGrid}>
+      <motion.div
+        variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
+        initial="hidden" // Set the initial state to variants.hidden
+        animate="enter" // Animated state to variants.enter
+        exit="exit"
+        className={styles.portfolioGrid}
+      >
         {portfolios.map((port, index) => (
-          <motion.div style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }} key={index} variants={portCardVariants}>
-          <PortfolioCard key={port.id} index={index} portfolio={port} />
+          <motion.div
+            style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
+            key={index}
+            variants={PortCardVariants}
+          >
+            <PortfolioCard key={port.id} index={index} portfolio={port} />
           </motion.div>
-          
         ))}
       </motion.div>
-      </AnimatePresence>
-    
+    </AnimatePresence>
   );
 }
 

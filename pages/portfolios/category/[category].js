@@ -65,15 +65,15 @@ export const CategoryAnimationVariants = {
   exit: { opacity: 0, x: 2000, transition: { type: "tween" } },
 };
 
-export const portCardVariants = {
+export const PortCardVariants = {
   hidden: {
     opacity: 0,
-    y: -1000,
+    y: 1000,
   },
   enter: {
     opacity: 1,
     y:0,
-    transition:{type:'spring', stiffness:'30'}
+    transition:{type:'spring',stiffness:30,duration:1}
   },
   exit: {
     opacity: 1,
@@ -94,7 +94,7 @@ export default function Category({ categoryData }) {
         className={styles.categoryGrid}
       >
         {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
-          <motion.div key={index} variants={portCardVariants}
+          <motion.div key={index} variants={PortCardVariants}
           
           style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}>
             <PortfolioCard

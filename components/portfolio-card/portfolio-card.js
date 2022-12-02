@@ -16,21 +16,6 @@ const CardContainer = styled(motion.div)`
 `;
 
 //motion variants
-const portCardVariants =
-{
-  rest: {
-    opacity: 0,
-    y:1000,
-  },
-  hover: {
-    opacity: 1,
-  },
-  animate: {
-    opacity: 1,
-    y:0,
-  },
-
-}
 
 const imgVariants = {
   rest: {
@@ -59,8 +44,7 @@ const textVariants = {
 function PortfolioCard({ portfolio, index }) {
   return (
     <CardContainer
-    key={index}
-    variants={portCardVariants}
+      key={index}
       initial="rest"
       whileHover="hover"
       animate="animate"
@@ -102,14 +86,11 @@ function PortfolioCard({ portfolio, index }) {
             width: "100%",
             height: "100%",
           }}
-
           src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolio.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${portfolio.attributes.snippetvideo.data[0].attributes.ext}`}
-
           autoplay=""
           playsinline=""
           muted="true"
           loop=""
-          
         ></video>
       </div>
 
