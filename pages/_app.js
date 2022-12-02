@@ -13,16 +13,15 @@ function MyApp({ Component, pageProps }) {
     <>
    
       <NavProvider>
-      <AnimatePresence exitBeforeEnter>
+      
         <Layout>
-
-        
+        <AnimatePresence exitBeforeEnter>
         
           <Component {...pageProps} key={router.asPath}/>
-         
+          </AnimatePresence>
           
         </Layout>
-        </AnimatePresence>
+        
       
       </NavProvider>
       
