@@ -27,7 +27,7 @@ const menuAnimationVariants = {
 
 }
 
-const Navbar = ({color, portfolio}) => {
+const Navbar = ({color, portfolio, contrast}) => {
 
   const [ isMenuClicked, setMenuClicked] = useState(false)
 

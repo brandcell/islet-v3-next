@@ -1,6 +1,7 @@
 .portfolioGrid {
   display: grid;
   overflow: hidden;
+  margin-top: 80px;
   grid-template-areas:
     "Area-1 Area-1 Area-2"
     "Area-1 Area-1 Area-3"
@@ -31,6 +32,7 @@
 
 .categoryGrid {
   display: grid;
+  margin-top: 100px;
   overflow: hidden;
   grid-template-areas:
     "Area-1 Area-1 Area-2"
