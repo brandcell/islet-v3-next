@@ -43,7 +43,6 @@ const VideoContainer = styled.div`
     width: 100vw;
   };
   position: sticky;
-  height: 70vh;
   top: 0px;
   width: 100vw;
 `;
@@ -164,8 +163,8 @@ export default function Portfolio({ portfolioData }) {
   return (
     <motion.div
       key={portfolioData.id}
-      animate={{ y: [1000, 0] }}
-      exit={{ y: [0, 1000] }}
+      animate={{ y: [2000, 0] }}
+      exit={{ y: [0, 2000] }}
       className={`portfolio-page ${
         portfolioOpen ? "enter-portfolio" : "exit-portfolio"
       }`}
