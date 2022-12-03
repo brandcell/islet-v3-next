@@ -10,7 +10,6 @@ column-gap:30px;
 row-gap: 40px;
 
 
-
 @media (max-width:768px) {
   width: 600px;
   margin:auto;

@@ -140,17 +140,17 @@ export default function Portfolio({ portfolioData }) {
 
   const router = useRouter();
 
-  // const closePortfolio = () => {
-  //   setPortfolioOpen(false);
-  // };
+  const closePortfolio = () => {
+    setPortfolioOpen(false);
+  };
 
   return (
       <motion.div key={portfolioData.id} 
       style={{overflowY:'hidden'}}
       animate={{y:[1000,0]}} exit={{y:[0,1000]}}
-      // className={`portfolio-page ${
-      //   // portfolioOpen ? "enter-portfolio" : "exit-portfolio"
-      // }`}
+      className={`portfolio-page ${
+        portfolioOpen ? "enter-portfolio" : "exit-portfolio"
+      }`}
     >
       <div
         className="back-button-container"
