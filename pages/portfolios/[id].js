@@ -54,6 +54,7 @@ const VideoDetailsContainer = styled.div`
   z-index: 200;
   position: sticky;
   top: 0;
+  box-shadow: 0px 5px 40px 50px rgb(0 0 0 / 95%);
 
   & h1 {
     font-family: Founders;
@@ -150,15 +151,6 @@ export const MetaWrapper = styled.div`
   }
 `;
 
-const Overlay = styled.div`
-  height: 100px;
-  width: 100vw;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.95)
-  );
-`;
 
 export default function Portfolio({ portfolioData }) {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
@@ -206,7 +198,6 @@ export default function Portfolio({ portfolioData }) {
       </VideoContainer>
 
       <VideoDetailsContainer>
-        <Overlay />
         <BackgroundWrapper>
           <DetailsWrapper>
             <h1>{portfolioData.attributes.title}</h1>
