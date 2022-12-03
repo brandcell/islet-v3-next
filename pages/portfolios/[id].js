@@ -38,8 +38,12 @@ export async function getStaticProps({ params }) {
 
 const VideoContainer = styled.div`
   aspect-ratio: 16/9;
+  @supports not (aspect-ratio: 16 / 9){
+    height: auto;
+    width: 100vw;
+  };
   position: sticky;
-  height: 100vh;
+  height: 70vh;
   top: 0px;
   width: 100vw;
 `;
@@ -151,7 +155,7 @@ const Overlay = styled.div`
   width: 100vw;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.001),
+    rgba(0, 0, 0, 0.1),
     rgba(0, 0, 0, 0.95)
   );
 `;
