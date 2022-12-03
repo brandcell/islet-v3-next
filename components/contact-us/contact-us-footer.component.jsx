@@ -7,7 +7,6 @@ const FooterContainer = styled.div`
   background-color: ${(props) => props.color};
   padding: 30px;
   justify-content: space-between;
-  margin-top: 140px;
 
   & p {
     font-family: Signifier;

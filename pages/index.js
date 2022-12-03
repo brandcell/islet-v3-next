@@ -203,10 +203,7 @@ allowfullscreen></iframe> */}
                 <div className="video-wrapper">
                   <video
                     src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
-                    autoplay=""
-                    playsinline=""
-                    muted="true"
-                    loop=""
+                    autoPlay loop muted playsInline
                   ></video>
                 </div>
 

@@ -12,6 +12,17 @@ function ContactUs() {
     exit={{x:[1000,0]}}
 >
       <Script src="https://apps.elfsight.com/p/platform.js" />
+
+      <div
+        style={{
+          background: "white",
+          position: "fixed",
+          top: "0px",
+          height: "100px",
+          width: "100vw",
+          zIndex: "80",
+        }}
+      ></div>
       <Navbar color="black" />
       <div className="contact-us-page-wrapper">
         <ContactUsFooter />
