@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 import styled from "styled-components";
-import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 const BlogCardWrapper = styled(motion.div)`
   position: relative;

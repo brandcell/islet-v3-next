@@ -104,7 +104,7 @@ const AboutUS = ({ clientlist }) => {
         </TwoColumn>
 
         <motion.h3
-          initial={{ opacity: 0, x: -1000 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{
             delay: 0.5,
@@ -132,7 +132,7 @@ const AboutUS = ({ clientlist }) => {
           <motion.div 
           
           initial={{ scale: 1 }}
-              whileInView={{ scale: 1.5}}
+              whileInView={{ scale: 1.8}}
               transition={{
                  yoyo: Infinity, duration:1
               

@@ -1,11 +1,18 @@
 import styled from "styled-components";
 import Link from "next/link";
 
+
+const FooterWrapper= styled.div`
+background-color:#43594d;
+width:100vw`
+
 const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin: auto;
+  max-width: 1440px;
   background-color: #43594d;
-  padding: 50px 58px 28px 60px;
+  padding: 30px;
   justify-content: space-between;
 
   & h1 {
@@ -93,6 +100,7 @@ const ContactInfoContainer = styled.div`
 
 function Footer() {
   return (
+    <FooterWrapper>
     <FooterContainer>
       <FooterTopContainer>
         <FooterInnerContainers>
@@ -140,6 +148,7 @@ function Footer() {
       </FooterTopContainer>
       <p>All rights reserved © Islet Studio 2022</p>
     </FooterContainer>
+    </FooterWrapper>
   );
 }
 

@@ -5,7 +5,7 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.color};
-  padding: 50px 58px 28px 60px;
+  padding: 30px;
   justify-content: space-between;
   margin-top: 140px;
 
@@ -41,7 +41,7 @@ const FooterInnerContainers = styled.div`
     color: black;
     font-family: Founders;
     font-weight: 300;
-    line-height: 65px;
+    line-height: 68px;
   }
 
   @media (max-width: 479px) {
@@ -83,6 +83,7 @@ function ContactUsFooter() {
     <FooterContainer color="white">
       <FooterTopContainer>
         <FooterInnerContainers>
+          <div>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,6 +110,7 @@ function ContactUsFooter() {
           >
             let’s chat!
           </motion.h1>
+          </div>
         </FooterInnerContainers>
         <FooterInnerContainers>
           <ContactInfoContainer>
