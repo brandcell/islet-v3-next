@@ -1,13 +1,16 @@
 import Navbar from "../Navbar/navBar";
 import Footer from "../footer/footer.component";
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 function WhiteLayout({ children }) {
+  const router = useRouter()
   return (
-    <AnimatePresence exitBeforeEnter> <motion.div
+    <AnimatePresence > <motion.div
+    key={router.asPath}
     style={{overflowX:'hidden'}}
     animate={{x:[-1000,0] }}
-    exit={{x:[1000,0]}}>
+    >
 
       <div
         style={{

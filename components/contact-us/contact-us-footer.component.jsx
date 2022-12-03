@@ -14,11 +14,9 @@ const FooterContainer = styled.div`
     font-size: 22px;
     line-height: 33px;
 
-
     @media (max-width: 479px) {
       font-size: 16px;
       line-height: 20px;
-      
     }
   }
 `;
@@ -43,6 +41,7 @@ const FooterInnerContainers = styled.div`
     color: black;
     font-family: Founders;
     font-weight: 300;
+    line-height: 65px;
   }
 
   @media (max-width: 479px) {
@@ -84,9 +83,32 @@ function ContactUsFooter() {
     <FooterContainer color="white">
       <FooterTopContainer>
         <FooterInnerContainers>
-          <motion.h1 initial={{x:-1000}} animate={{x:0}}
-          transition={{type:'spring', stiffness:60}}
-          >Don’t be shy, let’s chat!</motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.5,
+              duration: 0.5,
+              type: "tween",
+              ease: "easeOut",
+            }}
+            viewport={{ once: true }}
+          >
+            Don’t be shy, 
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 1.5,
+              duration: 0.5,
+              type: "tween",
+              ease: "easeOut",
+            }}
+            viewport={{ once: true }}
+          >
+            let’s chat!
+          </motion.h1>
         </FooterInnerContainers>
         <FooterInnerContainers>
           <ContactInfoContainer>

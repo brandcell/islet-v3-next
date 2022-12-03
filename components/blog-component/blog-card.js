@@ -1,16 +1,27 @@
 import { buildTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import styled from "styled-components";
+import { NodeNextRequest } from "next/dist/server/base-http/node";
 
-const BlogCardWrapper = styled.div`
+const BlogCardWrapper = styled(motion.div)`
   position: relative;
   display: flex;
-  width:100%;
+  width: 30%;
+  min-width: 270px;
   flex-direction: column;
   margin-right: 20px;
 
+  @media (max-width: 479px) {
+    width: 100%;
+    
+  }
+
+  & h3{
+    font-family: Signifier;
+  }
   & h1 {
     font-family: Founders;
     font-weight: 100;
@@ -36,10 +47,42 @@ const ImgWrapper = styled.div`
   aspect-ratio: 16 / 9;
 `;
 
+const FullBlogCardVariant = {
+  initial: {},
+
+  hover: {},
+};
+
+const ContentCardVariants = {
+  initial: {
+    opacity: 1,
+  },
+
+  hover: {
+    opacity: 1,
+    y: [0, -50],
+  },
+};
+
+const FloatyTextVariants = {
+  initial: {
+    display: "none",
+  },
+
+  hover: {
+    display: "block",
+  },
+};
+
+
 function BlogCard({ blog }) {
   return (
-    <Link href={`/case-studies/${blog.id}`}>
-      <BlogCardWrapper>
+    <BlogCardWrapper
+      variants={FullBlogCardVariant}
+      initial="initial"
+      whileHover="hover"
+    >
+      <Link href={`/case-studies/${blog.id}`}>
         <ImgWrapper>
           <Image
             alt={blog.attributes.id}
@@ -47,10 +90,18 @@ function BlogCard({ blog }) {
             src={blog.attributes.displayimage.data[0].attributes.url}
           ></Image>
         </ImgWrapper>
-        <h1>{blog.attributes.title}</h1>
-        <p>{blog.attributes.previewText}</p>
-      </BlogCardWrapper>
-    </Link>
+        <motion.div
+          style={{ borderRadius: "1px", background: "white",paddingTop:'5px' }}
+          variants={ContentCardVariants}
+        >
+          <motion.h3 variants={FloatyTextVariants}>
+            {blog.attributes.contenttype}
+          </motion.h3>
+          <h1>{blog.attributes.title}</h1>
+          <p>{blog.attributes.previewText}</p>
+        </motion.div>
+      </Link>
+    </BlogCardWrapper>
   );
 }
 

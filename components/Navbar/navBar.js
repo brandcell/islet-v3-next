@@ -22,8 +22,10 @@ import HamburgerMenu from "./hamburger/hamburger.component";
 
 const menuAnimationVariants = {
   //from top to bottom
-  open: { y: [-1000, 0]},
-  closed: { y: [0, -1000] }
+  closed: { y: [-1000, 0]},
+
+  //from bottom to top
+  open: { y: [0, -1000] }
 
 }
 
@@ -43,7 +45,7 @@ const Navbar = ({color, portfolio, contrast}) => {
             variants={menuAnimationVariants}
             className={styles.animationWrapper}
             initial={false}
-            animate={isMenuOpen ? "open" : "closed"}
+            animate={isMenuOpen ? "closed" : "open"}
           >
             <SubMenu />
           </motion.div>

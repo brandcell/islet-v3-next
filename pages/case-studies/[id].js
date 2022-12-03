@@ -2,7 +2,7 @@ import axios from "axios";
 import Image from "next/image";
 import WhiteLayout from "../../components/layouts/white-layout.component";
 import { Page, PageContainer } from "../../styles/page.styles";
-import TwoColumn from "../../styles/twocolumn.styles";
+import Date from "../../components/date";
 
 import { API_URL } from "../../utils/urls";
 
@@ -46,7 +46,11 @@ function Blog({ blogData }) {
         <div class="blog-content-wrapper">
           <p>{blogData.attributes.contenttype}</p>
           <h1>{blogData.attributes.title}</h1>
-          <p>{`Written by ${blogData.attributes.author}/${blogData.attributes.publishedAt}`}</p>
+          <p>
+            {`Written by ${blogData.attributes.author} / `}
+
+            <Date dateString={blogData.attributes.publishedAt} />
+          </p>
 
           <div
             style={{
@@ -75,7 +79,7 @@ function Blog({ blogData }) {
             </TextWrapper>
             <TextWrapper>
               <h1>Production Role</h1>
-              <p>{blogData.attributes.category.data.attributes.title}</p>
+              <p>{blogData.attributes.category.data.attributes.role}</p>
             </TextWrapper>
           </MetaWrapper>
 

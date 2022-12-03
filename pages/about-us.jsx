@@ -56,7 +56,9 @@ const AboutUS = ({ clientlist }) => {
                 duration: 0.5,
                 type: "tween",
                 ease: "easeOut",
+                
               }}
+              viewport={{ once: true }}
             >
               to divulge stories.
             </motion.h1>
@@ -110,6 +112,7 @@ const AboutUS = ({ clientlist }) => {
             type: "spring",
             stiffness: 50,
           }}
+          viewport={{ once: true }}
           className="pull-quote"
           style={{ marginTop: 100, marginBottom: 100 }}
         >

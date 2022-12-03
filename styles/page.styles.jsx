@@ -24,6 +24,7 @@ max-width: 1140px;
 height:auto;
 margin:auto;
 
+
 @media (max-width: 768px) {
      /* max-width: 714px; */
     }
