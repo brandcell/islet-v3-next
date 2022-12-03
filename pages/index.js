@@ -108,7 +108,7 @@ width: 80%;
 export default function Home({ showcases }) {
   const [loading, setLoading] = useState(true);
 
-
+  //client side effect 
   useEffect(() => {
     const handleStart = () => setLoading(true);
 
@@ -163,8 +163,8 @@ allowfullscreen></iframe> */}
           ""
         )}
       </AnimatePresence>
-
-      <div className="slider-wrapper">
+      <motion.div className="slider-wrapper">
+        {loading && <div className="black-bg" style={{position:'absolute', width:'100vw', height:'100vh',background:'black', zIndex:'100'}}></div>}
         <Swiper
           // install Swiper modules
           modules={[
@@ -182,6 +182,7 @@ allowfullscreen></iframe> */}
           mousewheel={true}
           loop={true}
           speed={1000}
+          maxBackfaceHiddenSlides={0}
           direction="vertical"
           pagination={{
             clickable: true,
@@ -214,7 +215,8 @@ allowfullscreen></iframe> */}
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
+     
     </>
   );
 }
