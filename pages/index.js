@@ -108,6 +108,7 @@ width: 80%;
 export default function Home({ showcases }) {
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     const handleStart = () => setLoading(true);
 
@@ -137,12 +138,16 @@ export default function Home({ showcases }) {
               },
             }}
           >
+
+
+{/* <iframe width="560" height="315" allow='autoplay'
+src="https://www.youtube.com/embed/lRVuZpzg8XM?autoplay=1"frameborder="0" 
+allowfullscreen></iframe> */}
+          
+
             <video 
               style={{ width: "100%", height: "100%", objectFit: "cover",position:'absolute' }}
-              autoplay=""
-              loop=""
-              muted="true"
-              playsinline="">
+              autoPlay loop muted playsInline>
               <source src="/waves.webm" type='video/webm'/>
               <source src="/Waves.mp4" type='video/mp4'/>
 
