@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 export async function getStaticPaths() {
   const res = await axios.get(`${API_URL}/api/portfolios?populate=%2A`);
 
@@ -38,14 +37,19 @@ export async function getStaticProps({ params }) {
 }
 
 const VideoContainer = styled.div`
-  padding-top: 100px;
   aspect-ratio: 16/9;
+  position: sticky;
+  height: 100vh;
+  top: 0px;
+  width: 100vw;
 `;
 
 const VideoDetailsContainer = styled.div`
-  padding-top: 100px;
-  min-height: 100vh;
-  overflow: hidden;
+  height: auto;
+  width: 100vw;;
+  z-index: 200;
+  position: sticky;
+  top: 0;
 
   & h1 {
     font-family: Founders;
@@ -65,7 +69,6 @@ const DetailsWrapper = styled.div`
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: auto;
   min-width: 280px;
   width: 80%;
   max-width: 1140px;
@@ -84,6 +87,14 @@ const DetailsWrapper = styled.div`
       line-height: 45px;
     }
   }
+`;
+
+const BackgroundWrapper = styled.div`
+  background-color: black;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const TextWrapper = styled.div`
@@ -112,8 +123,8 @@ export const TextWrapper = styled.div`
 
   & p {
     font-family: Founders;
-    font-size: 22px;
-    line-height: 33px;
+    font-size: 32px;
+    line-height: 35.5px;
     font-weight: 100;
     width: 100%;
     margin: 0;
@@ -135,6 +146,16 @@ export const MetaWrapper = styled.div`
   }
 `;
 
+const Overlay = styled.div`
+  height: 100px;
+  width: 100vw;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.001),
+    rgba(0, 0, 0, 0.95)
+  );
+`;
+
 export default function Portfolio({ portfolioData }) {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
 
@@ -145,9 +166,10 @@ export default function Portfolio({ portfolioData }) {
   };
 
   return (
-      <motion.div key={portfolioData.id} 
-      style={{overflowY:'hidden'}}
-      animate={{y:[1000,0]}} exit={{y:[0,1000]}}
+    <motion.div
+      key={portfolioData.id}
+      animate={{ y: [1000, 0] }}
+      exit={{ y: [0, 1000] }}
       className={`portfolio-page ${
         portfolioOpen ? "enter-portfolio" : "exit-portfolio"
       }`}
@@ -171,45 +193,51 @@ export default function Portfolio({ portfolioData }) {
       <VideoContainer>
         <VideoPlayer
           src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
-          autoPlay loop muted playsInline
+          autoPlay
+          loop
+          muted
+          playsInline
           controls
         ></VideoPlayer>
       </VideoContainer>
+
       <VideoDetailsContainer>
-        <DetailsWrapper>
-          <h1>{portfolioData.attributes.title}</h1>
-          <MetaWrapper>
-            <TextWrapper>
-              <h1>Client</h1>
-              <p>{portfolioData.attributes.title}</p>
-            </TextWrapper>
-            <TextWrapper>
-              <h1>Type</h1>
-              <p>
-                {portfolioData.attributes.categories.data[0].attributes.title}
-              </p>
-            </TextWrapper>
-            <TextWrapper>
-              <h1>Production Role</h1>
-              <p>{portfolioData.attributes.role}</p>
-            </TextWrapper>
-            <TextWrapper></TextWrapper>
-            <TextWrapper></TextWrapper>
-          </MetaWrapper>
-          <TwoColumn>
-            <div className="block-one">
-              <h2>Description</h2>
-            </div>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: portfolioData.attributes.description,
-              }}
-              className="block-two"
-            ></div>
-          </TwoColumn>
-        </DetailsWrapper>
+        <Overlay />
+        <BackgroundWrapper>
+          <DetailsWrapper>
+            <h1>{portfolioData.attributes.title}</h1>
+            <MetaWrapper>
+              <TextWrapper>
+                <h1>Client</h1>
+                <p>{portfolioData.attributes.client}</p>
+              </TextWrapper>
+              <TextWrapper>
+                <h1>Type</h1>
+                <p>
+                  {portfolioData.attributes.categories.data[0].attributes.title}
+                </p>
+              </TextWrapper>
+              <TextWrapper>
+                <h1>Production Role</h1>
+                <p>{portfolioData.attributes.role}</p>
+              </TextWrapper>
+              <TextWrapper></TextWrapper>
+              <TextWrapper></TextWrapper>
+            </MetaWrapper>
+            <TwoColumn>
+              <div className="block-one">
+                <h2>Description</h2>
+              </div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: portfolioData.attributes.description,
+                }}
+                className="block-two"
+              ></div>
+            </TwoColumn>
+          </DetailsWrapper>
+        </BackgroundWrapper>
       </VideoDetailsContainer>
     </motion.div>
-    
   );
 }

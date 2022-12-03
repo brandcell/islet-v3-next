@@ -57,7 +57,7 @@ const TitleWrapper = styled.div`
   bottom: 100px;
   max-width: 500px;
   min-width: 280px;
-  left: 5%;
+  margin-left:30px;
 
   & h1 {
     font-family: Founders;
