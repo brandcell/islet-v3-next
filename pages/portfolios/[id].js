@@ -163,8 +163,9 @@ export default function Portfolio({ portfolioData }) {
   return (
     <motion.div
       key={portfolioData.id}
-      animate={{ y: [2000, 0] }}
-      exit={{ y: [0, 2000] }}
+      initial={{y:0}}
+      animate={{ y: [1000, -20] }}
+      exit={{ y: [0, 1000] }}
       className={`portfolio-page ${
         portfolioOpen ? "enter-portfolio" : "exit-portfolio"
       }`}

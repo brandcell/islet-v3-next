@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
       <NavProvider>
       
         <Layout>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence>
         
           <Component {...pageProps} key={router.asPath}/>
           </AnimatePresence>
