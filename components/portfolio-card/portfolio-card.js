@@ -104,6 +104,7 @@ function PortfolioCard({ portfolio, index }) {
           autoPlay={isHovered ? false : true}
           playsInline={isHovered ? false : true}
           loop={isHovered ? false : true}
+          muted
         ></video>
       </div>
 
