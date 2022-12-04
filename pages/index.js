@@ -105,6 +105,7 @@ const ImageWrapper = styled.div`
 `;
 
 export default function Home({ showcases }) {
+
   const [isLoading, setIsLoading] = useState(true);
 
   //client side effect
@@ -112,7 +113,6 @@ export default function Home({ showcases }) {
     //get sessionStore
 
     let sessionStore = window.sessionStorage.getItem("visited");
-    console.log(sessionStore);
 
     const handleComplete = () => 
       setTimeout(() => {
@@ -165,7 +165,7 @@ allowfullscreen></iframe> */}
               playsInline
             >
               <source src="/waves.webm" type="video/webm" />
-              <source src="/Waves.mp4" type="video/mp4" />
+              <source src="/waves.mp4" type="video/mp4" />
             </video>
             <ImageWrapper>
               <Image src="/Isletlogo-white.svg" fill></Image>
