@@ -57,7 +57,7 @@ const TitleWrapper = styled.div`
   bottom: 100px;
   max-width: 500px;
   min-width: 280px;
-  margin-left:30px;
+  margin-left: 30px;
 
   & h1 {
     font-family: Founders;
@@ -96,38 +96,48 @@ const LoadingDiv = styled(motion.div)`
   font-size: 100px;
   z-index: 200;
   background-color: black;
-  
 `;
 
-const ImageWrapper= styled.div`
-aspect-ratio: 16 / 9;
-position: absolute;
-width: 80%;
-`
+const ImageWrapper = styled.div`
+  aspect-ratio: 16 / 9;
+  position: absolute;
+  width: 80%;
+`;
 
 export default function Home({ showcases }) {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  //client side effect 
+  //client side effect
   useEffect(() => {
-    const handleStart = () => setLoading(true);
+    //get sessionStore
 
-    const handleComplete = () =>
+    let sessionStore = window.sessionStorage.getItem("visited");
+    console.log(sessionStore);
+
+    const handleComplete = () => 
       setTimeout(() => {
-        setLoading(false);
+        setIsLoading(false)
+        window.sessionStorage.setItem("visited", "true")
       }, 7500);
 
-    handleComplete();
+    // if not visited, set session to true and change state to visited
+    if (sessionStore !== "true") {
 
-    return () => {
-      handleStart;
-    };
-  });
+      handleComplete();
+    }
+
+    //if it is true, wait 7 secs before setting it false
+    else if (sessionStore === "true") {
+      setIsLoading(false);
+    }
+  },[]);
+
 
   return (
     <>
       <AnimatePresence>
-        {loading ? (
+        {/* only when isVisited is false */}
+        {isLoading && (
           <LoadingDiv
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
@@ -138,33 +148,44 @@ export default function Home({ showcases }) {
               },
             }}
           >
-
-
-{/* <iframe width="560" height="315" allow='autoplay'
+            {/* <iframe width="560" height="315" allow='autoplay'
 src="https://www.youtube.com/embed/lRVuZpzg8XM?autoplay=1"frameborder="0" 
 allowfullscreen></iframe> */}
-          
 
-            <video 
-              style={{ width: "100%", height: "100%", objectFit: "cover",position:'absolute' }}
-              autoPlay loop muted playsInline>
-              <source src="/waves.webm" type='video/webm'/>
-              <source src="/Waves.mp4" type='video/mp4'/>
-
-              </video>
-              <ImageWrapper>
-              <Image src='/Isletlogo-white.svg' fill></Image>
-              </ImageWrapper>
-            
-
-            </LoadingDiv> 
-
-        ) : (
-          ""
+            <video
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                position: "absolute",
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/waves.webm" type="video/webm" />
+              <source src="/Waves.mp4" type="video/mp4" />
+            </video>
+            <ImageWrapper>
+              <Image src="/Isletlogo-white.svg" fill></Image>
+            </ImageWrapper>
+          </LoadingDiv>
         )}
       </AnimatePresence>
       <motion.div className="slider-wrapper">
-        {loading && <div className="black-bg" style={{position:'absolute', width:'100vw', height:'100vh',background:'black', zIndex:'100'}}></div>}
+        {isLoading && (
+          <div
+            className="black-bg"
+            style={{
+              position: "absolute",
+              width: "100vw",
+              height: "100vh",
+              background: "black",
+              zIndex: "100",
+            }}
+          ></div>
+        )}
         <Swiper
           // install Swiper modules
           modules={[
@@ -204,7 +225,10 @@ allowfullscreen></iframe> */}
                 <div className="video-wrapper">
                   <video
                     src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
-                    autoPlay loop muted playsInline
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                   ></video>
                 </div>
 
@@ -216,7 +240,6 @@ allowfullscreen></iframe> */}
           ))}
         </Swiper>
       </motion.div>
-     
     </>
   );
 }

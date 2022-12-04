@@ -42,12 +42,22 @@ const textVariants = {
 };
 
 function PortfolioCard({ portfolio, index }) {
+  const [isHovered, setIsHovered] = useState(false);
 
- const [isHovered, setIsHovered] = useState(false)
+  const handleHoverIn = () => {
+    setIsHovered(true);
+    console.log(isHovered);
+  };
+
+  const handleHoverOut = () => {
+    setIsHovered(false);
+    console.log(isHovered);
+  };
 
   return (
     <CardContainer
-      onMouseOver={()=>setIsHovered(true)}
+      onMouseOver={handleHoverIn}
+      onMouseOut={handleHoverOut}
       key={index}
       initial="rest"
       whileHover="hover"
@@ -91,10 +101,9 @@ function PortfolioCard({ portfolio, index }) {
             height: "100%",
           }}
           src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolio.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${portfolio.attributes.snippetvideo.data[0].attributes.ext}`}
-          autoPlay={isHovered ? true : false}
-          playsInline={isHovered ? true : false}
-          muted="true"
-          loop=""
+          autoPlay={isHovered ? false : true}
+          playsInline={isHovered ? false : true}
+          loop={isHovered ? false : true}
         ></video>
       </div>
 
