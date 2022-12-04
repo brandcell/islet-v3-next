@@ -4,7 +4,7 @@ import { API_URL } from "../../utils/urls";
 import styled from "styled-components";
 import TwoColumn from "../../styles/twocolumn.styles";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState , useRef} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export async function getStaticPaths() {
@@ -38,10 +38,10 @@ export async function getStaticProps({ params }) {
 
 const VideoContainer = styled.div`
   aspect-ratio: 16/9;
-  @supports not (aspect-ratio: 16 / 9){
+  @supports not (aspect-ratio: 16 / 9) {
     height: auto;
     width: 100vw;
-  };
+  }
   position: sticky;
   top: 0px;
   width: 100vw;
@@ -49,7 +49,7 @@ const VideoContainer = styled.div`
 
 const VideoDetailsContainer = styled.div`
   height: auto;
-  width: 100vw;;
+  width: 100vw;
   z-index: 200;
   position: sticky;
   top: 0;
@@ -150,6 +150,25 @@ export const MetaWrapper = styled.div`
   }
 `;
 
+const Unmute = styled(motion.div)`
+  position: absolute;
+  height: 50px;
+  right: 3%;
+  top:50%;
+  z-index: 1000;
+
+  @media (max-width:768px) {
+    top: 35%;
+
+  }
+
+  @media (max-width:500px) {
+    top: 25%;
+    height: 40px;
+
+    
+  }
+`;
 
 export default function Portfolio({ portfolioData }) {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
@@ -160,16 +179,50 @@ export default function Portfolio({ portfolioData }) {
     setPortfolioOpen(false);
   };
 
+  //create a ref object to be passed as ref 
+  const targetVideo = useRef()
+  console.log(targetVideo.current)
+ 
+  // mute the actual video when clicked 
+
+  const handleMute= (video) =>{
+
+    video.current.removeAttribute('muted')
+  }
+  //   // targetVideo.current.removeAttribute('muted')
+
+  // }
+
   return (
     <motion.div
       key={portfolioData.id}
-      initial={{y:0}}
+      initial={{ y: 0 }}
       animate={{ y: [1000, -20] }}
       exit={{ y: [0, 1000] }}
       className={`portfolio-page ${
         portfolioOpen ? "enter-portfolio" : "exit-portfolio"
       }`}
     >
+      <Unmute
+        onClick={handleMute(targetVideo)}
+        initial={{ scale: 1 }}
+        whileInView={{ scale: 1.3 }}
+        transition={{
+          yoyo: Infinity,
+          duration: 1,
+        }}
+        whileHover={{
+          scale: 1,
+          transition: {
+            type: "tween",
+          },
+        }}
+      >
+        <img
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          src="/music_icon.svg"
+        ></img>
+      </Unmute>
       <div
         className="back-button-container"
         onClick={() => {
@@ -188,6 +241,7 @@ export default function Portfolio({ portfolioData }) {
       <br />
       <VideoContainer>
         <VideoPlayer
+          ref={targetVideo}
           src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
           autoPlay
           loop
