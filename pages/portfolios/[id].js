@@ -173,22 +173,14 @@ const Unmute = styled(motion.div)`
 export default function Portfolio({ portfolioData }) {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
 
+  const [isMuted, setIsMuted] = useState(false)
+
   const router = useRouter();
 
-  const closePortfolio = () => {
-    setPortfolioOpen(false);
-  };
-
   //create a ref object to be passed as ref 
-  const targetVideo = useRef()
-  console.log(targetVideo.current)
  
   // mute the actual video when clicked 
 
-  const handleMute= (video) =>{
-
-    video.current.removeAttribute('muted')
-  }
   //   // targetVideo.current.removeAttribute('muted')
 
   // }
@@ -203,8 +195,28 @@ export default function Portfolio({ portfolioData }) {
         portfolioOpen ? "enter-portfolio" : "exit-portfolio"
       }`}
     >
-      <Unmute
-        onClick={handleMute(targetVideo)}
+
+    { isMuted ? <Unmute
+        onClick={()=>setIsMuted(!isMuted)}
+        initial={{ scale: 1 }}
+        whileInView={{ scale: 1.3 }}
+        transition={{
+          yoyo: Infinity,
+          duration: 1,
+        }}
+        whileHover={{
+          scale: 1,
+          transition: {
+            type: "tween",
+          },
+        }}
+      >
+        <img
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          src="/muted.svg"
+        ></img>
+      </Unmute>: <Unmute
+        onClick={()=>setIsMuted(!isMuted)}
         initial={{ scale: 1 }}
         whileInView={{ scale: 1.3 }}
         transition={{
@@ -223,12 +235,17 @@ export default function Portfolio({ portfolioData }) {
           src="/music_icon.svg"
         ></img>
       </Unmute>
+    }
+
       <div
         className="back-button-container"
         onClick={() => {
           router.back();
         }}
-      >
+      > 
+      
+    
+      
         <div className="back-button-wrapper">
           <span className="first-line"></span>
           <span className="second-line"></span>
@@ -241,11 +258,10 @@ export default function Portfolio({ portfolioData }) {
       <br />
       <VideoContainer>
         <VideoPlayer
-          ref={targetVideo}
           src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
           autoPlay
           loop
-          muted
+          muted = {isMuted ? true : false  }
           playsInline
           controls
         ></VideoPlayer>
