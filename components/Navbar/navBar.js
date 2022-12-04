@@ -14,6 +14,8 @@ import SubMenu from "./submenu/submenu";
 
 import { motion, AnimatePresence } from "framer-motion";
 
+import { API_URL } from "../../utils/urls";
+
 import { NavContext } from "../../contexts/navbar.context";
 
 import HamburgerMenu from "./hamburger/hamburger.component";
@@ -53,7 +55,7 @@ const Navbar = ({color, portfolio, contrast}) => {
   
       <div className={styles.navbarContainer} >
         <div className={styles.navbarLinks} style={portfolio && {padding:'35px 30px'}}>
-          <Link href="/">
+          <Link href={`${API_URL}/`}>
             <IsletLogo className='islet-logo'
               style={{ color: `${isMenuOpen && 'black' || color}` }}
             />
