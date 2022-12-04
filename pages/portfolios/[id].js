@@ -196,7 +196,9 @@ export default function Portfolio({ portfolioData }) {
       }`}
     >
 
-    { isMuted ? <Unmute
+    { isMuted ? 
+    //music button
+    <Unmute
         onClick={()=>setIsMuted(!isMuted)}
         initial={{ scale: 1 }}
         whileInView={{ scale: 1.3 }}
@@ -213,7 +215,7 @@ export default function Portfolio({ portfolioData }) {
       >
         <img
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src="/muted.svg"
+          src="/music_icon.svg"
         ></img>
       </Unmute>: <Unmute
         onClick={()=>setIsMuted(!isMuted)}
@@ -232,7 +234,7 @@ export default function Portfolio({ portfolioData }) {
       >
         <img
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src="/music_icon.svg"
+          src="/muted.svg"
         ></img>
       </Unmute>
     }

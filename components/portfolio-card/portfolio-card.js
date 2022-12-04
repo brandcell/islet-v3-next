@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 import Image from "next/image";
 
@@ -42,8 +42,12 @@ const textVariants = {
 };
 
 function PortfolioCard({ portfolio, index }) {
+
+ const [isHovered, setIsHovered] = useState(false)
+
   return (
     <CardContainer
+      onMouseOver={()=>setIsHovered(true)}
       key={index}
       initial="rest"
       whileHover="hover"
@@ -87,8 +91,8 @@ function PortfolioCard({ portfolio, index }) {
             height: "100%",
           }}
           src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolio.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${portfolio.attributes.snippetvideo.data[0].attributes.ext}`}
-          autoplay=""
-          playsinline=""
+          autoPlay={isHovered ? true : false}
+          playsInline={isHovered ? true : false}
           muted="true"
           loop=""
         ></video>
