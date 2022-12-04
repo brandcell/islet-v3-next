@@ -163,8 +163,9 @@ const Unmute = styled(motion.div)`
   }
 
   @media (max-width:500px) {
-    top: 25%;
-    height: 40px;
+height:20px;
+top: 20%;
+display: none;
 
     
   }
@@ -203,7 +204,7 @@ export default function Portfolio({ portfolioData }) {
         initial={{ scale: 1 }}
         whileInView={{ scale: 1.3 }}
         transition={{
-          yoyo: Infinity,
+          yoyo: 3,
           duration: 1,
         }}
         whileHover={{
