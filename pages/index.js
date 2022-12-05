@@ -105,7 +105,6 @@ const ImageWrapper = styled.div`
 `;
 
 export default function Home({ showcases }) {
-
   const [isLoading, setIsLoading] = useState(true);
 
   //client side effect
@@ -114,15 +113,14 @@ export default function Home({ showcases }) {
 
     let sessionStore = window.sessionStorage.getItem("visited");
 
-    const handleComplete = () => 
+    const handleComplete = () =>
       setTimeout(() => {
-        setIsLoading(false)
-        window.sessionStorage.setItem("visited", "true")
-      }, 7500);
+        setIsLoading(false);
+        window.sessionStorage.setItem("visited", "true");
+      }, 8500);
 
-    // if not visited, set session to true and change state to visited
+    // if not visited, run loading and change state to visited after 7 seconds
     if (sessionStore !== "true") {
-
       handleComplete();
     }
 
@@ -130,8 +128,7 @@ export default function Home({ showcases }) {
     else if (sessionStore === "true") {
       setIsLoading(false);
     }
-  },[]);
-
+  }, []);
 
   return (
     <>
@@ -148,10 +145,6 @@ export default function Home({ showcases }) {
               },
             }}
           >
-            {/* <iframe width="560" height="315" allow='autoplay'
-src="https://www.youtube.com/embed/lRVuZpzg8XM?autoplay=1"frameborder="0" 
-allowfullscreen></iframe> */}
-
             <video
               style={{
                 width: "100%",
@@ -164,9 +157,8 @@ allowfullscreen></iframe> */}
               muted
               playsInline
             >
-            <source src="/waves.mp4" type="video/mp4" />
+              <source src="/waves.mp4" type="video/mp4" />
               <source src="/waves.webm" type="video/webm" />
-              
             </video>
             <ImageWrapper>
               <Image src="/Isletlogo-white.svg" fill></Image>
