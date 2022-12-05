@@ -79,7 +79,7 @@ function Blog({ blogData }) {
             </TextWrapper>
             <TextWrapper>
               <h1>Production Role</h1>
-              <p>{blogData.attributes.category.data.attributes.role}</p>
+              <p>{blogData.attributes.role}</p>
             </TextWrapper>
           </MetaWrapper>
 
