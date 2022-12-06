@@ -117,7 +117,7 @@ export default function Home({ showcases }) {
       setTimeout(() => {
         setIsLoading(false);
         window.sessionStorage.setItem("visited", "true");
-      }, 8500);
+      }, 7500);
 
     // if not visited, run loading and change state to visited after 7 seconds
     if (sessionStore !== "true") {
