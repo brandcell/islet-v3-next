@@ -152,13 +152,13 @@ export default function Home({ showcases }) {
                 objectFit: "cover",
                 position: "absolute",
               }}
-              autoPlay={true}
-              loop={true}
+              autoPlay
+              loop
               muted
               playsInline
-              controls={false}
             >
               <source src="/waves.mp4" type="video/mp4" />
+              <source src="/waves.webm" type="video/webm" />
          
             </video>
             <ImageWrapper>
