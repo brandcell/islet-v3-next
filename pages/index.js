@@ -114,7 +114,6 @@ export default function Home({ showcases }) {
   //client side effect
   useEffect(() => {
     //get sessionStore
-    console.log(swiperRef)
     swiperRef.current.swiper.autoplay.stop()
 
     let sessionStore = window.sessionStorage.getItem("visited");
@@ -171,7 +170,7 @@ export default function Home({ showcases }) {
          
             </video>
             <ImageWrapper>
-              <Image src="/Isletlogo-white.svg" fill></Image>
+              <img src="/Isletlogo-white.svg" style={{height:'100%', width:'100%'}}></img>
             </ImageWrapper>
           </LoadingDiv>
         )}
