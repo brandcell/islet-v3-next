@@ -56,7 +56,7 @@ export async function getStaticProps() {
 
 const TitleWrapper = styled.div`
   position: absolute;
-  margin-top: 300px;
+  bottom: 100px;
   max-width: 500px;
   min-width: 280px;
   margin-left: 30px;
@@ -114,7 +114,7 @@ export default function Home({ showcases }) {
   //client side effect
   useEffect(() => {
     //get sessionStore
-    // swiperRef.current.swiper.autoplay.stop()
+    swiperRef.current.swiper.autoplay.stop()
 
     let sessionStore = window.sessionStorage.getItem("visited");
 
@@ -122,7 +122,7 @@ export default function Home({ showcases }) {
       setTimeout(() => {
         setIsLoading(false);
         window.sessionStorage.setItem("visited", "true");
-        // swiperRef.current.swiper.autoplay.start()
+        swiperRef.current.swiper.autoplay.start()
       }, 7500);
 
     // if not visited, run loading and change state to visited after 7 seconds
@@ -133,7 +133,7 @@ export default function Home({ showcases }) {
     //if it is true, wait 7 secs before setting it false
     else if (sessionStore === "true") {
       setIsLoading(false)
-      // setTimeout(()=>swiperRef.current.swiper.autoplay.start(),2000);
+      setTimeout(()=>swiperRef.current.swiper.autoplay.start(),2000);
     }
   }, []);
 
@@ -200,11 +200,11 @@ export default function Home({ showcases }) {
             Mousewheel,
           ]}
           slidesPerView={1}
-          // autoplay={{
-          //   delay: 10000,
-          // }}
+          autoplay={{
+            delay: 10000,
+          }}
           mousewheel={true}
-          // loop={true}
+          loop={true}
           speed={1000}
           maxBackfaceHiddenSlides={0}
           direction="vertical"
@@ -224,7 +224,7 @@ export default function Home({ showcases }) {
         >
           {showcases.map((showcase) => (
             <SwiperSlide key={showcase.id}>
-              <Link style={{position:'relative'}} href={`/portfolios/${showcase.id}`}>
+              <Link href={`/portfolios/${showcase.id}`}>
                 <div className="video-wrapper">
                   <video
                     src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
