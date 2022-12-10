@@ -267,6 +267,7 @@ export default function Portfolio({ portfolioData }) {
           muted = {isMuted ? true : false  }
           playsInline
           controls
+          preload="none"
         ></VideoPlayer>
       </VideoContainer>
 
