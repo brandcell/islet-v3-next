@@ -200,9 +200,9 @@ export default function Home({ showcases }) {
             Mousewheel,
           ]}
           slidesPerView={1}
-          autoplay={{
-            delay: 10000,
-          }}
+          // autoplay={{
+          //   delay: 10000,
+          // }}
           mousewheel={true}
           loop={true}
           speed={1000}

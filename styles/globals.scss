@@ -59,11 +59,13 @@ figure {
 .swiper {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .slider-wrapper {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 
   :global(.swiper-pagination-bullet) {
     background: white;
@@ -85,6 +87,7 @@ figure {
   height: 100vh;
   width: 100vw;
   position: relative;
+  overflow: hidden;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
 }
