@@ -105,6 +105,7 @@ function PortfolioCard({ portfolio, index }) {
           playsInline={isHovered ? false : true}
           loop={isHovered ? false : true}
           muted
+          preload="none"
         ></video>
       </div>
 
