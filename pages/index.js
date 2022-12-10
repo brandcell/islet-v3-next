@@ -204,7 +204,7 @@ export default function Home({ showcases }) {
           //   delay: 10000,
           // }}
           mousewheel={true}
-          loop={true}
+          // loop={true}
           speed={1000}
           maxBackfaceHiddenSlides={0}
           direction="vertical"
