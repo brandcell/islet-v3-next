@@ -56,7 +56,7 @@ export async function getStaticProps() {
 
 const TitleWrapper = styled.div`
   position: absolute;
-  bottom: 100px;
+  margin-top: 300px;
   max-width: 500px;
   min-width: 280px;
   margin-left: 30px;
@@ -224,7 +224,7 @@ export default function Home({ showcases }) {
         >
           {showcases.map((showcase) => (
             <SwiperSlide key={showcase.id}>
-              <Link href={`/portfolios/${showcase.id}`}>
+              <Link style={{position:'relative'}} href={`/portfolios/${showcase.id}`}>
                 <div className="video-wrapper">
                   <video
                     src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
