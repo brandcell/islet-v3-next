@@ -3,6 +3,8 @@ import axios from "axios";
 import { API_URL } from "../utils/urls";
 import Image from "next/image";
 
+
+import { useRef } from "react";
 import { useState, useEffect } from "react";
 import Router, { useRouter } from "next/router";
 
@@ -107,9 +109,13 @@ const ImageWrapper = styled.div`
 export default function Home({ showcases }) {
   const [isLoading, setIsLoading] = useState(true);
 
+  const swiperRef = useRef()
+
   //client side effect
   useEffect(() => {
     //get sessionStore
+    console.log(swiperRef)
+    swiperRef.current.swiper.autoplay.stop()
 
     let sessionStore = window.sessionStorage.getItem("visited");
 
@@ -117,6 +123,7 @@ export default function Home({ showcases }) {
       setTimeout(() => {
         setIsLoading(false);
         window.sessionStorage.setItem("visited", "true");
+        swiperRef.current.swiper.autoplay.start()
       }, 7500);
 
     // if not visited, run loading and change state to visited after 7 seconds
@@ -126,7 +133,8 @@ export default function Home({ showcases }) {
 
     //if it is true, wait 7 secs before setting it false
     else if (sessionStore === "true") {
-      setIsLoading(false);
+      setIsLoading(false)
+      swiperRef.current.swiper.autoplay.start();
     }
   }, []);
 
@@ -182,6 +190,7 @@ export default function Home({ showcases }) {
           ></div>
         )}
         <Swiper
+          ref={swiperRef}
           // install Swiper modules
           modules={[
             Navigation,
