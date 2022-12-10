@@ -34,6 +34,7 @@ a {
   font-family: "Founders";
   src: local("Founders"),
     url(../fonts/founders-grotesk-light.woff2) format("woff2");
+    font-display: swap;
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
