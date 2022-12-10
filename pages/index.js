@@ -133,7 +133,7 @@ export default function Home({ showcases }) {
     //if it is true, wait 7 secs before setting it false
     else if (sessionStore === "true") {
       setIsLoading(false)
-      setTimeout(()=>swiperRef.current.swiper.autoplay.start(),2000);
+      // setTimeout(()=>swiperRef.current.swiper.autoplay.start(),2000);
     }
   }, []);
 
