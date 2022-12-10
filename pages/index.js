@@ -114,7 +114,7 @@ export default function Home({ showcases }) {
   //client side effect
   useEffect(() => {
     //get sessionStore
-    swiperRef.current.swiper.autoplay.stop()
+    // swiperRef.current.swiper.autoplay.stop()
 
     let sessionStore = window.sessionStorage.getItem("visited");
 
@@ -122,7 +122,7 @@ export default function Home({ showcases }) {
       setTimeout(() => {
         setIsLoading(false);
         window.sessionStorage.setItem("visited", "true");
-        swiperRef.current.swiper.autoplay.start()
+        // swiperRef.current.swiper.autoplay.start()
       }, 7500);
 
     // if not visited, run loading and change state to visited after 7 seconds
