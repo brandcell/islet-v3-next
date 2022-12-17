@@ -117,6 +117,8 @@ export default function Home({ showcases }) {
   useEffect(() => {
     //get sessionStore
     swiperRef.current.swiper.autoplay.stop()
+
+    console.log(videoRef)
     videoRef.current.play()
 
     let sessionStore = window.sessionStorage.getItem("visited");
@@ -169,8 +171,9 @@ export default function Home({ showcases }) {
               muted
               playsInline
               preload="none"
+              src="/waves.mp4"
             >
-              <source src="/waves.mp4" type="video/mp4" />
+              {/* <source src="/waves.mp4" type="video/mp4" /> */}
               {/* <source src="/waves.webm" type="video/webm" /> */}
          
             </video>
