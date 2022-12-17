@@ -120,7 +120,7 @@ export default function Home({ showcases }) {
 
     const handleComplete = () =>
       setTimeout(() => {
-        setIsLoading(false);
+        // setIsLoading(false);
         window.sessionStorage.setItem("visited", "true");
         swiperRef.current.swiper.autoplay.start()
       }, 7500);
@@ -132,7 +132,7 @@ export default function Home({ showcases }) {
 
     //if it is true, wait 7 secs before setting it false
     else if (sessionStore === "true") {
-      setIsLoading(false)
+      // setIsLoading(false)
       setTimeout(()=>swiperRef.current.swiper.autoplay.start(),2000);
     }
   }, []);
