@@ -172,7 +172,7 @@ export default function Home({ showcases }) {
               playsInline
               preload="none"
             >
-              <source src="/waves.mp4" type="video/mp4" />
+              <source src="/Waves_1.mp4" type="video/mp4" />
               <source src="/waves.webm" type="video/webm" />
          
             </video>
