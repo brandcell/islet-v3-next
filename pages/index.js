@@ -163,10 +163,10 @@ export default function Home({ showcases }) {
               loop
               muted
               playsInline
-              preload="none"
+              // preload="none"
             >
               <source src="/waves.mp4" type="video/mp4" />
-              <source src="/waves.webm" type="video/webm" />
+              {/* <source src="/waves.webm" type="video/webm" /> */}
          
             </video>
             <ImageWrapper>
@@ -232,6 +232,7 @@ export default function Home({ showcases }) {
                     loop
                     muted
                     playsInline
+                    preload="none"
                   ></video>
                 </div>
 
