@@ -111,10 +111,13 @@ export default function Home({ showcases }) {
 
   const swiperRef = useRef()
 
+  const videoRef = useRef()
+
   //client side effect
   useEffect(() => {
     //get sessionStore
     swiperRef.current.swiper.autoplay.stop()
+    videoRef.current.play()
 
     let sessionStore = window.sessionStorage.getItem("visited");
 
@@ -123,6 +126,7 @@ export default function Home({ showcases }) {
         // setIsLoading(false);
         window.sessionStorage.setItem("visited", "true");
         swiperRef.current.swiper.autoplay.start()
+
       }, 7500);
 
     // if not visited, run loading and change state to visited after 7 seconds
@@ -153,6 +157,7 @@ export default function Home({ showcases }) {
             }}
           >
             <video
+              ref={videoRef}
               style={{
                 width: "100%",
                 height: "100%",
