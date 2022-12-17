@@ -170,7 +170,7 @@ export default function Home({ showcases }) {
               loop
               muted
               playsInline
-              preload="none"
+              // preload="none"
             >
               <source src="/Waves_1.mp4" type="video/mp4" />
               <source src="/waves.webm" type="video/webm" />
