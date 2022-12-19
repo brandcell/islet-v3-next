@@ -6,6 +6,7 @@ import TwoColumn from "../../styles/twocolumn.styles";
 import { useRouter } from "next/router";
 import { useState , useRef} from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   const res = await axios.get(`${API_URL}/api/portfolios?populate=%2A`);
@@ -187,126 +188,135 @@ export default function Portfolio({ portfolioData }) {
   // }
 
   return (
-    <motion.div
-      key={portfolioData.id}
-      initial={{ y: 0 }}
-      animate={{ y: [1000, -20] }}
-      exit={{ y: [0, 1000] }}
-      className={`portfolio-page ${
-        portfolioOpen ? "enter-portfolio" : "exit-portfolio"
-      }`}
-    >
+    <> 
+    <Head>
 
-    { isMuted ? 
-    //music button
-    <Unmute
-        onClick={()=>setIsMuted(!isMuted)}
-        initial={{ scale: 1 }}
-        whileInView={{ scale: 1.3 }}
-        transition={{
-          yoyo: 3,
-          duration: 1,
-        }}
-        whileHover={{
-          scale: 1,
-          transition: {
-            type: "tween",
-          },
-        }}
-      >
-        <img
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src="/music_icon.svg"
-        ></img>
-      </Unmute>: <Unmute
-        onClick={()=>setIsMuted(!isMuted)}
-        initial={{ scale: 1 }}
-        whileInView={{ scale: 1.3 }}
-        transition={{
-          yoyo: Infinity,
-          duration: 1,
-        }}
-        whileHover={{
-          scale: 1,
-          transition: {
-            type: "tween",
-          },
-        }}
-      >
-        <img
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src="/muted.svg"
-        ></img>
-      </Unmute>
-    }
-
-      <div
-        className="back-button-container"
-        onClick={() => {
-          router.back();
-        }}
-      > 
-      
+    <title>{portfolioData.attributes.title}</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+    </Head>
     
-      
-        <div className="back-button-wrapper">
-          <span className="first-line"></span>
-          <span className="second-line"></span>
-        </div>
+    <motion.div
+    key={portfolioData.id}
+    initial={{ y: 0 }}
+    animate={{ y: [1000, -20] }}
+    exit={{ y: [0, 1000] }}
+    className={`portfolio-page ${
+      portfolioOpen ? "enter-portfolio" : "exit-portfolio"
+    }`}
+  >
+
+  { isMuted ? 
+  //music button
+  <Unmute
+      onClick={()=>setIsMuted(!isMuted)}
+      initial={{ scale: 1 }}
+      whileInView={{ scale: 1.3 }}
+      transition={{
+        yoyo: 3,
+        duration: 1,
+      }}
+      whileHover={{
+        scale: 1,
+        transition: {
+          type: "tween",
+        },
+      }}
+    >
+      <img
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        src="/music_icon.svg"
+      ></img>
+    </Unmute>: <Unmute
+      onClick={()=>setIsMuted(!isMuted)}
+      initial={{ scale: 1 }}
+      whileInView={{ scale: 1.3 }}
+      transition={{
+        yoyo: Infinity,
+        duration: 1,
+      }}
+      whileHover={{
+        scale: 1,
+        transition: {
+          type: "tween",
+        },
+      }}
+    >
+      <img
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        src="/muted.svg"
+      ></img>
+    </Unmute>
+  }
+
+    <div
+      className="back-button-container"
+      onClick={() => {
+        router.back();
+      }}
+    > 
+    
+  
+    
+      <div className="back-button-wrapper">
+        <span className="first-line"></span>
+        <span className="second-line"></span>
       </div>
-      <Head>
-        <title>{portfolioData.attributes.title}</title>
-      </Head>
+    </div>
+    <Head>
+      <title>{portfolioData.attributes.title}</title>
+    </Head>
 
-      <br />
-      <VideoContainer>
-        <VideoPlayer
-          src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
-          autoPlay
-          loop
-          muted = {isMuted ? true : false  }
-          playsInline
-          controls
-          preload="none"
-        ></VideoPlayer>
-      </VideoContainer>
+    <br />
+    <VideoContainer>
+      <VideoPlayer
+        src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
+        autoPlay
+        loop
+        muted = {isMuted ? true : false  }
+        playsInline
+        controls
+        preload="none"
+      ></VideoPlayer>
+    </VideoContainer>
 
-      <VideoDetailsContainer>
-        <BackgroundWrapper>
-          <DetailsWrapper>
-            <h1>{portfolioData.attributes.title}</h1>
-            <MetaWrapper>
-              <TextWrapper>
-                <h1>Client</h1>
-                <p>{portfolioData.attributes.client}</p>
-              </TextWrapper>
-              <TextWrapper>
-                <h1>Type</h1>
-                <p>
-                  {portfolioData.attributes.categories.data[0].attributes.title}
-                </p>
-              </TextWrapper>
-              <TextWrapper>
-                <h1>Production Role</h1>
-                <p>{portfolioData.attributes.role}</p>
-              </TextWrapper>
-              <TextWrapper></TextWrapper>
-              <TextWrapper></TextWrapper>
-            </MetaWrapper>
-            <TwoColumn>
-              <div className="block-one">
-                <h2>Description</h2>
-              </div>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: portfolioData.attributes.description,
-                }}
-                className="block-two"
-              ></div>
-            </TwoColumn>
-          </DetailsWrapper>
-        </BackgroundWrapper>
-      </VideoDetailsContainer>
-    </motion.div>
+    <VideoDetailsContainer>
+      <BackgroundWrapper>
+        <DetailsWrapper>
+          <h1>{portfolioData.attributes.title}</h1>
+          <MetaWrapper>
+            <TextWrapper>
+              <h1>Client</h1>
+              <p>{portfolioData.attributes.client}</p>
+            </TextWrapper>
+            <TextWrapper>
+              <h1>Type</h1>
+              <p>
+                {portfolioData.attributes.categories.data[0].attributes.title}
+              </p>
+            </TextWrapper>
+            <TextWrapper>
+              <h1>Production Role</h1>
+              <p>{portfolioData.attributes.role}</p>
+            </TextWrapper>
+            <TextWrapper></TextWrapper>
+            <TextWrapper></TextWrapper>
+          </MetaWrapper>
+          <TwoColumn>
+            <div className="block-one">
+              <h2>Description</h2>
+            </div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: portfolioData.attributes.description,
+              }}
+              className="block-two"
+            ></div>
+          </TwoColumn>
+        </DetailsWrapper>
+      </BackgroundWrapper>
+    </VideoDetailsContainer>
+  </motion.div></>
+   
   );
 }
