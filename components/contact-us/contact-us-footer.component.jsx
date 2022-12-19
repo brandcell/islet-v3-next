@@ -114,12 +114,12 @@ function ContactUsFooter() {
         <FooterInnerContainers>
           <ContactInfoContainer>
             <h4>Islet Studio Venture Co-Working Space</h4>
-            <h4>Jalan Tanjung Tokong, Penang, Malaysia.</h4>
+            <h4>36 Lengkok York, Taman Dhoby Ghaut, 10450 Georgetown Pulau Pinang</h4>
           </ContactInfoContainer>
 
           <ContactInfoContainer>
             <h4>+60 124278228</h4>
-            <h4>info@isletstudio.com</h4>
+            <h4>hello@isletstudio.com</h4>
           </ContactInfoContainer>
           <ContactInfoContainer>
             <h4>Instagram</h4>
