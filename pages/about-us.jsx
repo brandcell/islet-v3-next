@@ -167,7 +167,7 @@ const AboutUS = ({ clientlist }) => {
             viewport={{ once: true }}
             style={{ margin: "100px 0px 100px 0px" }}
           >
-            Brands We've Worked With
+            {`Brands We've Worked With`}
           </motion.h1>
           <ClientContainer clientlist={clientlist} />
         </div>
