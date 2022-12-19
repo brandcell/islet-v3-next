@@ -44,7 +44,7 @@ import BlackLayout from "../components/layouts/black-layout.component";
 //if need to generate statically
 export async function getStaticProps() {
   const portfoliosRes = await axios.get(
-    `${API_URL}/api/portfolios?filters[Showcase][$eq]=true&populate=*`
+    `${API_URL}/api/portfolios?sort=sortorder&filters[Showcase][$eq]=true&populate=*`
   );
 
   return {
