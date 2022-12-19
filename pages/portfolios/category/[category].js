@@ -86,7 +86,7 @@ export default function Category({ categoryData }) {
   return (
     <AnimatePresence exitBeforeEnter>
     <Head>
-    <title>`Islet Studio Video Production House - Categories - ${params.category}`</title>
+    <title>`Islet Studio Video Production House - Categories`</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
     </Head>
