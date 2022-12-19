@@ -3,6 +3,7 @@ import "../styles/globals.scss";
 import { NavProvider } from "../contexts/navbar.context";
 import { motion, AnimatePresence } from "framer-motion";
 import Router, { useRouter } from "next/router";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
 
@@ -11,11 +12,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-   
+
       <NavProvider>
       
         <Layout>
         <AnimatePresence>
+          <Head>
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+          </Head>
         
           <Component {...pageProps} key={router.asPath}/>
           </AnimatePresence>

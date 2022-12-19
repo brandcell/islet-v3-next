@@ -113,7 +113,7 @@ function ContactUsFooter() {
         </FooterInnerContainers>
         <FooterInnerContainers>
           <ContactInfoContainer>
-            <h4>Islet Studio Venture Co-Working Space</h4>
+            <h4>Islet Studio</h4>
             <h4>36 Lengkok York, Taman Dhoby Ghaut, 10450 Georgetown Pulau Pinang</h4>
           </ContactInfoContainer>
 
