@@ -2,7 +2,6 @@ import axios from "axios";
 import Head from "next/head";
 import CategoryLayout from "../../../components/layouts/category-layout.component";
 import PortfolioCard from "../../../components/portfolio-card/portfolio-card";
-import Head from "next/head";
 
 import { API_URL } from "../../../utils/urls";
 
