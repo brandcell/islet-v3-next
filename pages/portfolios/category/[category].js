@@ -2,6 +2,7 @@ import axios from "axios";
 import Head from "next/head";
 import CategoryLayout from "../../../components/layouts/category-layout.component";
 import PortfolioCard from "../../../components/portfolio-card/portfolio-card";
+import Head from "next/head";
 
 import { API_URL } from "../../../utils/urls";
 
@@ -85,6 +86,11 @@ export default function Category({ categoryData }) {
   const router = useRouter();
   return (
     <AnimatePresence exitBeforeEnter>
+    <Head>
+    <title>`Islet Studio Video Production House - Categories - ${params.category}`</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+    </Head>
       <motion.div
         key={router.asPath}
         variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion

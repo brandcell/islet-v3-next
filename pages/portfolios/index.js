@@ -48,12 +48,12 @@ export default function Portfolio({ portfolios }) {
     <AnimatePresence>
 
 <Head>
-          <title>Islet Studio - Video Production House </title>
+          <title>Islet Studio - Video Production House - Portfolios </title>
           <meta name="description" content="Islet Studio, a video production company based in Penang, Malaysia.  Specialising in commercials, videography, corporate videos, product videos and cinematography, Islet Studio aims to deliver good storytelling through videos "></meta>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
           </Head>
-          
+
       <motion.div
         variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
         initial="hidden" // Set the initial state to variants.hidden
