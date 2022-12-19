@@ -132,7 +132,7 @@ const AboutUS = ({ clientlist }) => {
           <motion.div 
           
           initial={{ scale: 1 }}
-              whileInView={{ scale: 1.8}}
+              whileInView={{ scale: 1.2}}
               transition={{
                  yoyo: Infinity, duration:1
               
@@ -167,7 +167,7 @@ const AboutUS = ({ clientlist }) => {
             viewport={{ once: true }}
             style={{ margin: "100px 0px 100px 0px" }}
           >
-            Our Clients
+            Brands We've Worked With
           </motion.h1>
           <ClientContainer clientlist={clientlist} />
         </div>

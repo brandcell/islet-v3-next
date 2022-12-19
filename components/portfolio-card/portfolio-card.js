@@ -89,6 +89,7 @@ function PortfolioCard({ portfolio, index }) {
       >
         <Image
           fill
+          objectFit="cover"
           src={portfolio.attributes.display.data.attributes.url}
         ></Image>
       </motion.div>

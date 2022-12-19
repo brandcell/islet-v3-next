@@ -24,10 +24,10 @@ import HamburgerMenu from "./hamburger/hamburger.component";
 
 const menuAnimationVariants = {
   //from top to bottom
-  closed: { y: [-1000, 0]},
+  closed: { y: [-1500, 0]},
 
   //from bottom to top
-  open: { y: [0, -1000] }
+  open: { y: [0, -1500] }
 
 }
 
