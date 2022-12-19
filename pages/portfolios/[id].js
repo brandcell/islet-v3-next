@@ -6,7 +6,6 @@ import TwoColumn from "../../styles/twocolumn.styles";
 import { useRouter } from "next/router";
 import { useState , useRef} from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Head from "next/head";
 
 export async function getStaticPaths() {
   const res = await axios.get(`${API_URL}/api/portfolios?populate=%2A`);
@@ -189,12 +188,7 @@ export default function Portfolio({ portfolioData }) {
 
   return (
     <> 
-    <Head>
-
-    <title>{portfolioData.attributes.title}</title>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
-    </Head>
+ 
     
     <motion.div
     key={portfolioData.id}
@@ -265,6 +259,8 @@ export default function Portfolio({ portfolioData }) {
     </div>
     <Head>
       <title>{portfolioData.attributes.title}</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
     </Head>
 
     <br />
