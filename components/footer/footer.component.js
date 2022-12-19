@@ -110,7 +110,7 @@ function Footer() {
           <ContactInfoContainer>
 
           <a target="_blank" href="https://www.google.com/maps/place/Lengkok+York,+Taman+Dhoby+Ghaut,+10450+George+Town,+Pulau+Pinang/@5.4138573,100.3054329,17z/data=!3m1!4b1!4m5!3m4!1s0x304ac3b4f7ca62f5:0xf2126c9487c7e9d5!8m2!3d5.4138573!4d100.3076216" rel="noopener noreferrer">
-          <h4>Islet Studio Venture Co-Working Space</h4>
+          <h4>Islet Studio</h4>
               <h4>36 Lengkok York, Taman Dhoby Ghaut, 10450 Georgetown Pulau Pinang</h4>
             </a>
 
