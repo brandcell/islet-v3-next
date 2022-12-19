@@ -119,11 +119,18 @@ function ContactUsFooter() {
 
           <ContactInfoContainer>
             <h4>+60 124278228</h4>
-            <h4>hello@isletstudio.com</h4>
+            
+            <a target="_blank" href="mailto:hello@isletstudio.com?subject=Hello!%20" rel="noopener noreferrer">
+          <h4>hello@isletstudio.com</h4>
+            </a>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <h4>Instagram</h4>
+          <a target="_blank" href='https://www.instagram.com/robertvisuals.mov/?hl=en' rel="noopener noreferrer">
+          <h4>Instagram</h4>
+            </a>
+            <a target="_blank" href='https://www.facebook.com/RobVisuals/' rel="noopener noreferrer">
             <h4>Facebook</h4>
+            </a>
           </ContactInfoContainer>
         </FooterInnerContainers>
       </FooterTopContainer>
