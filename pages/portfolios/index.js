@@ -32,7 +32,7 @@ import CategoryLayout from "../../components/layouts/category-layout.component";
 
 //if need to generate statically
 export async function getStaticProps() {
-  const portfoliosRes = await axios.get(`${API_URL}/api/portfolios?populate=*`);
+  const portfoliosRes = await axios.get(`${API_URL}/api/portfolios?sort=sortorder&populate=*`);
 
   return {
     props: {
