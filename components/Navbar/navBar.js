@@ -54,7 +54,7 @@ const Navbar = ({color, portfolio, contrast}) => {
         
   
       <div className={styles.navbarContainer} >
-        <div className={styles.navbarLinks} style={portfolio && {padding:'35px 30px'}}>
+        <div className={styles.navbarLinks} style={portfolio && {padding:'35px 30px 0px 30px'}}>
           <Link href='/'>
             <IsletLogo className='islet-logo'
               style={{ color: `${isMenuOpen && 'black' || color}` }}

@@ -22,4 +22,17 @@
   .submenuItemsWrapper {
     font-size: 45px;
   }
+
+
+
+}
+
+
+@media (max-height: 400px) {
+  .submenuItemsWrapper {
+    
+    font-size: 32px;
+    margin-top: 50px;;
+  }
+
 }
