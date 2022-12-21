@@ -265,7 +265,7 @@ export default function Portfolio({ portfolioData }) {
     <br />
     <VideoContainer>
       <VideoPlayer
-        src={`https://res.cloudinary.com/dd4pxhj5s/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
+        src={`https://res.cloudinary.com/dal9xwai7/video/upload/f_auto,q_auto/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
         autoPlay
         loop
         muted = {isMuted ? true : false  }
