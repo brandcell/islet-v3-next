@@ -132,11 +132,7 @@ const AboutUS = ({ clientlist }) => {
           <motion.div 
           
           initial={{ scale: 1 }}
-              whileInView={{ scale: 1.2}}
-              transition={{
-                 yoyo: Infinity, duration:1
               
-              }}
               whileHover={{scale:1, transition:{
                 type:'tween'
               }}}
