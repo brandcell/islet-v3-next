@@ -250,7 +250,6 @@ export default function Portfolio({ portfolioData }) {
       }}
     > 
     
-  
     
       <div className="back-button-wrapper">
         <span className="first-line"></span>
