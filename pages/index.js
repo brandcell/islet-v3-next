@@ -145,6 +145,11 @@ export default function Home({ showcases }) {
 
   return (
     <>
+     <Head>
+    <title>Islet Studio Video Production House</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+    </Head>
       <AnimatePresence>
         {/* only when isVisited is false */}
         {isLoading && (
