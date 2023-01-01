@@ -146,7 +146,7 @@ function Footer() {
           Back to Top
         </FooterInnerContainers>
       </FooterTopContainer>
-      <p>All rights reserved © Islet Studio 2022</p>
+      <p>All rights reserved © Islet Studio 2023</p>
     </FooterContainer>
     </FooterWrapper>
   );
