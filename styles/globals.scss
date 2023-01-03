@@ -673,8 +673,6 @@ input, select {
   background-color: white;
   box-shadow: none;
   text-align: left;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 
 
@@ -713,6 +711,7 @@ button{
   padding: 23px 50px;
   font-size: 22px;
   width: 190px;
+  font-weight: 100;
   color: black;
   align-self: flex-end;
 
@@ -731,4 +730,18 @@ button{
 hr{
   margin: 0px;
   padding: 0px 30px;
+}
+
+
+textarea,
+input:matches(
+  [type="email"],
+  [type="number"],
+  [type="password"],
+  [type="search"],
+  [type="tel"],
+  [type="text"],
+  [type="date"]
+) {
+  -webkit-appearance: none;
 }
