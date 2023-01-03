@@ -21,10 +21,7 @@ flex-direction: column;
 
 function ContactUs() {
   return (
-    <motion.div
-      style={{ overflowX: "hidden" }}
-      animate={{ x: [-1000, 0] }}
-      exit={{ x: [1000, 0] }}
+    <div
     >
       <Script src="https://apps.elfsight.com/p/platform.js" />
 
@@ -51,14 +48,14 @@ function ContactUs() {
 
       <div className="form-section">
      
-       <h1>Thank you for your submission, we will reach out to you via email in a bit!</h1> 
+       <h1 style={{margin:"60px 0px"}}>Thank you for your submission, we will reach out to you via email in a bit!</h1> 
        
         <div 
       class="elfsight-app-c28983a3-c4dd-4178-905a-d31fc2bd754c"></div>
      
       </div>
     
-    </motion.div>
+    </div>
   );
 }
 
