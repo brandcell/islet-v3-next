@@ -6,6 +6,7 @@ import Router, { useRouter } from "next/router";
 import Script from "next/script";
 import TagManager, {TagManagerArgs} from "react-gtm-module";
 import { useEffect } from "react";
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || EmptyLayout;
@@ -41,6 +42,7 @@ function MyApp({ Component, pageProps }) {
         <Layout>
           <AnimatePresence>
             <Component {...pageProps} key={router.asPath} />
+            <Analytics />
           </AnimatePresence>
         </Layout>
       </NavProvider>

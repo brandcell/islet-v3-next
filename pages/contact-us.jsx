@@ -105,7 +105,7 @@ function ContactUs() {
 
 
             
-            <button type="submit">SUBMIT</button>
+            <button className="form-submit-button" type="submit">SUBMIT</button>
           </RightSection>
         </form>
         <div 

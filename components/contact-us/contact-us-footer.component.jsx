@@ -120,7 +120,7 @@ function ContactUsFooter() {
           <ContactInfoContainer>
             <h4>+60 124278228</h4>
             
-            <a target="_blank" href="mailto:hello@isletstudio.com?subject=Hello!%20" rel="noopener noreferrer">
+            <a className="email-click" target="_blank" href="mailto:hello@isletstudio.com?subject=Hello!%20" rel="noopener noreferrer">
           <h4>hello@isletstudio.com</h4>
             </a>
           </ContactInfoContainer>
