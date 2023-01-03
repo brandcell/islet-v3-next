@@ -12,11 +12,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Script id="gtm-script"
-        strategy="lazyOnLoad"
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=G-L89JE8VWSY`}
       />
 
-      <Script id="datalayer-script" strategy="lazyOnLoad">{` window.dataLayer = window.dataLayer || [];
+      <Script id="datalayer-script" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
