@@ -52,7 +52,7 @@ function ContactUs() {
       <div className="form-section">
      
         
-        <form action="https://formsubmit.co/briansh1225@gmail.com" method="POST">
+        <form action="https://formsubmit.co/hello@isletstudio.com" method="POST">
         
           <LeftSection>
             <FormField>
