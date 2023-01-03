@@ -732,13 +732,14 @@ hr{
 }
 
 
-textarea, /* this is a class */
+textarea, select/* this is a class */
 input[type="text"],
 input[type="button"],
 input[type="submit"],
 input[type=”email”],
 input[type=”tel”],
 input[type=”number”],
+input[type=”date”]
 .input-radio-checkbox {  /* this is a class */
   -webkit-appearance: none;
   border-radius: 0;

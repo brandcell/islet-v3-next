@@ -60,7 +60,7 @@ function ContactUs() {
               <input type="text" id ="name" name="name" required />
             </FormField>
             <FormField>
-              <label for="phone">Phone Number</label>
+              <label for="whatsapp">Phone Number</label>
               <input type="tel" id='whatsapp' name="whatsapp" required />
             </FormField>
             <FormField>
