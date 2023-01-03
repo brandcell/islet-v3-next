@@ -673,6 +673,10 @@ input, select {
   background-color: white;
   box-shadow: none;
   text-align: left;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
 
   @media (max-width:768px) {
     max-width: 240px;
