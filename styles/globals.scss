@@ -671,9 +671,11 @@ input, select {
   font-size: 24px;
   color: black;
   background-color: white;
+  box-shadow: none;
+  text-align: left;
 
   @media (max-width:768px) {
-    max-width: 260px;
+    max-width: 240px;
     
   }
 }
