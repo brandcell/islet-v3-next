@@ -97,9 +97,11 @@ function ContactUs() {
             </FormField>
             <input type="hidden" name="_subject" value="New submission from Islet Studio Web!"></input>
 
+            <input type="hidden" name="_captcha" value="false"/>
+
             <input type="hidden" name="_next" value="http://isletstudio.com/thank-you"/>
 
-            <input type="hidden" name="_captcha" value="false"/>
+           
 
 
             
