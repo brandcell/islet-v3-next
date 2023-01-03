@@ -48,7 +48,7 @@ function ContactUs() {
 
       <div className="form-section">
      
-       <h1 style={{margin:"60px 0px"}}>Thank you for your submission, we will reach out to you via email in a bit!</h1> 
+       <h1 style={{margin:"60px 0px",fontWeight:'100'}}>Thank you for your submission, we will reach out to you via email in a bit!</h1> 
        
         <div 
       class="elfsight-app-c28983a3-c4dd-4178-905a-d31fc2bd754c"></div>

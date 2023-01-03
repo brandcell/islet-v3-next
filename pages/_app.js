@@ -3,6 +3,10 @@ import "../styles/globals.scss";
 import { NavProvider } from "../contexts/navbar.context";
 import { motion, AnimatePresence } from "framer-motion";
 import Router, { useRouter } from "next/router";
+import Script from "next/script";
+
+
+
 
 function MyApp({ Component, pageProps }) {
 
@@ -11,7 +15,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Script strategy="lazyOnLoad" src={`https://www.googletagmanager.com/gtag/js?id=G-L89JE8VWSY`}/>
 
+      <Script strategy="lazyOnLoad">{` window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L89JE8VWSY');`}</Script>
       <NavProvider>
       
         <Layout>
