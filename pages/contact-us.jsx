@@ -97,7 +97,7 @@ function ContactUs() {
             </FormField>
             <input type="hidden" name="_subject" value="New submission from Islet Studio Web!"></input>
 
-            <input type="hidden" name="_next" value="http://localhost:3000/thank-you"/>
+            <input type="hidden" name="_next" value="http://isletstudio/thank-you"/>
 
 
             
