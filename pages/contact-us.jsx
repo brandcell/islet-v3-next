@@ -71,7 +71,7 @@ function ContactUs() {
               <label for="budget">Budget</label>
               <select name="budget" id="budget">
 
-           
+              <option value="" selected disabled hidden>Select budget here</option>
     <option value="RM 15,000 - RM 20,000">RM 15,000 - RM 20,000</option>
     <option value="RM 20,000 - RM 30,000">RM 20,000 - RM 30,000</option>
     <option value="RM 30,000+">RM 30,000+</option>
