@@ -247,7 +247,7 @@ export default function Home({ showcases }) {
                     loop
                     muted
                     playsInline
-                    preload="none"
+                    preload
                   ></video>
                 </div>
 
