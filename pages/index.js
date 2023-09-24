@@ -119,6 +119,7 @@ export default function Home({ showcases }) {
     swiperRef.current.swiper.autoplay.stop()
 
     console.log(videoRef)
+
     videoRef.current.play()
 
     let sessionStore = window.sessionStorage.getItem("visited");
@@ -133,6 +134,7 @@ export default function Home({ showcases }) {
 
     // if not visited, run loading and change state to visited after 7 seconds
     if (sessionStore !== "true") {
+      
       handleComplete();
     }
 
@@ -172,6 +174,7 @@ export default function Home({ showcases }) {
                 position: "absolute",
               }}
               autoPlay
+              preload
               loop
               muted
               playsInline
