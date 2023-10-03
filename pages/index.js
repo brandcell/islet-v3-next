@@ -107,43 +107,43 @@ const ImageWrapper = styled.div`
 `;
 
 export default function Home({ showcases }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const swiperRef = useRef()
 
   const videoRef = useRef()
 
   //client side effect
-  useEffect(() => {
-    //get sessionStore
-    swiperRef.current.swiper.autoplay.stop()
+  // useEffect(() => {
+  //   //get sessionStore
+  //   swiperRef.current.swiper.autoplay.stop()
 
-    console.log(videoRef)
+  //   console.log(videoRef)
 
-    videoRef.current.play()
+  //   videoRef.current.play()
 
-    let sessionStore = window.sessionStorage.getItem("visited");
+  //   let sessionStore = window.sessionStorage.getItem("visited");
 
-    const handleComplete = () =>
-      setTimeout(() => {
-        setIsLoading(false);
-        window.sessionStorage.setItem("visited", "true");
-        swiperRef.current.swiper.autoplay.start()
+  //   const handleComplete = () =>
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //       window.sessionStorage.setItem("visited", "true");
+  //       swiperRef.current.swiper.autoplay.start()
 
-      }, 7500);
+  //     }, 7500);
 
-    // if not visited, run loading and change state to visited after 7 seconds
-    if (sessionStore !== "true") {
+  //   // if not visited, run loading and change state to visited after 7 seconds
+  //   if (sessionStore !== "true") {
       
-      handleComplete();
-    }
+  //     handleComplete();
+  //   }
 
-    //if it is true, wait 7 secs before setting it false
-    else if (sessionStore === "true") {
-      setIsLoading(false)
-      setTimeout(()=>swiperRef.current.swiper.autoplay.start(),2000);
-    }
-  }, []);
+  //   //if it is true, wait 7 secs before setting it false
+  //   else if (sessionStore === "true") {
+  //     setIsLoading(false)
+  //     setTimeout(()=>swiperRef.current.swiper.autoplay.start(),2000);
+  //   }
+  // }, []);
 
   return (
     <>
@@ -154,6 +154,7 @@ export default function Home({ showcases }) {
     </Head>
       <AnimatePresence>
         {/* only when isVisited is false */}
+
         {isLoading && (
           <LoadingDiv
             initial={{ opacity: 1 }}
