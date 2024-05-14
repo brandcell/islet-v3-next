@@ -26,15 +26,14 @@ export async function getAllCaseStudies() {
 
   const resJson = await graphQlRequest(query);
 
-  const allBlogs = resJson?.data?.caseStudies?.data;
+  const allBlogs = resJson.data.caseStudies.data;
 
   return allBlogs;
 }
 
 export async function getBlogPaths() {
   const query = {
-    query: `
-        query getBlogPaths {
+    query: `query getBlogPaths {
             caseStudies {
               data{
                 attributes{
@@ -46,6 +45,17 @@ export async function getBlogPaths() {
   };
 
   const resJson = await graphQlRequest(query);
+
+  if (
+    !resJson ||
+    !resJson.data ||
+    !resJson.data.caseStudies ||
+    !resJson.data.caseStudies.data
+  ) {
+    // Log this error state and return an empty array to avoid crashes
+    console.error("GraphQL response was not in the expected format:", resJson);
+    return [];
+  }
 
   const allBlogPaths = resJson.data.caseStudies.data;
 

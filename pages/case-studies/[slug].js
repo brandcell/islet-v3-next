@@ -29,6 +29,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const blogData = await getSingleBlogDataBySlug(params.slug);
 
+  console.log(blogData);
+
   return {
     props: {
       blogData,
@@ -37,8 +39,6 @@ export async function getStaticProps({ params }) {
 }
 
 function Blog({ blogData }) {
-  console.log(blogData);
-
   return (
     <Page>
       <PageContainer>
