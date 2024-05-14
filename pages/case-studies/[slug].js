@@ -14,6 +14,8 @@ import { getSingleBlogDataBySlug, getBlogPaths } from "../../utils/blog";
 export async function getStaticPaths() {
   const allCaseStudyData = await getBlogPaths();
 
+  console.log(allCaseStudyData);
+
   const paths = allCaseStudyData.map((path) => ({
     params: { slug: path.attributes.slug },
   }));
@@ -72,7 +74,7 @@ function Blog({ blogData }) {
             </TextWrapper>
             <TextWrapper>
               <h1>Type</h1>
-              <p>{blogData.attributes.category.data.attributes.title}</p>
+              <p>{blogData.attributes?.category?.data?.attributes.title}</p>
             </TextWrapper>
             <TextWrapper>
               <h1>Production Role</h1>

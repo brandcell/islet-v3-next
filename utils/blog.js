@@ -26,7 +26,7 @@ export async function getAllCaseStudies() {
 
   const resJson = await graphQlRequest(query);
 
-  const allBlogs = resJson.data.caseStudies.data;
+  const allBlogs = resJson?.data?.caseStudies?.data;
 
   return allBlogs;
 }
