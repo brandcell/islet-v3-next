@@ -15,10 +15,9 @@ const BlogCardWrapper = styled(motion.div)`
 
   @media (max-width: 479px) {
     width: 100%;
-    
   }
 
-  & h3{
+  & h3 {
     font-family: Signifier;
   }
   & h1 {
@@ -73,24 +72,28 @@ const FloatyTextVariants = {
   },
 };
 
-
 function BlogCard({ blog }) {
+  console.log(blog);
   return (
     <BlogCardWrapper
       variants={FullBlogCardVariant}
       initial="initial"
       whileHover="hover"
     >
-      <Link href={`/case-studies/${blog.id}`}>
+      <Link href={`/case-studies/${blog.attributes.slug}`}>
         <ImgWrapper>
           <Image
             alt={blog.attributes.id}
             fill
-            src={blog.attributes.displayimage.data[0].attributes.url}
+            src={blog.attributes.displayImage.data[0].attributes.url}
           ></Image>
         </ImgWrapper>
         <motion.div
-          style={{ borderRadius: "1px", background: "white",paddingTop:'5px' }}
+          style={{
+            borderRadius: "1px",
+            background: "white",
+            paddingTop: "5px",
+          }}
           variants={ContentCardVariants}
         >
           <motion.h3 variants={FloatyTextVariants}>

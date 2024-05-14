@@ -3,7 +3,6 @@ import axios from "axios";
 import { API_URL } from "../utils/urls";
 import Image from "next/image";
 
-
 import { useRef } from "react";
 import { useState, useEffect } from "react";
 import Router, { useRouter } from "next/router";
@@ -25,6 +24,8 @@ import {
 import "swiper/css/bundle";
 import BlackLayout from "../components/layouts/black-layout.component";
 
+import { getShowcasePosts } from "../utils/portfolio";
+
 //if need to get props server side-- for things that need to generate every time client refreshes
 // export async function getServerSideProps(){
 
@@ -43,13 +44,10 @@ import BlackLayout from "../components/layouts/black-layout.component";
 
 //if need to generate statically
 export async function getStaticProps() {
-  const portfoliosRes = await axios.get(
-    `${API_URL}/api/portfolios?sort=sortorder&filters[Showcase][$eq]=true&populate=*`
-  );
-
+  const portfoliosRes = await getShowcasePosts();
   return {
     props: {
-      showcases: portfoliosRes.data.data,
+      showcases: portfoliosRes,
     },
   };
 }
@@ -109,9 +107,9 @@ const ImageWrapper = styled.div`
 export default function Home({ showcases }) {
   const [isLoading, setIsLoading] = useState(false);
 
-  const swiperRef = useRef()
+  const swiperRef = useRef();
 
-  const videoRef = useRef()
+  const videoRef = useRef();
 
   //client side effect
   // useEffect(() => {
@@ -134,7 +132,7 @@ export default function Home({ showcases }) {
 
   //   // if not visited, run loading and change state to visited after 7 seconds
   //   if (sessionStore !== "true") {
-      
+
   //     handleComplete();
   //   }
 
@@ -147,11 +145,11 @@ export default function Home({ showcases }) {
 
   return (
     <>
-     <Head>
-    <title>Islet Studio Video Production House</title>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
-    </Head>
+      <Head>
+        <title>Islet Studio Video Production House</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+      </Head>
       <AnimatePresence>
         {/* only when isVisited is false */}
 
@@ -183,10 +181,12 @@ export default function Home({ showcases }) {
             >
               <source src="/Waves_1.mp4" type="video/mp4" />
               <source src="/waves.webm" type="video/webm" />
-         
             </video>
             <ImageWrapper>
-              <img src="/Isletlogo-white.svg" style={{height:'100%', width:'100%'}}></img>
+              <img
+                src="/Isletlogo-white.svg"
+                style={{ height: "100%", width: "100%" }}
+              ></img>
             </ImageWrapper>
           </LoadingDiv>
         )}
@@ -243,7 +243,8 @@ export default function Home({ showcases }) {
               <Link href={`/portfolios/${showcase.id}`}>
                 <div className="video-wrapper">
                   <video
-                    src={`https://res.cloudinary.com/dal9xwai7/video/upload/f_auto,q_auto/${showcase.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
+                    src={showcase.attributes.snippetVideo.data.attributes.url}
+                    // src={`https://res.cloudinary.com/dal9xwai7/video/upload/f_auto,q_auto/${showcase.attributes.snippetVideo.data[0].attributes.provider_metadata.public_id}${showcase.attributes.snippetvideo.data[0].attributes.ext}`}
                     autoPlay
                     loop
                     muted

@@ -62,7 +62,8 @@ function PortfolioCard({ portfolio, index }) {
       initial="rest"
       whileHover="hover"
       animate="animate"
-      style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
+      style={{ width: "100%", height: " 100%" }}
+      // style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
     >
       <motion.h1
         variants={textVariants}
@@ -90,7 +91,7 @@ function PortfolioCard({ portfolio, index }) {
         <Image
           fill
           objectFit="cover"
-          src={portfolio.attributes.display.data.attributes.url}
+          src={portfolio.attributes?.featuredImage?.data.attributes.url}
         ></Image>
       </motion.div>
 
@@ -101,7 +102,8 @@ function PortfolioCard({ portfolio, index }) {
             width: "100%",
             height: "100%",
           }}
-          src={`https://res.cloudinary.com/dal9xwai7/video/upload/f_auto,q_auto/${portfolio.attributes.snippetvideo.data[0].attributes.provider_metadata.public_id}${portfolio.attributes.snippetvideo.data[0].attributes.ext}`}
+          src={portfolio.attributes.snippetVideo.data.attributes.url}
+          // src={`https://res.cloudinary.com/dal9xwai7/video/upload/f_auto,q_auto/${portfolio.attributes.snippetVideo.data[0].attributes.provider_metadata.public_id}${portfolio.attributes.snippetvideo.data[0].attributes.ext}`}
           autoPlay={isHovered ? false : true}
           playsInline={isHovered ? false : true}
           loop={isHovered ? false : true}
@@ -117,7 +119,7 @@ function PortfolioCard({ portfolio, index }) {
           position: "absolute",
           zIndex: "20",
         }}
-        href={`/portfolios/${portfolio.id}
+        href={`/portfolios/${portfolio.attributes.slug}
         `}
       ></Link>
     </CardContainer>

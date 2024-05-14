@@ -2,6 +2,12 @@ import axios from "axios";
 import Head from "next/head";
 import CategoryLayout from "../../../components/layouts/category-layout.component";
 import PortfolioCard from "../../../components/portfolio-card/portfolio-card";
+import { useEffect, useState } from "react";
+
+import {
+  getCategoryPaths,
+  getPortfolioByCategory,
+} from "../../../utils/category";
 
 import { API_URL } from "../../../utils/urls";
 
@@ -11,11 +17,7 @@ import styles from "../../../styles/portfolio.module.css";
 import { Router, useRouter } from "next/router";
 
 export async function getStaticPaths() {
-  const res = await axios.get(`${API_URL}/api/categories?populate=*`);
-
-  const categories = await res.data.data;
-
-  console.log(categories);
+  const categories = await getCategoryPaths();
 
   //generate list of paths
   const paths = categories.map((category) => ({
@@ -38,13 +40,7 @@ export async function getStaticProps({ params }) {
 
   //return back the filtered data
 
-  const res = await axios.get(
-    `${API_URL}/api/categories?[filters][title][$eq]=${params.category}&populate[portfolios][populate][0]=fullvideo&populate[portfolios][populate][1]=display&populate[portfolios][populate][3]=snippetvideo`
-  );
-
-  const categoryData = await res.data.data;
-
-  console.log(categoryData);
+  const categoryData = await getPortfolioByCategory(params.category);
 
   return {
     props: {
@@ -60,7 +56,7 @@ export const CategoryAnimationVariants = {
   enter: {
     opacity: 1,
     x: 0,
-    transition: { type: "tween", staggerChildren: 0.5, },
+    transition: { type: "tween", staggerChildren: 0.5 },
   },
   exit: { opacity: 0, x: 2000, transition: { type: "tween" } },
 };
@@ -72,8 +68,8 @@ export const PortCardVariants = {
   },
   enter: {
     opacity: 1,
-    y:0,
-    transition:{type:'spring',stiffness:30,duration:1}
+    y: 0,
+    transition: { type: "spring", stiffness: 30, duration: 1 },
   },
   exit: {
     opacity: 1,
@@ -83,13 +79,24 @@ export const PortCardVariants = {
 
 export default function Category({ categoryData }) {
   const router = useRouter();
+
+  const [isSocial, setIsSocial] = useState(false);
+
+  useEffect(() => {
+    if (router.asPath === "/portfolios/category/social-media") {
+      setIsSocial(true);
+    }
+
+    return () => {};
+  }, [isSocial]);
+
   return (
     <AnimatePresence exitBeforeEnter>
-    <Head>
-    <title>`Islet Studio Video Production House - Categories`</title>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
-    </Head>
+      <Head>
+        <title>Islet Studio Video Production House</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+      </Head>
       <motion.div
         key={router.asPath}
         variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
@@ -98,12 +105,17 @@ export default function Category({ categoryData }) {
         exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
         className={styles.categoryGrid}
       >
-        {categoryData[0].attributes.portfolios.data.map((portfolio, index) => (
-          <motion.div key={index} variants={PortCardVariants}
-          
-          style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}>
+        {categoryData.portfolios.data.map((portfolio, index) => (
+          <motion.div
+            key={index}
+            variants={PortCardVariants}
+            style={
+              isSocial
+                ? { aspectRatio: "9 / 16" }
+                : { gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }
+            }
+          >
             <PortfolioCard
-              
               index={index}
               key={portfolio.id}
               portfolio={portfolio}

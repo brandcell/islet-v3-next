@@ -9,7 +9,7 @@ const StyledFixedLinkbar = styled.div`
   background-color: black;
   position: fixed;
   z-index: 50;
-  top:0px;
+  top: 0px;
 `;
 const StyledLinkContainer = styled.div`
   max-width: 657px;
@@ -43,63 +43,70 @@ function CategoryLayout({ children }) {
   console.log(router.pathname);
 
   return (
-    
-      <motion.div style={{overflowX:'hidden'}}
+    <motion.div
+      style={{ overflowX: "hidden" }}
+      className="portfolio-page-wrapper"
+    >
+      <Navbar color="white" portfolio={true} />
+      <StyledFixedLinkbar>
+        <StyledLinkContainer>
+          <Link
+            className={router.asPath === "/portfolios" ? "active" : ""}
+            href="/portfolios"
+          >
+            <p>All</p>
+          </Link>
+          <Link
+            className={
+              router.asPath === "/portfolios/category/product" ? "active" : ""
+            }
+            href="/portfolios/category/product"
+          >
+            <p>Product</p>
+          </Link>
+          <Link
+            className={
+              router.asPath === "/portfolios/category/commercials"
+                ? "active"
+                : ""
+            }
+            href="/portfolios/category/commercials"
+          >
+            <p>Commercial</p>
+          </Link>
+          <Link
+            className={
+              router.asPath === "/portfolios/category/documentaries"
+                ? "active"
+                : ""
+            }
+            href="/portfolios/category/documentaries"
+          >
+            <p>Documentaries</p>
+          </Link>
+          <Link
+            className={
+              router.asPath == "/portfolios/category/corporate" ? "active" : ""
+            }
+            href="/portfolios/category/corporate"
+          >
+            <p>Corporate</p>
+          </Link>
+          <Link
+            className={
+              router.asPath == "/portfolios/category/social-media"
+                ? "active"
+                : ""
+            }
+            href="/portfolios/category/social-media"
+          >
+            <p>Social Media</p>
+          </Link>
+        </StyledLinkContainer>
+      </StyledFixedLinkbar>
 
-      className="portfolio-page-wrapper">
-        <Navbar color="white" portfolio={true} />
-        <StyledFixedLinkbar>
-          <StyledLinkContainer>
-            <Link
-              className={router.asPath === "/portfolios" ? "active" : ""}
-              href="/portfolios"
-            >
-              <p>All</p>
-            </Link>
-            <Link
-              className={
-                router.asPath === "/portfolios/category/product" ? "active" : ""
-              }
-              href="/portfolios/category/product"
-            >
-              <p>Product</p>
-            </Link>
-            <Link
-              className={
-                router.asPath === "/portfolios/category/commercials"
-                  ? "active"
-                  : ""
-              }
-              href="/portfolios/category/commercials"
-            >
-              <p>Commercial</p>
-            </Link>
-            <Link
-              className={
-                router.asPath === "/portfolios/category/documentaries"
-                  ? "active"
-                  : ""
-              }
-              href="/portfolios/category/documentaries"
-            >
-              <p>Documentaries</p>
-            </Link>
-            <Link
-              className={
-                router.asPath == "/portfolios/category/corporate"
-                  ? "active"
-                  : ""
-              }
-              href="/portfolios/category/corporate"
-            >
-              <p>Corporate</p>
-            </Link>
-          </StyledLinkContainer>
-        </StyledFixedLinkbar>
-
-        {children}
-      </motion.div>
-    
+      {children}
+    </motion.div>
   );
 }
 

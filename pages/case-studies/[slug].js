@@ -2,21 +2,20 @@ import axios from "axios";
 import Image from "next/image";
 import WhiteLayout from "../../components/layouts/white-layout.component";
 import { Page, PageContainer } from "../../styles/page.styles";
+
 import Date from "../../components/date";
 
-import { API_URL } from "../../utils/urls";
+import { MetaWrapper } from "../portfolios/[slug]";
 
-import { MetaWrapper } from "../portfolios/[id]";
+import { TextWrapper } from "../portfolios/[slug]";
 
-import { TextWrapper } from "../portfolios/[id]";
+import { getSingleBlogDataBySlug, getBlogPaths } from "../../utils/blog";
 
 export async function getStaticPaths() {
-  const res = await axios.get(`${API_URL}/api/case-studies`);
+  const allCaseStudyData = await getBlogPaths();
 
-  const data = res.data.data;
-
-  const paths = data.map((path) => ({
-    params: { id: path.id.toString() },
+  const paths = allCaseStudyData.map((path) => ({
+    params: { slug: path.attributes.slug },
   }));
 
   return {
@@ -26,11 +25,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await axios.get(
-    `${API_URL}/api/case-studies/${params.id}?populate=*`
-  );
-
-  const blogData = await res.data.data;
+  const blogData = await getSingleBlogDataBySlug(params.slug);
 
   return {
     props: {
@@ -40,6 +35,8 @@ export async function getStaticProps({ params }) {
 }
 
 function Blog({ blogData }) {
+  console.log(blogData);
+
   return (
     <Page>
       <PageContainer>
@@ -64,7 +61,7 @@ function Blog({ blogData }) {
               alt="blog-header-pic"
               fill
               objectFit="cover"
-              src={blogData.attributes.displayimage.data[0].attributes.url}
+              src={blogData.attributes.displayImage.data[0].attributes.url}
             ></Image>
           </div>
 

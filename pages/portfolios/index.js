@@ -2,6 +2,8 @@ import axios from "axios";
 
 import { API_URL } from "../../utils/urls";
 
+import { getallPortfolios } from "../../utils/portfolio";
+
 import { motion, AnimatePresence } from "framer-motion";
 
 import Head from "next/head";
@@ -34,11 +36,11 @@ import CategoryLayout from "../../components/layouts/category-layout.component";
 
 //if need to generate statically
 export async function getStaticProps() {
-  const portfoliosRes = await axios.get(`${API_URL}/api/portfolios?sort=sortorder&populate=*`);
+  const portfolios = await getallPortfolios();
 
   return {
     props: {
-      portfolios: portfoliosRes.data.data,
+      portfolios,
     },
   };
 }
@@ -46,13 +48,15 @@ export async function getStaticProps() {
 export default function Portfolio({ portfolios }) {
   return (
     <AnimatePresence>
-
-<Head>
-          <title>Islet Studio - Video Production House - Portfolios </title>
-          <meta name="description" content="Islet Studio, a video production company based in Penang, Malaysia.  Specialising in commercials, videography, corporate videos, product videos and cinematography, Islet Studio aims to deliver good storytelling through videos "></meta>
+      <Head>
+        <title>Islet Studio - Video Production House - Portfolios </title>
+        <meta
+          name="description"
+          content="Islet Studio, a video production company based in Penang, Malaysia.  Specialising in commercials, videography, corporate videos, product videos and cinematography, Islet Studio aims to deliver good storytelling through videos "
+        ></meta>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
-          </Head>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+      </Head>
 
       <motion.div
         variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion

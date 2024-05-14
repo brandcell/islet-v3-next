@@ -10,14 +10,14 @@ import { PageContainer } from "../../styles/page.styles";
 import TitleContainer from "../../styles/title.styles";
 import WhiteLayout from "../../components/layouts/white-layout.component";
 
-export async function getStaticProps() {
-  const blogRes = await axios.get(`${API_URL}/api/case-studies?populate=*`);
+import { getAllCaseStudies } from "../../utils/blog";
 
-  // console.log(blogRes.data.data[0].attributes.displayimage.data[0].attributes.url);
+export async function getStaticProps() {
+  const blogRes = await getAllCaseStudies();
 
   return {
     props: {
-      blogs: blogRes.data.data,
+      blogs: blogRes,
     },
   };
 }
@@ -40,36 +40,33 @@ function BlogHome({ blogs }) {
       <PageContainer>
         <div className="case-study-title-wrapper">
           <TitleContainer>
-            <motion.h1 
-             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.5,
-              duration: 0.5,
-              type: "tween",
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.5,
+                duration: 0.5,
+                type: "tween",
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
             >
-              Case 
+              Case
             </motion.h1>
 
             <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 1.5,
-              duration: 0.5,
-              type: "tween",
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
-          >
-            Studies
-          </motion.h1>
-
-
-
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 1.5,
+                duration: 0.5,
+                type: "tween",
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
+            >
+              Studies
+            </motion.h1>
           </TitleContainer>
         </div>
 
