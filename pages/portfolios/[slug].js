@@ -257,7 +257,7 @@ export default function Portfolio({ portfolioData }) {
         <br />
         <VideoContainer>
           <VideoPlayer
-            src={portfolioData.attributes.fullVideo.data.attributes.url}
+            src={portfolioData.attributes.fullVideo?.data?.attributes.url}
             // src={`https://res.cloudinary.com/dal9xwai7/video/upload/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
             autoPlay
             loop
@@ -271,21 +271,21 @@ export default function Portfolio({ portfolioData }) {
         <VideoDetailsContainer>
           <BackgroundWrapper>
             <DetailsWrapper>
-              <h1>{portfolioData.attributes.title}</h1>
+              <h1>{portfolioData.attributes?.title}</h1>
               <MetaWrapper>
                 <TextWrapper>
                   <h1>Client</h1>
-                  <p>{portfolioData.attributes.clientName}</p>
+                  <p>{portfolioData.attributes?.clientName}</p>
                 </TextWrapper>
                 <TextWrapper>
                   <h1>Type</h1>
                   <p>
-                    {portfolioData.attributes.category.data.attributes.title}
+                    {portfolioData.attributes?.category?.data.attributes.title}
                   </p>
                 </TextWrapper>
                 <TextWrapper>
                   <h1>Production Role</h1>
-                  <p>{portfolioData.attributes.productionRole}</p>
+                  <p>{portfolioData.attributes?.productionRole}</p>
                 </TextWrapper>
                 <TextWrapper></TextWrapper>
                 <TextWrapper></TextWrapper>
@@ -295,7 +295,7 @@ export default function Portfolio({ portfolioData }) {
                   <h2>Description</h2>
                 </div>
                 <div className="block-two">
-                  {portfolioData.attributes.description[0].children[0].text}
+                  {portfolioData.attributes.description[0]?.children[0]?.text}
                 </div>
               </TwoColumn>
             </DetailsWrapper>
