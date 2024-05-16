@@ -819,6 +819,7 @@ input[type=”date”]
 .category-grid.social-media {
   display: grid;
   max-width: 1280px;
+  width: 100vw;
   margin: auto;
   margin-top: 100px;
   overflow: hidden;
@@ -835,8 +836,8 @@ input[type=”date”]
   //   "Area-14 Area-15 Area-15"
   //   "Area-16 Area-15 Area-15"
   //   "Area-17 Area-18 Area-19" !important;
-  grid-template-columns: 1fr 1fr 1fr 1fr !important;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(444px, 1fr));
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 
@@ -846,8 +847,18 @@ input[type=”date”]
     width: 100%;
   }
 
-  @media (max-width: 470px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr !important;
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    div {
+      width: 49vw !important;
+    }
+    //   // display: grid;
+    //   // width: 100vw;
+    //   // grid-template-columns: 1fr 1fr !important;
+    //   // grid-template-rows: 1fr 1fr;
   }
 }

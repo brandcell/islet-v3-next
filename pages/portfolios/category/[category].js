@@ -135,7 +135,12 @@ export default function Category({ categoryData }) {
               variants={PortCardVariants}
               style={
                 isSocial
-                  ? { aspectRatio: "9 / 16" }
+                  ? {
+                      aspectRatio: "9 / 16",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }
                   : { gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }
               }
             >
