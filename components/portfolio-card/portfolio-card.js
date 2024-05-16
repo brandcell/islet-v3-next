@@ -88,7 +88,11 @@ function PortfolioCard({ portfolio, index }) {
       >
         <Image
           fill
-          objectFit="cover"
+          alt={
+            portfolio.attributes.featuredImage.data.attributes
+              .alternativeText || `porfolio-featured-image-${index}`
+          }
+          style={{ objectFit: "cover" }}
           src={portfolio.attributes?.featuredImage?.data.attributes.url}
         ></Image>
       </motion.div>

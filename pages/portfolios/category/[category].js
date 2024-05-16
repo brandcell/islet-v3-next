@@ -80,6 +80,30 @@ export const PortCardVariants = {
 };
 
 export default function Category({ categoryData }) {
+  const router = useRouter();
+
+  const [isSocial, setIsSocial] = useState(false);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      if (url === "/portfolios/category/social-media") {
+        setIsSocial(true);
+        console.log(isSocial);
+      } else {
+        setIsSocial(false);
+        console.log(isSocial);
+      }
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    handleRouteChange(router.asPath);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router]);
+
   // useEffect(() => {
   //   if (router.asPath === "/portfolios/category/social-media") {
   //     console.log(isSocial);
@@ -88,7 +112,7 @@ export default function Category({ categoryData }) {
   //   return () => {};
   // }, [isSocial]);
 
-  const { routeState } = useCategoryContext();
+  // const { routeState } = useCategoryContext();
 
   return (
     <>
@@ -111,7 +135,7 @@ export default function Category({ categoryData }) {
               key={index}
               variants={PortCardVariants}
               style={
-                routeState === "/portfolios/category/social-media"
+                isSocial
                   ? { aspectRatio: "9 / 16" }
                   : { gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }
               }

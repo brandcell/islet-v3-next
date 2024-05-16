@@ -62,7 +62,7 @@ function Blog({ blogData }) {
             <Image
               alt="blog-header-pic"
               fill
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
               src={blogData.attributes.displayImage.data[0].attributes.url}
             ></Image>
           </div>

@@ -52,8 +52,9 @@ function CategoryLayout({ children }) {
       <Navbar color="white" portfolio={true} />
       <StyledFixedLinkbar>
         <StyledLinkContainer>
-          <div onClick={() => setRouteState(router.asPath)}>
+          <div>
             <Link
+              // onClick={() => setRouteState(router.asPath)}
               className={router.asPath === "/portfolios" ? "active" : ""}
               href="/portfolios"
             >
@@ -61,8 +62,9 @@ function CategoryLayout({ children }) {
             </Link>
           </div>
 
-          <div onClick={() => setRouteState(router.asPath)}>
+          <div>
             <Link
+              // onClick={() => setRouteState(router.asPath)}
               className={
                 router.asPath === "/portfolios/category/product" ? "active" : ""
               }
@@ -72,8 +74,9 @@ function CategoryLayout({ children }) {
             </Link>
           </div>
 
-          <div onClick={() => setRouteState(router.asPath)}>
+          <div>
             <Link
+              // onClick={() => setRouteState(router.asPath)}
               className={
                 router.asPath === "/portfolios/category/commercials"
                   ? "active"
@@ -84,8 +87,9 @@ function CategoryLayout({ children }) {
               <p>Commercial</p>
             </Link>
           </div>
-          <div onClick={() => setRouteState(router.asPath)}>
+          <div>
             <Link
+              // onClick={() => setRouteState(router.asPath)}
               className={
                 router.asPath === "/portfolios/category/documentaries"
                   ? "active"
@@ -97,8 +101,9 @@ function CategoryLayout({ children }) {
             </Link>
           </div>
 
-          <div onClick={() => setRouteState(router.asPath)}>
+          <div>
             <Link
+              // onClick={() => setRouteState(router.asPath)}
               className={
                 router.asPath == "/portfolios/category/corporate"
                   ? "active"
@@ -110,8 +115,9 @@ function CategoryLayout({ children }) {
             </Link>
           </div>
 
-          <div onClick={() => setRouteState(router.asPath)}>
+          <div>
             <Link
+              // onClick={() => setRouteState(router.asPath)}
               className={
                 router.asPath == "/portfolios/category/social-media"
                   ? "active"

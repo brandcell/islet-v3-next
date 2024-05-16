@@ -31,17 +31,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const VideoContainer = styled.div`
-  aspect-ratio: 16/9;
-  @supports not (aspect-ratio: 16 / 9) {
-    height: auto;
-    width: 100vw;
-  }
-  position: sticky;
-  top: 0px;
-  width: 100vw;
-`;
-
 const VideoDetailsContainer = styled.div`
   height: auto;
   width: 100vw;
@@ -182,6 +171,7 @@ export default function Portfolio({ portfolioData }) {
   return (
     <>
       <motion.div
+        // style={{ display: "flex" }}
         key={portfolioData.id}
         initial={{ y: 0 }}
         animate={{ y: [1000, -20] }}
@@ -256,7 +246,15 @@ export default function Portfolio({ portfolioData }) {
         </Head>
 
         <br />
-        <VideoContainer>
+
+        <div
+          className={`video-container ${
+            portfolioData.attributes.category.data.attributes.title ===
+            "social-media"
+              ? "social-media"
+              : "non-social-media"
+          }`}
+        >
           <VideoPlayer
             src={portfolioData.attributes.fullVideo?.data?.attributes.url}
             // src={`https://res.cloudinary.com/dal9xwai7/video/upload/${portfolioData.attributes.fullvideo.data.attributes.provider_metadata.public_id}${portfolioData.attributes.fullvideo.data.attributes.ext}`}
@@ -267,7 +265,7 @@ export default function Portfolio({ portfolioData }) {
             controls
             preload="none"
           ></VideoPlayer>
-        </VideoContainer>
+        </div>
 
         <VideoDetailsContainer>
           <BackgroundWrapper>
@@ -296,7 +294,12 @@ export default function Portfolio({ portfolioData }) {
                   <h2>Description</h2>
                 </div>
                 <div className="block-two">
-                  {portfolioData.attributes?.description[0]?.children[0]?.text}
+                  <p>
+                    {
+                      portfolioData.attributes?.description[0]?.children[0]
+                        ?.text
+                    }
+                  </p>
                 </div>
               </TwoColumn>
             </DetailsWrapper>
@@ -306,3 +309,14 @@ export default function Portfolio({ portfolioData }) {
     </>
   );
 }
+
+const VideoContainer = styled.div`
+  aspect-ratio: 16/9;
+  @supports not (aspect-ratio: 16 / 9) {
+    height: auto;
+    width: 100vw;
+  }
+  position: sticky;
+  top: 0px;
+  width: 100vw;
+`;

@@ -341,9 +341,7 @@ video {
 
       @media (max-width: 479px) {
         transform: translateY(14.5px) translateX(0) rotate(45deg);
-  
       }
-
     }
     .middle {
       opacity: 0;
@@ -353,8 +351,6 @@ video {
     .bottom {
       transform: translateY(-12px) translateX(0) rotate(-45deg);
       background-color: black;
-
-  
     }
   }
 
@@ -394,12 +390,23 @@ video {
 //for portfolio page
 .portfolio-page {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   width: 100vw;
   top: 0px;
   margin: 0;
   padding: 0;
   background-color: black;
+
+  .video-container.social-media {
+    width: 100%;
+    align-self: center;
+
+    @media (min-width: 479px) {
+      max-width: 25vw;
+    }
+  }
 
   h1,
   p,
@@ -632,76 +639,69 @@ figcaption {
   height: 100vh;
 }
 
-
-.form-section{
+.form-section {
   background-color: white;
   padding: 60px 30px;
-  
 
-h1{
-  font-family: Founders;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: row;
-  column-gap: 273px;
-  margin-bottom: 60px;
-  
-  @media (max-width:997px) {
-    flex-direction: column;
-    
+  h1 {
+    font-family: Founders;
+    text-align: center;
   }
 
+  form {
+    display: flex;
+    flex-direction: row;
+    column-gap: 273px;
+    margin-bottom: 60px;
 
-label{
-  font-size: 22px;
-  font-weight: 33px;
-  font-family: Signifier;
-  margin-bottom: 10px;
-}
+    @media (max-width: 997px) {
+      flex-direction: column;
+    }
 
-input, select {
-  border-width: 0px 0px 1px 0px !important;
-  min-width: 330px;
-  margin-bottom: 36px;
-  height :50px;
-  font-family: Signifier;
-  font-size: 24px;
-  color: black;
-  box-shadow: none !important;
-  text-align: left;
+    label {
+      font-size: 22px;
+      font-weight: 33px;
+      font-family: Signifier;
+      margin-bottom: 10px;
+    }
 
+    input,
+    select {
+      border-width: 0px 0px 1px 0px !important;
+      min-width: 330px;
+      margin-bottom: 36px;
+      height: 50px;
+      font-family: Signifier;
+      font-size: 24px;
+      color: black;
+      box-shadow: none !important;
+      text-align: left;
 
-  @media (max-width:768px) {
-    min-width: auto;
-    
+      @media (max-width: 768px) {
+        min-width: auto;
+      }
+    }
+
+    textarea {
+      margin-top: 36px;
+      min-height: 265px;
+      min-width: 200px;
+      font-family: Signifier;
+      font-size: 24px;
+      line-height: 33px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+      outline: none;
+    }
   }
 }
 
-textarea{
-  margin-top: 36px;
-  min-height: 265px;
-  min-width: 200px;
-  font-family: Signifier;
-  font-size: 24px;
-  line-height: 33px;
-
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
-}
-}
-
-button{
-  margin-top:64px;
+button {
+  margin-top: 64px;
   font-family: Signifier;
   border-radius: 80px;
   background-color: white;
@@ -713,23 +713,21 @@ button{
   color: black;
   align-self: flex-end;
 
-  @media (max-width:997px) {
-    align-self: center;;
-    
+  @media (max-width: 997px) {
+    align-self: center;
   }
 
-&:hover{
-  background-color: #43594d ;
-  color: white;
-  cursor: pointer;
-}
+  &:hover {
+    background-color: #43594d;
+    color: white;
+    cursor: pointer;
+  }
 }
 
-hr{
+hr {
   margin: 0px;
   padding: 0px 30px;
 }
-
 
 textarea, select,/* this is a class */
 input[type="text"],
@@ -739,8 +737,8 @@ input[type=”tel”],
 input[type=”email”],
 input[type=”number”],
 input[type=”date”]
-.input-radio-checkbox {  /* this is a class */
+.input-radio-checkbox {
+  /* this is a class */
   -webkit-appearance: none;
   border-radius: 0;
 }
-
