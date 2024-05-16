@@ -80,17 +80,15 @@ export const PortCardVariants = {
 export default function Category({ categoryData }) {
   const router = useRouter();
 
-  const [isSocial, setIsSocial] = useState(false);
+  const [routerPath, setRouterPath] = useState(router.asPath);
 
-  useEffect(() => {
-    if (router.asPath === "/portfolios/category/social-media") {
-      setIsSocial(true);
+  // useEffect(() => {
+  //   if (router.asPath === "/portfolios/category/social-media") {
+  //     console.log(isSocial);
+  //   }
 
-      console.log(isSocial);
-    }
-
-    return () => {};
-  }, [isSocial]);
+  //   return () => {};
+  // }, [isSocial]);
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -112,7 +110,7 @@ export default function Category({ categoryData }) {
             key={index}
             variants={PortCardVariants}
             style={
-              isSocial
+              routerPath === "/portfolios/category/social-media"
                 ? { aspectRatio: "9 / 16" }
                 : { gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }
             }

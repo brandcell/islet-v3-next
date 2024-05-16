@@ -46,12 +46,10 @@ function PortfolioCard({ portfolio, index }) {
 
   const handleHoverIn = () => {
     setIsHovered(true);
-    console.log(isHovered);
   };
 
   const handleHoverOut = () => {
     setIsHovered(false);
-    console.log(isHovered);
   };
 
   return (
