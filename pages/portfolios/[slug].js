@@ -295,7 +295,7 @@ export default function Portfolio({ portfolioData }) {
                   <h2>Description</h2>
                 </div>
                 <div className="block-two">
-                  {portfolioData.attributes.description[0]?.children[0]?.text}
+                  {portfolioData.attributes?.description[0]?.children[0]?.text}
                 </div>
               </TwoColumn>
             </DetailsWrapper>
