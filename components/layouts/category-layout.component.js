@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "../Navbar/navBar";
 import { useRouter } from "next/router";
 
+import { useCategoryContext } from "../../contexts/category.context";
+
 const StyledFixedLinkbar = styled.div`
   width: 100vw;
   background-color: black;
@@ -40,7 +42,7 @@ const StyledLinkContainer = styled.div`
 function CategoryLayout({ children }) {
   const router = useRouter();
 
-  console.log(router.pathname);
+  const { routeState, setRouteState } = useCategoryContext();
 
   return (
     <motion.div
@@ -50,58 +52,76 @@ function CategoryLayout({ children }) {
       <Navbar color="white" portfolio={true} />
       <StyledFixedLinkbar>
         <StyledLinkContainer>
-          <Link
-            className={router.asPath === "/portfolios" ? "active" : ""}
-            href="/portfolios"
-          >
-            <p>All</p>
-          </Link>
-          <Link
-            className={
-              router.asPath === "/portfolios/category/product" ? "active" : ""
-            }
-            href="/portfolios/category/product"
-          >
-            <p>Product</p>
-          </Link>
-          <Link
-            className={
-              router.asPath === "/portfolios/category/commercials"
-                ? "active"
-                : ""
-            }
-            href="/portfolios/category/commercials"
-          >
-            <p>Commercial</p>
-          </Link>
-          <Link
-            className={
-              router.asPath === "/portfolios/category/documentaries"
-                ? "active"
-                : ""
-            }
-            href="/portfolios/category/documentaries"
-          >
-            <p>Documentaries</p>
-          </Link>
-          <Link
-            className={
-              router.asPath == "/portfolios/category/corporate" ? "active" : ""
-            }
-            href="/portfolios/category/corporate"
-          >
-            <p>Corporate</p>
-          </Link>
-          <Link
-            className={
-              router.asPath == "/portfolios/category/social-media"
-                ? "active"
-                : ""
-            }
-            href="/portfolios/category/social-media"
-          >
-            <p>Social Media</p>
-          </Link>
+          <div onClick={() => setRouteState(router.asPath)}>
+            <Link
+              className={router.asPath === "/portfolios" ? "active" : ""}
+              href="/portfolios"
+            >
+              <p>All</p>
+            </Link>
+          </div>
+
+          <div onClick={() => setRouteState(router.asPath)}>
+            <Link
+              className={
+                router.asPath === "/portfolios/category/product" ? "active" : ""
+              }
+              href="/portfolios/category/product"
+            >
+              <p>Product</p>
+            </Link>
+          </div>
+
+          <div onClick={() => setRouteState(router.asPath)}>
+            <Link
+              className={
+                router.asPath === "/portfolios/category/commercials"
+                  ? "active"
+                  : ""
+              }
+              href="/portfolios/category/commercials"
+            >
+              <p>Commercial</p>
+            </Link>
+          </div>
+          <div onClick={() => setRouteState(router.asPath)}>
+            <Link
+              className={
+                router.asPath === "/portfolios/category/documentaries"
+                  ? "active"
+                  : ""
+              }
+              href="/portfolios/category/documentaries"
+            >
+              <p>Documentaries</p>
+            </Link>
+          </div>
+
+          <div onClick={() => setRouteState(router.asPath)}>
+            <Link
+              className={
+                router.asPath == "/portfolios/category/corporate"
+                  ? "active"
+                  : ""
+              }
+              href="/portfolios/category/corporate"
+            >
+              <p>Corporate</p>
+            </Link>
+          </div>
+
+          <div onClick={() => setRouteState(router.asPath)}>
+            <Link
+              className={
+                router.asPath == "/portfolios/category/social-media"
+                  ? "active"
+                  : ""
+              }
+              href="/portfolios/category/social-media"
+            >
+              <p>Social Media</p>
+            </Link>
+          </div>
         </StyledLinkContainer>
       </StyledFixedLinkbar>
 

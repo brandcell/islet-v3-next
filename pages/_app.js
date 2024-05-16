@@ -4,22 +4,22 @@ import { NavProvider } from "../contexts/navbar.context";
 import { motion, AnimatePresence } from "framer-motion";
 import Router, { useRouter } from "next/router";
 import Script from "next/script";
-import TagManager, {TagManagerArgs} from "react-gtm-module";
+import TagManager, { TagManagerArgs } from "react-gtm-module";
 import { useEffect } from "react";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
+import { CategoryProvider } from "../contexts/category.context";
 
 function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || EmptyLayout;
   const router = useRouter;
 
   //google tag manager code
-  const gtmId = 'GTM-KMG87VF'
+  const gtmId = "GTM-KMG87VF";
 
-  const TagManagerArgs = {gtmId}
+  const TagManagerArgs = { gtmId };
 
   useEffect(() => {
-    TagManager.initialize(TagManagerArgs)
-   
+    TagManager.initialize(TagManagerArgs);
   }, []);
 
   return (
@@ -39,12 +39,14 @@ function MyApp({ Component, pageProps }) {
 
   gtag('config', 'G-L89JE8VWSY');`}</Script>
       <NavProvider>
-        <Layout>
-          <AnimatePresence>
-            <Component {...pageProps} key={router.asPath} />
+        <CategoryProvider>
+          <Layout>
             <Analytics />
-          </AnimatePresence>
-        </Layout>
+            <AnimatePresence>
+              <Component {...pageProps} key={router.asPath} />
+            </AnimatePresence>
+          </Layout>
+        </CategoryProvider>
       </NavProvider>
     </>
   );

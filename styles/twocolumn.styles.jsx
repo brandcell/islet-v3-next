@@ -82,9 +82,8 @@ const TwoColumn = styled.div`
     display: flex;
     flex-direction: row;
 
-    @media (max-width:991px) {
+    @media (max-width: 991px) {
       flex-direction: column;
-      
     }
 
     & .block-one {

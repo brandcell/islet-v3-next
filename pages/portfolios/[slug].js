@@ -91,6 +91,7 @@ const DetailsWrapper = styled.div`
 const BackgroundWrapper = styled.div`
   background-color: black;
   width: 100vw;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;

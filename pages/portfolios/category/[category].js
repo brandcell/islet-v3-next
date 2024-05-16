@@ -4,6 +4,8 @@ import CategoryLayout from "../../../components/layouts/category-layout.componen
 import PortfolioCard from "../../../components/portfolio-card/portfolio-card";
 import { useEffect, useState } from "react";
 
+import { useCategoryContext } from "../../../contexts/category.context";
+
 import {
   getCategoryPaths,
   getPortfolioByCategory,
@@ -78,10 +80,6 @@ export const PortCardVariants = {
 };
 
 export default function Category({ categoryData }) {
-  const router = useRouter();
-
-  const [routerPath, setRouterPath] = useState(router.asPath);
-
   // useEffect(() => {
   //   if (router.asPath === "/portfolios/category/social-media") {
   //     console.log(isSocial);
@@ -90,40 +88,44 @@ export default function Category({ categoryData }) {
   //   return () => {};
   // }, [isSocial]);
 
+  const { routeState } = useCategoryContext();
+
   return (
-    <AnimatePresence exitBeforeEnter>
+    <>
       <Head>
         <title>Islet Studio Video Production House</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </Head>
-      <motion.div
-        key={router.asPath}
-        variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
-        initial="hidden" // Set the initial state to variants.hidden
-        animate="enter" // Animated state to variants.enter
-        exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
-        className={styles.categoryGrid}
-      >
-        {categoryData.portfolios.data.map((portfolio, index) => (
-          <motion.div
-            key={index}
-            variants={PortCardVariants}
-            style={
-              routerPath === "/portfolios/category/social-media"
-                ? { aspectRatio: "9 / 16" }
-                : { gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }
-            }
-          >
-            <PortfolioCard
-              index={index}
-              key={portfolio.id}
-              portfolio={portfolio}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
-    </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={categoryData.title}
+          variants={CategoryAnimationVariants} // Pass the variant object into Framer Motion
+          initial="hidden" // Set the initial state to variants.hidden
+          animate="enter" // Animated state to variants.enter
+          exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
+          className={styles.categoryGrid}
+        >
+          {categoryData.portfolios.data.map((portfolio, index) => (
+            <motion.div
+              key={index}
+              variants={PortCardVariants}
+              style={
+                routeState === "/portfolios/category/social-media"
+                  ? { aspectRatio: "9 / 16" }
+                  : { gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }
+              }
+            >
+              <PortfolioCard
+                index={index}
+                key={portfolio.id}
+                portfolio={portfolio}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
+    </>
 
     // <div>
     //   <Head>
