@@ -7,6 +7,7 @@ export async function getShowcasePosts() {
         data {
           attributes {
             title
+            slug
             snippetVideo {
               data {
                 attributes {

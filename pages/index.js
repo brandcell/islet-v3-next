@@ -239,8 +239,8 @@ export default function Home({ showcases }) {
           }}
         >
           {showcases.map((showcase) => (
-            <SwiperSlide key={showcase.id}>
-              <Link href={`/portfolios/${showcase.id}`}>
+            <SwiperSlide key={showcase.attributes.slug}>
+              <Link href={`/portfolios/${showcase.attributes.slug}`}>
                 <div className="video-wrapper">
                   <video
                     src={showcase.attributes.snippetVideo.data.attributes.url}

@@ -11,6 +11,8 @@ import { getPortfolioSlugs, getSinglePortfolio } from "../../utils/portfolio";
 export async function getStaticPaths() {
   const portfolios = await getPortfolioSlugs();
 
+  console.log(portfolios);
+
   const paths = portfolios.map((port) => ({
     params: { slug: port.attributes.slug },
   }));
@@ -172,7 +174,7 @@ export default function Portfolio({ portfolioData }) {
     <>
       <motion.div
         // style={{ display: "flex" }}
-        key={portfolioData.id}
+        key={portfolioData.attributes.slug}
         initial={{ y: 0 }}
         animate={{ y: [1000, -20] }}
         exit={{ y: [0, 1000] }}
