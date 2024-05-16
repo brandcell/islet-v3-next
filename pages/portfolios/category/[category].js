@@ -85,6 +85,8 @@ export default function Category({ categoryData }) {
   useEffect(() => {
     if (router.asPath === "/portfolios/category/social-media") {
       setIsSocial(true);
+
+      console.log(isSocial);
     }
 
     return () => {};
