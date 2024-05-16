@@ -15,7 +15,6 @@ import {
 
 import PortfolioCard from "../../components/portfolio-card/portfolio-card";
 
-import styles from "../../styles/portfolio.module.css";
 import CategoryLayout from "../../components/layouts/category-layout.component";
 
 //if need to get props server side-- for things that need to generate every time client refreshes
@@ -63,7 +62,7 @@ export default function Portfolio({ portfolios }) {
         initial="hidden" // Set the initial state to variants.hidden
         animate="enter" // Animated state to variants.enter
         exit="exit"
-        className={styles.portfolioGrid}
+        className="portfolioGrid"
       >
         {portfolios.map((port, index) => (
           <motion.div

@@ -15,7 +15,6 @@ import { API_URL } from "../../../utils/urls";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import styles from "../../../styles/portfolio.module.css";
 import { Router, useRouter } from "next/router";
 
 export async function getStaticPaths() {
@@ -128,7 +127,7 @@ export default function Category({ categoryData }) {
           initial="hidden" // Set the initial state to variants.hidden
           animate="enter" // Animated state to variants.enter
           exit="exit" // Exit state (used later) to variants.exit// Set the transition to linear
-          className={styles.categoryGrid}
+          className={`category-grid ${isSocial ? "social-media" : ""} `}
         >
           {categoryData.portfolios.data.map((portfolio, index) => (
             <motion.div
@@ -141,6 +140,7 @@ export default function Category({ categoryData }) {
               }
             >
               <PortfolioCard
+                isSocial={isSocial}
                 index={index}
                 key={portfolio.id}
                 portfolio={portfolio}

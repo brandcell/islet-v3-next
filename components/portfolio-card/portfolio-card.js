@@ -41,7 +41,7 @@ const textVariants = {
   },
 };
 
-function PortfolioCard({ portfolio, index }) {
+function PortfolioCard({ portfolio, index, isSocial }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleHoverIn = () => {
