@@ -273,6 +273,10 @@ video {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+
+  @media (max-width: 700px) {
+    padding-top: 100px;
+  }
 }
 
 // for contact us page
@@ -749,7 +753,7 @@ input[type=”date”]
   display: grid;
   overflow: hidden;
   width: 100vw;
-  margin-top: 80px;
+  margin-top: 40px;
   grid-template-areas:
     "Area-1 Area-1 Area-2"
     "Area-1 Area-1 Area-3"
@@ -790,7 +794,7 @@ input[type=”date”]
 .category-grid {
   display: grid;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 40px;
   overflow: hidden;
   grid-template-areas:
     "Area-1 Area-1 Area-2"
@@ -821,7 +825,7 @@ input[type=”date”]
   max-width: 1280px;
   width: 100vw;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 40px;
   overflow: hidden;
   // grid-template-areas:
   //   "Area-1 Area-1 Area-2"

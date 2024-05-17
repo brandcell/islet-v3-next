@@ -9,15 +9,15 @@ import { useCategoryContext } from "../../contexts/category.context";
 const StyledFixedLinkbar = styled.div`
   width: 100vw;
   background-color: black;
-  position: fixed;
   z-index: 50;
   top: 0px;
 `;
 const StyledLinkContainer = styled.div`
-  max-width: 657px;
+  max-width: 800px;
+  padding-left: 30px;
+  padding-right: 30px;
   min-height: 50px;
-  margin: 100px auto auto auto;
-  top: 100px;
+  margin: auto;
   display: flex;
   z-index: 100;
   justify-content: space-evenly;
