@@ -148,6 +148,10 @@ export default function Home({ showcases }) {
       <Head>
         <title>Islet Studio Video Production House</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="Islet Studio, a video production company based in Malaysia. Specialising in commercials, short branded stories, corporate videos and product videos. Islet Studio aims to deliver impeccable storytelling through videos"
+        ></meta>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </Head>
       <AnimatePresence>

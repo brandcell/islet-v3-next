@@ -51,7 +51,7 @@ export default function Portfolio({ portfolios }) {
         <title>Islet Studio - Video Production House - Portfolios </title>
         <meta
           name="description"
-          content="Islet Studio, a video production company based in Penang, Malaysia.  Specialising in commercials, videography, corporate videos, product videos and cinematography, Islet Studio aims to deliver good storytelling through videos "
+          content="Islet Studio, a video production company based in Malaysia. Specialising in commercials, short branded stories, corporate videos and product videos. Islet Studio aims to deliver impeccable storytelling through videos"
         ></meta>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
