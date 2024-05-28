@@ -14,7 +14,7 @@ import { getSingleBlogDataBySlug, getBlogPaths } from "../../utils/blog";
 export async function getStaticPaths() {
   const allCaseStudyData = await getBlogPaths();
 
-  console.log(allCaseStudyData);
+  // console.log(allCaseStudyData);
 
   const paths = allCaseStudyData.map((path) => ({
     params: { slug: path.attributes.slug },
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const blogData = await getSingleBlogDataBySlug(params.slug);
 
-  console.log(blogData);
+  // console.log(blogData);
 
   return {
     props: {
@@ -48,7 +48,11 @@ function Blog({ blogData }) {
           <p>
             {`Written by ${blogData.attributes.author} / `}
 
-            <Date dateString={blogData.attributes.publishedAt} />
+            {blogData.attributes.completeddate ? (
+              blogData.attributes.completeddate
+            ) : (
+              <Date dateString={blogData.attributes.publishedAt} />
+            )}
           </p>
 
           <div
