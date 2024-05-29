@@ -28,14 +28,29 @@ export async function getShowcasePosts() {
   return showcasePosts;
 }
 
+// filters: {
+//   category: {
+//     title: {
+//       ne: "social-media"
+//     }
+//   }
+// }
+
 export async function getallPortfolios() {
   const query = {
     query: `query myQuery {
-      portfolios(sort: "sortOrder:asc") {
+      portfolios(sort: "sortOrder:asc" ) {
         data {
           attributes {
             title
             slug
+            category{
+              data{	
+                attributes{
+                  title
+                }
+              }
+            }
             snippetVideo {
               data {
                 attributes {
@@ -53,8 +68,7 @@ export async function getallPortfolios() {
           }
         }
       }
-    }
-    `,
+    }`,
   };
 
   const res = await graphQlRequest(query);
@@ -62,6 +76,54 @@ export async function getallPortfolios() {
   const allPosts = res.data.portfolios.data;
 
   return allPosts;
+}
+
+export async function getAllSocMedPortfolios() {
+  const query = {
+    query: `query myQuery {
+      portfolios(sort: "sortOrder:asc" filters: {
+      category: {
+        title: {
+          eq: "social-media"
+        }
+      }
+    }) {
+        data {
+          attributes {
+            title
+            slug
+            category{
+              data{	
+                attributes{
+                  title
+                }
+              }
+            }
+            snippetVideo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            featuredImage{
+              data{
+                attributes{
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }`,
+  };
+
+  const res = await graphQlRequest(query);
+
+  const allSocmed = res.data.portfolios.data;
+
+  return allSocmed;
 }
 
 export async function getSinglePortfolio(slug) {

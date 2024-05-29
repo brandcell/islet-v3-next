@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { useCategoryContext } from "../../contexts/category.context";
 
 const StyledFixedLinkbar = styled.div`
-  width: 100vw;
   background-color: black;
   z-index: 50;
   top: 0px;
@@ -45,10 +44,7 @@ function CategoryLayout({ children }) {
   const { routeState, setRouteState } = useCategoryContext();
 
   return (
-    <motion.div
-      style={{ overflowX: "hidden" }}
-      className="portfolio-page-wrapper"
-    >
+    <motion.div className="portfolio-page-wrapper">
       <Navbar color="white" portfolio={true} />
       <StyledFixedLinkbar>
         <StyledLinkContainer>

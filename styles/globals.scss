@@ -265,14 +265,8 @@ video {
 }
 
 .portfolio-page-wrapper {
-  background-color: black;
   padding-top: 150px;
-  min-height: 100vh;
   position: relative;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
 
   @media (max-width: 800px) {
     padding-top: 100px;
@@ -393,7 +387,6 @@ video {
 
 //for portfolio page
 .portfolio-page {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -751,38 +744,79 @@ input[type=”date”]
 
 .portfolioGrid {
   display: grid;
-  overflow: hidden;
-  width: 100vw;
+  padding: 0px 30px;
   margin-top: 40px;
-  grid-template-areas:
-    "Area-1 Area-1 Area-2"
-    "Area-1 Area-1 Area-3"
-    "Area-4 Area-5 Area-5"
-    "Area-6 Area-5 Area-5"
-    "Area-7 Area-8 Area-9"
-    "Area-10 Area-10 Area-10"
-    "Area-10 Area-10 Area-10"
-    "Area-11 Area-11 Area-12"
-    "Area-11 Area-11 Area-13"
-    "Area-14 Area-15 Area-15"
-    "Area-16 Area-15 Area-15"
-    "Area-17 Area-18 Area-19"
-    "Area-20 Area-20 Area-20"
-    "Area-20 Area-20 Area-20"
-    "Area-21 Area-21 Area-22"
-    "Area-21 Area-21 Area-23"
-    "Area-24 Area-25 Area-25"
-    "Area-26 Area-25 Area-25"
-    "Area-27 Area-27 Area-28"
-    "Area-27 Area-27 Area-29"
-    "Area-30 Area-31 Area-31"
-    "Area-32 Area-31 Area-31"
-    "Area-33 Area-34 Area-35" !important;
-  grid-template-columns: auto auto auto !important;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+
+  // grid-template-areas:
+  //   "Area-1 Area-1 Area-2"
+  //   "Area-1 Area-1 Area-3"
+  //   "Area-4 Area-5 Area-5"
+  //   "Area-6 Area-5 Area-5"
+  //   "Area-7 Area-8 Area-9"
+  //   "Area-10 Area-10 Area-10"
+  //   "Area-10 Area-10 Area-10"
+  //   "Area-11 Area-11 Area-12"
+  //   "Area-11 Area-11 Area-13"
+  //   "Area-14 Area-15 Area-15"
+  //   "Area-16 Area-15 Area-15"
+  //   "Area-17 Area-18 Area-19"
+  //   "Area-20 Area-20 Area-20"
+  //   "Area-20 Area-20 Area-20"
+  //   "Area-21 Area-21 Area-22"
+  //   "Area-21 Area-21 Area-23"
+  //   "Area-24 Area-25 Area-25"
+  //   "Area-26 Area-25 Area-25"
+  //   "Area-27 Area-27 Area-28"
+  //   "Area-27 Area-27 Area-29"
+  //   "Area-30 Area-31 Area-31"
+  //   "Area-32 Area-31 Area-31"
+  //   "Area-33 Area-34 Area-35" !important;
+  // grid-template-rows: auto auto;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
+
+.grid-tile {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.portfolioGrid div:nth-child(1) {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.portfolioGrid div:nth-child(4) {
+  aspect-ratio: 9/16;
+}
+
+.portfolioGrid div:nth-child(5) {
+  aspect-ratio: 9/16;
+}
+
+.portfolioGrid div:nth-child(6) {
+  aspect-ratio: 9/16;
+}
+
+.portfolioGrid div:nth-child(7n) {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.portfolioGrid div:nth-child(10n) {
+  grid-column: span 3;
+}
+
+// .grid-span-2 {
+//   grid-row: span 2;
+//   grid-column: span 2;
+// }
+
+// .grid-span-3 {
+//   grid-column: span 3;
+// }
 
 @media (max-width: 470px) {
   .portfolioGrid {
@@ -864,5 +898,23 @@ input[type=”date”]
     //   // width: 100vw;
     //   // grid-template-columns: 1fr 1fr !important;
     //   // grid-template-rows: 1fr 1fr;
+  }
+}
+
+.social-media-grid {
+  display: none;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(444px, 1fr));
+
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    div {
+      width: 47vw !important;
+    }
   }
 }

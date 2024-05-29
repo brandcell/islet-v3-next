@@ -60,8 +60,7 @@ function PortfolioCard({ portfolio, index, isSocial }) {
       initial="rest"
       whileHover="hover"
       animate="animate"
-      style={{ width: "100%", height: " 100%" }}
-      // style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
+      style={{ width: "100%", height: "100%" }}
     >
       <motion.h1
         variants={textVariants}

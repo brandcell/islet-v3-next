@@ -2,7 +2,10 @@ import axios from "axios";
 
 import { API_URL } from "../../utils/urls";
 
-import { getallPortfolios } from "../../utils/portfolio";
+import {
+  getAllSocMedPortfolios,
+  getallPortfolios,
+} from "../../utils/portfolio";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -37,14 +40,19 @@ import CategoryLayout from "../../components/layouts/category-layout.component";
 export async function getStaticProps() {
   const portfolios = await getallPortfolios();
 
+  const socmedportfolios = await getAllSocMedPortfolios();
+
+  console.log(portfolios, socmedportfolios);
+
   return {
     props: {
       portfolios,
+      socmedportfolios,
     },
   };
 }
 
-export default function Portfolio({ portfolios }) {
+export default function Portfolio({ portfolios, socmedportfolios }) {
   return (
     <AnimatePresence>
       <Head>
@@ -66,7 +74,10 @@ export default function Portfolio({ portfolios }) {
       >
         {portfolios.map((port, index) => (
           <motion.div
-            style={{ gridArea: `Area-${index + 1}`, aspectRatio: "16 / 9" }}
+            className={`grid-tile ${!index % 10 ? "grid-span-3" : ""} ${
+              index % 6 ? "" : "grid-span-2"
+            } 
+            }`}
             key={index}
             variants={PortCardVariants}
           >
@@ -74,6 +85,14 @@ export default function Portfolio({ portfolios }) {
           </motion.div>
         ))}
       </motion.div>
+
+      {/* <div className="social-media-grid">
+        {socmedportfolios.map((port, index) => (
+          <motion.div key={index} variants={PortCardVariants}>
+            <PortfolioCard key={port.id} index={index} portfolio={port} />
+          </motion.div>
+        ))}
+      </div> */}
     </AnimatePresence>
   );
 }
