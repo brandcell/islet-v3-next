@@ -74,10 +74,7 @@ export default function Portfolio({ portfolios, socmedportfolios }) {
       >
         {portfolios.map((port, index) => (
           <motion.div
-            className={`grid-tile ${!index % 10 ? "grid-span-3" : ""} ${
-              index % 6 ? "" : "grid-span-2"
-            } 
-            }`}
+            className={`grid-tile`}
             key={index}
             variants={PortCardVariants}
           >

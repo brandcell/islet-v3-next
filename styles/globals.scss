@@ -760,8 +760,7 @@ input[type=”date”]
 @media (max-width: 470px) {
   .portfolioGrid div:not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(6)) {
     /* Styles for all items except 4th, 5th, and 6th */
-    grid-column: span 2;
-    aspect-ratio: 16/9; /* Example style */
+    grid-column: 1/3;
   }
 }
 
