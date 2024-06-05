@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@lottiefiles/lottie-player": "^1.6.1",
     "@svgr/webpack": "^6.5.1",
     "@vercel/analytics": "^0.1.6",
@@ -24,7 +25,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-gtm-module": "^2.0.11",
-    "react-lottie-segments": "^1.4.9",
     "react-markdown": "^8.0.3",
     "sass": "^1.56.1",
     "styled-components": "^5.3.6",

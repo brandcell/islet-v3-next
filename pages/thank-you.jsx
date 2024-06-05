@@ -6,23 +6,23 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const FormField = styled.div`
-display: flex;
-flex-direction: column;
-`
+  display: flex;
+  flex-direction: column;
+`;
 
 const LeftSection = styled.div`
-display:flex;
-flex-direction:column;`
+  display: flex;
+  flex-direction: column;
+`;
 
 const RightSection = styled.div`
-display: flex;
-flex-direction: column;
-`
+  display: flex;
+  flex-direction: column;
+`;
 
 function ContactUs() {
   return (
-    <div
-    >
+    <div>
       <Script src="https://apps.elfsight.com/p/platform.js" />
 
       <div
@@ -36,25 +36,18 @@ function ContactUs() {
         }}
       ></div>
       <Navbar color="black" />
-      <div className="contact-us-page-wrapper">
-        <ContactUsFooter />
-      </div>
+      <div className="contact-us-page-wrapper"></div>
 
       {/* contact form section */}
-      
-<hr></hr>
-
-
 
       <div className="form-section">
-     
-       <h1 style={{margin:"60px 0px",fontWeight:'100'}}>Thank you for your submission, we will reach out to you via email in a bit!</h1> 
-       
-        <div 
-      class="elfsight-app-c28983a3-c4dd-4178-905a-d31fc2bd754c"></div>
-     
+        <h1 style={{ margin: "60px 0px", fontWeight: "100" }}>
+          Thank you for your submission, we will reach out to you via email in a
+          bit!
+        </h1>
+
+        <div class="elfsight-app-c28983a3-c4dd-4178-905a-d31fc2bd754c"></div>
       </div>
-    
     </div>
   );
 }
